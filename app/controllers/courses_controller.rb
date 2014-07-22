@@ -10,6 +10,7 @@ class CoursesController < ApplicationController
       redirect_to @course, notice: "#{@course.name} was created!"
     else
       flash.now[:alert] = "Your course was not saved..."
+      render :new
     end
   end
   def show
@@ -21,14 +22,22 @@ class CoursesController < ApplicationController
   end
 
   def update
+    @course.update(course_params)
+
+    if @course.save
+      redirect_to @course, notice: "Change to #{@course.name} were successfully saved!"
+    else
+      flash.now[:alert] = "Changes to #{@course.name} were not saved..."
+      render :edit
   end
 
   def destroy
+    @course = Course.find(params[:id])
   end
 
-  private
+    private
+
   def course_params
     params.require(:course).permit(:name, :description)
   end
-
 end
