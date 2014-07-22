@@ -3,7 +3,7 @@ class CreateCategories < ActiveRecord::Migration
     create_table :categories do |t|
       t.string :title
       t.decimal :score
-
+      t.integer :eval_id
       t.timestamps
     end
   end
