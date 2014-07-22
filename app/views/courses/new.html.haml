@@ -1,12 +1,4 @@
 %h1 Create A Course!
-=form_for @course do |f|
-  .user-input
-    = f.label :name, "Course Name:"
-    = f.text_field :name
-  .user-input
-    =f.label :description, "Course Description:"
-    =f.text_area :description
-  .submit-btn
-    =f.button "Create Course"
+= render 'course_form'
 
 
