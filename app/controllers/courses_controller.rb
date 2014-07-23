@@ -29,6 +29,7 @@ class CoursesController < ApplicationController
     else
       flash.now[:alert] = "Changes to #{@course.name} were not saved..."
       render :edit
+    end
   end
 
   def destroy

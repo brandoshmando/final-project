@@ -1,9 +1,0 @@
-.error-messages
-  %h4
-    =pluralize(@course.errors.count, "error")
-    prohibited this course from saving:
-
-  %ul
-    -errors.full_messages.each do |msg|
-    %li= msg
-
