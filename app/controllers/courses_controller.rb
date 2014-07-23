@@ -22,9 +22,9 @@ class CoursesController < ApplicationController
   end
 
   def update
-    @course.update(course_params)
+    @course = Course.find(params[:id])
 
-    if @course.save
+    if @course.update(course_params)
       redirect_to @course, notice: "Change to #{@course.name} were successfully saved!"
     else
       flash.now[:alert] = "Changes to #{@course.name} were not saved..."
