@@ -35,6 +35,7 @@ class CoursesController < ApplicationController
 
   def destroy
     @course = Course.find(params[:id])
+    @course.destroy
   end
 
     private
