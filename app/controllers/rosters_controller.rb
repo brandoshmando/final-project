@@ -27,7 +27,7 @@ class RostersController < ApplicationController
     @roster = Roster.find(params[:id])
 
     if @roster.update(roster_params)
-      rediriect_to @roster, notice: "Changes to #{@roster.name} were saved!"
+      redirect_to @roster, notice: "Changes to #{@roster.section_name} were saved!"
     else
       flash.now[:alert] = "Your changes were not saved..."
       render :edit
