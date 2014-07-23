@@ -13,6 +13,7 @@ class CoursesController < ApplicationController
       render :new
     end
   end
+
   def show
     @course = Course.find(params[:id])
   end
