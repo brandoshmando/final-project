@@ -1,0 +1,11 @@
+-if @course.errors.any?
+  = render 'course_errors'
+=form_for @course do |f|
+  .user-input
+    = f.label :name, "Course Name:"
+    = f.text_field :name
+  .user-input
+    =f.label :description, "Course Description:"
+    =f.text_area :description
+  .submit-btn
+    =f.button
