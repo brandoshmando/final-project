@@ -1,5 +1,5 @@
 class RostersController < ApplicationController
-  before_action :load_course
+  before_action :load_course, only: [:new, :create]
   def new
     @roster = @course.rosters.build
   end
@@ -42,7 +42,7 @@ class RostersController < ApplicationController
 
       private
   def roster_params
-    params.require(:roster).permit(:section_name, :time, :location, :course_id)
+    params.require(:roster).permit(:section_name, :meet_time, :location, :meet_day, :course_id)
   end
 
   def load_course

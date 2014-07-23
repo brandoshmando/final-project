@@ -5,10 +5,9 @@
   .user-input
     = f.label :section_name, "Section Name:"
     = f.text_field :section_name
-  / .user-input
-  /   =f.label :meet_time, "Course Description:"
-  /   =f.select :meet_time
-  /   =options_for_select days_of_week
+  .user-input
+    =f.label :meet_day, "Course Description:"
+    =f.select :meet_day, days_of_week
   .submit-btn
     =f.button
 
