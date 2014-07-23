@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'categories/index'
+  get 'comments/create'
 
-  get 'categories/show'
+  get 'comments/update'
 
-  get 'categories/new'
-
-  get 'categories/edit'
+  get 'comments/destroy'
 
   resources :courses, only: [:new, :create, :show, :edit, :update, :destroy]
   resources :users, only: [:show, :edit, :update, :destroy]
