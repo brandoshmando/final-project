@@ -1,0 +1,14 @@
+-if @roster.errors.any?
+  = render 'roster_errors'
+=form_for [@course, @roster] do |f|
+  .user-input
+    = f.label :section_name, "Section Name:"
+    = f.text_field :section_name
+  .user-input
+    =f.label :meet_day, "Day:"
+    =f.select :meet_day, days_of_week
+  .user-input
+    =f.label :meet_time, "Time:"
+    =f.select :meet_time, time_slots
+  .submit-btn
+    =f.button

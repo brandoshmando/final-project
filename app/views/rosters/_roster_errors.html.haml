@@ -1,0 +1,8 @@
+.error-messages
+  %h4
+    =pluralize(@roster.errors.count, "error")
+    prohibited this roster from saving:
+
+  %ul
+    -errors.full_messages.each do |msg|
+    %li= msg
