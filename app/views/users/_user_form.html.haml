@@ -1,0 +1,12 @@
+=form_for @user do |f|
+  .user-input
+    = f.label :first_name, "First Name:"
+    = f.text_field :first_name
+  .user-input
+    = f.label :last_name, "Last Name:"
+    = f.text_field :last_name
+  .user-input
+    = f.label :email, "Email Address"
+    = f.text_field :first_name
+  .submit-button
+    = f.button
