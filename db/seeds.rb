@@ -81,10 +81,12 @@ puts
 puts "----- 100 Courses created -----"
 puts
 puts "Creating Rosters..."
+@days = %w[Mon Tues Wed Thurs Fri]
 100.times do |i|
   ros = Roster.create
   ros.section_name = "First Section"
-  ros.meet_time = (Time.now + rand(72)).strftime("%a, %l%P")
+  ros.meet_time = rand(24)
+  ros.meet_day = @days[rand(4)]
   ros.location = ["PLD 124", "OSH 206", "BUT 405", "HPER 125"][rand(3)]
   ros.course_id = i
   ros.save
