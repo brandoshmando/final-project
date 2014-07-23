@@ -6,7 +6,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email
       t.integer :password_digest
       t.string :type
-      t.integer :course_id
       t.timestamps
     end
   end
