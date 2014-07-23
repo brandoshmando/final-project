@@ -1,17 +1,5 @@
 @time = Time.now
 puts "Database Creation Initialized"
-puts "Destroying all former records..."
-Professor.destroy_all
-Assistant.destroy_all
-Eval.destroy_all
-Category.destroy_all
-Comment.destroy_all
-Course.destroy_all
-Roster.destroy_all
-Student.destroy_all
-Grade.destroy_all
-puts
-puts
 puts "Creating Professors..."
 100.times do |i|
   prof = Professor.create
@@ -97,7 +85,7 @@ puts "Creating Rosters..."
   ros = Roster.create
   ros.section_name = "First Section"
   ros.meet_time = (Time.now + rand(72)).strftime("%a, %l%P")
-  ros.location = ["PLD 124" "OSH 206", "BUT 405", "HPER 125"][rand(2)]
+  ros.location = ["PLD 124", "OSH 206", "BUT 405", "HPER 125"][rand(3)]
   ros.course_id = i
   ros.save
 end

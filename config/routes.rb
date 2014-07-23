@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :courses, only: [:new, :create, :show, :edit, :update, :destroy]
+
+
+  resources :courses, only: [:new, :create, :show, :edit, :update, :destroy], shallow: true do
+    resources :rosters, only:[:new, :create, :show, :edit, :update, :destroy], shallow: true do
+    end
+  end
   resources :users, only: [:show, :edit, :update, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
