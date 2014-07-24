@@ -12,7 +12,7 @@
     = cf.number_field :max_score
     %br
     %br
-    = f.fields_for :comments do |kf|
+    = cf.fields_for :comments do |kf|
       = kf.label :comment
       = kf.text_field :description
   = f.submit "Save"

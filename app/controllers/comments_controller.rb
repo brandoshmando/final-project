@@ -1,9 +1,10 @@
 class CommentsController < ApplicationController
   def create
-    @comment = @category.build(comment_params)
+    @comment = Comment.new(comment_params)
   end
 
   def update
+    @category = Category.find(params[:id])
   end
 
   def destroy
