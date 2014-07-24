@@ -17,8 +17,6 @@ class EvalsController < ApplicationController
   end
 
   def create
-    ap eval_params
-
     @eval = Eval.new(eval_params)
 
     if @eval.save
