@@ -31,5 +31,7 @@
     = f.fields_for :categories do |category|
       = render 'category_fields', :f => category
     .links
-      = link_to_add_association 'add task', f, :categories
+      = link_to_add_association 'add category', f, :categories
+      %br
+      %br
   = f.submit
