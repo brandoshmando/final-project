@@ -2,13 +2,14 @@ class RostersController < ApplicationController
   before_action :load_course, only: [:new, :create]
   def new
     @roster = @course.rosters.build
+    student = @roster.students.build
   end
 
   def create
-    @roster = @course.rosters.build(roster_params)
+    @roster = @course.rosters.build(roster_params[:roster])
 
     if @roster.save
-      redirect_to @roster, notice: "Roster added!"
+      Student.import(roster_params[:students_attributes]["0"], @roster)
     else
       flash.now[:alert] = "Your roster was not saved..."
       render :new
