@@ -4,7 +4,6 @@ class Student < ActiveRecord::Base
   belongs_to :roster
 
   def self.import(file, roster)
-    pry
     CSV.foreach(file.path, headers: true) do |row|
       student_hash = row.to_hash
       student = Student.where(uid: product_hash["uid"])
