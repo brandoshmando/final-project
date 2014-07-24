@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
 
   resources :courses, only: [:new, :create, :show, :edit, :update, :destroy], shallow: true do
-    resources :rosters, only:[:new, :create, :show, :edit, :update, :destroy], shallow: true do
-      resources :students, only: [:destroy, :import]
-    end
+    resources :rosters, only:[:new, :create, :show, :edit, :update, :destroy], shallow: true
   end
 
   resources :users, only: [:show, :edit, :update, :destroy]

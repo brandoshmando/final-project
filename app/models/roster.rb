@@ -1,6 +1,6 @@
 class Roster < ActiveRecord::Base
   belongs_to :course
-  has_many :students
+  has_many :students, dependent: :destroy
   accepts_nested_attributes_for :students
 
   def as_csv
