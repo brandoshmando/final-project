@@ -1,2 +1,15 @@
-%h1 Evals#show
-%p Find me in app/views/evals/show.html.haml
+%h1 Evals
+= link_to "Edit this Eval", edit_eval_path(@eval)
+= link_to "Destroy", @eval, :confirm => 'Are you sure?', :method => :delete
+
+%p
+  Eval Title: #{@eval[:title]}
+%p
+  Template: #{@eval[:template]}
+// below don't display anything
+%p
+  Category: #{@category}
+%p
+  Score: #{@eval[:max_score]}
+%p
+  Comment: #{@eval[:description]}

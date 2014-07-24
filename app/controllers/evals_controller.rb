@@ -42,8 +42,14 @@ class EvalsController < ApplicationController
     end
   end
 
+  def destroy
+    @eval = Eval.find(params[:id])
+    @eval.destroy
+    redirect_to evals_url
+  end
+
 private
   def eval_params
-    params.require(:eval).permit(:title, :template, :id, categories_attributes: [:title, :max_score, :id, comments_attributes: [:description, :id]])
+    params.require(:eval).permit(:title, :template, categories_attributes: [:title, :max_score, :id, comments_attributes: [:description, :id]])
   end
 end
