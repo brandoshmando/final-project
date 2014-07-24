@@ -13,7 +13,10 @@ class Student < ActiveRecord::Base
       if student.count == 1
         student.first.update_attributes(student_hash)
       else
-        Student.create!(student_hash)
+        new_student = Student.new(student_hash)
+        new_student.roster_id = roster.id
+        new_student.save
+        # Student.create!(student_hash)
       end
     end
   end
