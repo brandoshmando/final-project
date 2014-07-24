@@ -14,8 +14,6 @@ class RostersController < ApplicationController
       flash.now[:alert] = "Your roster was not saved..."
       render :new
     end
-
-    Student.import(params[:student], @roster)
   end
 
   def show
