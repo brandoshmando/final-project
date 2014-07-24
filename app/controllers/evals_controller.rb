@@ -20,38 +20,30 @@ class EvalsController < ApplicationController
     ap eval_params
 
     @eval = Eval.new(eval_params)
+
     if @eval.save
-      render action: :edit
+      redirect_to evals_url
     else
-      render action: :new
+      render :new
     end
   end
 
   def edit
-    ap eval_params
-
     @eval = Eval.find(params[:id])
-    if @eval.save
-      render action: :edit
-    else
-      render action: :new
-    end
   end
 
   def update
-    ap eval_params
-
     @eval = Eval.find(params[:id])
-    @eval.update(eval_params)
-    if @eval.save
-      render action: :edit
+
+    if @eval.update_attributes(eval_params)
+      redirect_to eval_path(@eval)
     else
-      render action: :new
+      render :edit
     end
   end
 
 private
   def eval_params
-    params.require(:eval).permit(:title, :template, categories_attributes: [:title, :max_score, :id, comments_attributes: [:description, :id]])
+    params.require(:eval).permit(:title, :template, :id, categories_attributes: [:title, :max_score, :id, comments_attributes: [:description, :id]])
   end
 end
