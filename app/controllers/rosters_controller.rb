@@ -6,7 +6,7 @@ class RostersController < ApplicationController
   end
 
   def create
-    @roster = @course.rosters.build(roster_params[:roster])
+    @roster = @course.rosters.build(roster_params.except(:students_attributes))
 
     if @roster.save
       Student.import(roster_params[:students_attributes]["0"], @roster)
