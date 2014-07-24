@@ -1,8 +1,8 @@
 class StudentsController < ApplicationController
   before_action :load_parent_roster
-  def import
-    Student.import(params[:file])
-    # redirect_to @roster, notice:"Your roster was imported!"
+
+  def export(roster)
+    @students = Student.where("roster_id = ?", roster.id)
   end
 
   def destroy
