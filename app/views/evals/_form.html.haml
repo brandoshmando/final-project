@@ -1,18 +1,35 @@
-= form_for @eval, :html => {:multipart => true} do |f|
-  = f.label :title
-  = f.text_field :title
-  = f.label :template
-  = f.select :template, [['Rubric', 'rubric'], ['Scheme', 'scheme']]
-  %br
-  %br
-  = f.fields_for :categories do |cf|
-    = cf.label :category
-    = cf.text_field :title
-    = cf.label :score
-    = cf.number_field :max_score
+/ = form_for @eval, :html => {:multipart => true} do |f|
+/   = f.label :title
+/   = f.text_field :title
+/   = f.label :template
+/   = f.select :template, [['Rubric', 'rubric'], ['Scheme', 'scheme']]
+/   %br
+/   %br
+/   = f.fields_for :categories do |cf|
+/     = cf.label :category
+/     = cf.text_field :title
+/     = cf.label :score
+/     = cf.number_field :max_score
+/     %br
+/     %br
+/     = cf.fields_for :comments do |kf|
+/       = kf.label :comment
+/       = kf.text_field :description
+/   = f.submit "Save"
+
+= form_for @eval do |f|
+  .field
+    = f.label :title
     %br
+    = f.text_field :title
+  .field
+    = f.label :template
     %br
-    = cf.fields_for :comments do |kf|
-      = kf.label :comment
-      = kf.text_field :description
-  = f.submit "Save"
+    = f.select :template, [['Rubric', 'rubric'], ['Scheme', 'scheme']]
+  %h3 Categories
+  #tasks
+    = f.fields_for :categories do |category|
+      = render 'category_fields', :f => category
+    .links
+      = link_to_add_association 'add task', f, :categories
+  = f.submit
