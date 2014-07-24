@@ -2,12 +2,16 @@ Rails.application.routes.draw do
 
   resources :courses, only: [:new, :create, :show, :edit, :update, :destroy], shallow: true do
     resources :rosters, only:[:new, :create, :show, :edit, :update, :destroy], shallow: true do
-      resources :students, only: [:destroy, :import] do
-        member { get :export}
-      end
+      resources :students, only: [:destroy, :import]
     end
   end
+
   resources :users, only: [:show, :edit, :update, :destroy]
+
+  resources :rosters do
+    member { get :export}
+  end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

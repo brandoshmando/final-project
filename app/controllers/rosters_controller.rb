@@ -42,6 +42,10 @@ class RostersController < ApplicationController
     # rediriect_to root_path
   end
 
+  def export
+    @students = Student.where("roster_id = ?", params[:id])
+  end
+
       private
   def roster_params
     params.require(:roster).permit(:section_name, :meet_time, :location, :meet_day, :course_id, students_attributes: [:file])
