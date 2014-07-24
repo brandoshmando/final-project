@@ -44,11 +44,7 @@ class RostersController < ApplicationController
 
   def export
     @roster = Roster.find(params[:id])
-    send_data csv: @roster.as_csv
-    # respond_to do |format|
-    #   format.csv { send_data @students.as_csv }
-    # end
-    # redirect_to roster_path(params[:id])
+    send_data @roster.as_csv, type: "text/csv", filename: "#{@roster.section_name}.csv"
   end
 
       private
