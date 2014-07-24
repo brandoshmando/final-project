@@ -12,11 +12,13 @@ class EvalsController < ApplicationController
 
   def new
     @eval = Eval.new
-    # category = @eval.build_category
-    # comment = category.build_comment
+    @category = @eval.categories.build
+    @comment = @category.comments.build
   end
 
   def create
+    ap eval_params
+
     @eval = Eval.new(eval_params)
     if @eval.save
       render action: :edit
@@ -27,6 +29,11 @@ class EvalsController < ApplicationController
 
   def edit
     @eval = Eval.find(params[:id])
+    if @eval.save
+      render action: :edit
+    else
+      render action: :new
+    end
   end
 
   def update
@@ -37,6 +44,6 @@ class EvalsController < ApplicationController
 
 private
   def eval_params
-    params.require(:eval).permit(:title, :template, categories_attributes: [:title, :max_score], comments_attributes: [:description])
+    params.require(:eval).permit(:title, :template, categories_attributes: [:title, :max_score, :id], comments_attributes: [:description, :id])
   end
 end
