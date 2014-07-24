@@ -2,7 +2,7 @@ class StudentsController < ApplicationController
   before_action :load_parent_roster
   def import
     Student.import(params[:file])
-    redirect_to @roster
+    # redirect_to @roster, notice:"Your roster was imported!"
   end
 
   def destroy
@@ -13,7 +13,7 @@ class StudentsController < ApplicationController
     params.require(:student).permit(:file, :roster_id)
   end
 
-  def load_parent_roster
-    @roster = Roster.find(params[:roster_id])
-  end
+  # def load_parent_roster
+  #   @roster = Roster.find(params[:roster_id])
+  # end
 end

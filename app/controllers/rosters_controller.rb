@@ -13,6 +13,8 @@ class RostersController < ApplicationController
       flash.now[:alert] = "Your roster was not saved..."
       render :new
     end
+
+    Student.import(params[:student], @roster)
   end
 
   def show
@@ -42,7 +44,7 @@ class RostersController < ApplicationController
 
       private
   def roster_params
-    params.require(:roster).permit(:section_name, :meet_time, :location, :meet_day, :course_id)
+    params.require(:roster).permit(:section_name, :meet_time, :location, :meet_day, :course_id, :student)
   end
 
   def load_course

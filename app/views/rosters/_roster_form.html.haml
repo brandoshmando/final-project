@@ -10,5 +10,13 @@
   .user-input
     =f.label :meet_time, "Time:"
     =f.select :meet_time, time_slots
+  .user-input
+    =f.label :location, "Location:"
+    =f.text_field :location
+
+    =f.fields_for :student do |ff|
+      .upload-btn
+        =ff.label :file, "Import a CSV:"
+        =ff.file_field :file
   .submit-btn
     =f.button
