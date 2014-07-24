@@ -10,6 +10,7 @@ class RostersController < ApplicationController
 
     if @roster.save
       Student.import(roster_params[:students_attributes]["0"], @roster)
+      redirect_to @roster
     else
       flash.now[:alert] = "Your roster was not saved..."
       render :new
