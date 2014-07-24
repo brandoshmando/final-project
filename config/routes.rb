@@ -10,6 +10,11 @@ Rails.application.routes.draw do
     member { get :export}
   end
 
+  resources :evals, shallow: true do
+    resources :categories, only: [:new, :create, :edit, :update, :destroy], shallow: true do
+      resources :comments, only: [:new, :create, :edit, :update, :destroy]
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

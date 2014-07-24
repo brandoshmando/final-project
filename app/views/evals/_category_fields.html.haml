@@ -1,0 +1,8 @@
+.fields
+  = cf.fields_for :categories do |cf|
+    = cf.label :category
+    = cf.text_field :title
+    = cf.label :score
+    = cf.number_field :max_score
+    = cf.hidden_field :_destroy
+    = link_to_function "remove", "remove_fields(this)"
