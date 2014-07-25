@@ -1,6 +1,6 @@
 // Typography
-$sans-serif: $helvetica;
-$serif: $georgia;
+$sans-serif: "ratio";
+$serif: "adelle";
 $base-font-family: $sans-serif;
 $header-font-family: $base-font-family;
 
@@ -12,7 +12,7 @@ $header-line-height: $base-font-size * 1.25;
 $base-border-radius: em(3);
 
 // Colors
-$blue: #477DCA;
+$blue: #415B7E;
 $dark-gray: #333;
 $medium-gray: #999;
 $light-gray: #DDD;

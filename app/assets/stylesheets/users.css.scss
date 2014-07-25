@@ -10,7 +10,7 @@
 #sidenav {
     width: 55px;
     height: 100%;
-    background-color: #222;
+    background-color: #28384B;
     z-index: 10;
     position: fixed;
     left: 0;
@@ -32,8 +32,6 @@
     -o-transition-timing-function: ease-in-out;
     transition-timing-function: ease-in-out;
 }
-
-//////////
 
 @media only screen and (max-width: 767px) {
   #sidenav {
@@ -100,8 +98,8 @@
   font-size: 28px;
 }
 #sidenav:hover {
-  width: 180px;
-  border-right: 1px solid #181919;
+  width: 200px;
+  border-right: 1px solid #17202D;
 }
 #sidenav:hover span {
   display: inline;
