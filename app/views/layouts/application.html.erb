@@ -2,16 +2,54 @@
 <html>
 <head>
   <title>FinalProject</title>
-  <script type="text/javascript" src="//use.typekit.net/kyn5cgt.js"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript" src="//use.typekit.net/kyn5cgt.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <body>
 <% if flash[:alert] %>
   <p id="alert"><%= flash[:alert] %></p>
 <% end %>
+<nav id="sidenav">
+  <ul class="top">
+    <li class="nav-home">
+      <a href="http://aless.co">
+        <div class="logo-item-glyph-spin">
+          <div class="spin">
+            <b></b>
+          </div>
+        </div>
+        <span class="mts">Home</span>
+      </a>
+    </li>
+    <li class="nav-catalog">
+      <a class="is active" href="http://google.ca">
+        <i class="icon-moon-catalog ">
+          c
+        </i>
+        <span>Courses</span>
+      </a>
+    </li>
+    <li class="nav-forum">
+      <a href="http://yahoo.ca">
+        <i class="icon-moon-forum ">
+        r
+        </i>
+        <span>Rosters</span>
+      </a>
+    </li>
+    <li class="nav-docs">
+      <a href="http://facebook.com">
+        <i class="icon-moon-document ">
+        e
+        </i>
+        <span>Evaluations</span>
+      </a>
+    </li>
+  </ul>
+</nav>
 <%= yield %>
 <%= debug(params) if Rails.env.development? %>
 </body>
