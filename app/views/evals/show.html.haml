@@ -6,10 +6,19 @@
   Eval Title: #{@eval[:title]}
 %p
   Template: #{@eval[:template]}
-// below doesn't display anything
+%br
+%p Categories:
+- @eval.categories.each do |category|
+  = category.title
+%br
+%br
 %p
-  Category: #{@category}
+  Score:
+- @eval.categories.each do |category|
+  = category.max_score
+%br
+%br
 %p
-  Score: #{@eval[:max_score]}
-%p
-  Comment: #{@eval[:description]}
+  Comment:
+- @eval.comments.each do |comment|
+  = comment.description
