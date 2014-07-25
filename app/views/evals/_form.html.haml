@@ -1,22 +1,4 @@
-/ = form_for @eval, :html => {:multipart => true} do |f|
-/   = f.label :title
-/   = f.text_field :title
-/   = f.label :template
-/   = f.select :template, [['Rubric', 'rubric'], ['Scheme', 'scheme']]
-/   %br
-/   %br
-/   = f.fields_for :categories do |cf|
-/     = cf.label :category
-/     = cf.text_field :title
-/     = cf.label :score
-/     = cf.number_field :max_score
-/     %br
-/     %br
-/     = cf.fields_for :comments do |kf|
-/       = kf.label :comment
-/       = kf.text_field :description
-/   = f.submit "Save"
-
+.fields
 = form_for @eval do |f|
   .field
     = f.label :title

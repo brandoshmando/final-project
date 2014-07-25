@@ -5,7 +5,7 @@
 @import 'variables';
 
 // Neat Settings -- uncomment if using Neat -- must be imported before Neat
-// @import 'grid-settings';
+@import 'grid-settings';
 
 // Mixins
 @import 'mixins/flash';
@@ -22,3 +22,9 @@
 @import 'lists';
 @import 'flashes';
 @import 'buttons';
+
+section {
+  @include outer-container;
+  text-align: center;
+  margin-bottom: 3em;
+}

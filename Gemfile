@@ -36,7 +36,6 @@ group :development do
   gem 'binding_of_caller'
   gem 'faker'
   gem 'awesome_print'
-  gem 'quiet_assets'
 end
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
