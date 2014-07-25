@@ -24,7 +24,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 #Project specific gems
 gem 'haml-rails'
-
+gem 'bcrypt', '~> 3.1.7'
+gem 'cocoon'
+gem 'sorcery'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 group :development do
   gem 'pry'
@@ -37,9 +39,6 @@ group :development do
   gem 'quiet_assets'
 end
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
-
-gem 'cocoon'
 
 # Use unicorn as the app server
 # gem 'unicorn'
