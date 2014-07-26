@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
-  has_secure_password
+  # has_secure_password
 
   validates :password, :presence => true, :confirmation => true, :on => :update
   validates :first_name, :presence => true, :on => :update

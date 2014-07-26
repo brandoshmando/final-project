@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-  skip_before_filter :require_login, only: [:create, :activate]
+  skip_before_filter :require_login, only: [:create, :activate, :confirm]
 
   def activate
-    if (@user = User.load_from_activation_token(params[:id])
+    if (@user = User.load_from_activation_token(params[:id]))
       @token = params[:id]
     else
       not_authenticated
