@@ -4,7 +4,12 @@ Rails.application.routes.draw do
     resources :rosters, only:[:new, :create, :show, :edit, :update, :destroy], shallow: true
   end
 
-  resources :users, only: [:show, :edit, :update, :destroy]
+  resources :users, only: [:show, :edit, :update, :destroy] do
+    member do
+      get :activate
+      put :confirm
+    end
+  end
 
   resources :rosters do
     member { get :export}
@@ -16,7 +21,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :user_sessions, only: [:create]
+
+  get 'login' => 'user_sessions#new', :as => :login
+  post 'logout' => 'user_sessions#destroy', :as => :logout
+
+  resources :password_resets, only: [:new, :create, :edit, :update]
 
 
 
