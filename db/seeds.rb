@@ -1,32 +1,33 @@
 @time = Time.now
 puts "Database Creation Initialized"
 puts "Creating Professors..."
-100.times do |i|
+10.times do |i|
   name = Faker::Name.name.split(' ')
   prof = Professor.create(email: Faker::Internet.safe_email(name[0]), crypted_password:Faker::Internet.password(8))
   prof.first_name = name[0]
   prof.last_name = name[1]
-
+  prof.save
 end
 puts
 puts
-puts "----- 100 profs created -----"
+puts "----- 10 profs created -----"
 puts
 puts "Creating Assistants..."
 
-100.times do |i|
+10.times do |i|
   name = Faker::Name.name.split(' ')
   asst = Assistant.create(email: Faker::Internet.safe_email(name[0]), crypted_password: Faker::Internet.password(8))
   asst.first_name = name[0]
   asst.last_name = name[1]
+  asst.save
 end
 puts
 puts
-puts "----- 100 assistants created -----"
+puts "----- 10 assistants created -----"
 puts
 puts "Creating Evals..."
 
-100.times do |i|
+10.times do |i|
   Eval.create(title: Faker::Commerce.product_name, professor_id: rand(100))
 end
 puts
@@ -35,7 +36,7 @@ puts "----- 100 evals created -----"
 puts
 puts "Creating Categories..."
 @counter = 1
-300.times do |i|
+30.times do |i|
   if i % 3 == 0
     @counter += 1
   end
@@ -47,11 +48,11 @@ puts "Creating Categories..."
 end
 puts
 puts
-puts "----- 100 categries created -----"
+puts "----- 30 categries created -----"
 puts
 puts "Creating Comments..."
 @counter = 1
-600.times do |i|
+60.times do |i|
   if i % 2 == 0
     @counter += 1
   end
@@ -63,19 +64,19 @@ puts "Creating Comments..."
 end
 puts
 puts
-puts "----- 100 comments created -----"
+puts "----- 60 comments created -----"
 puts
 puts "Creating Courses..."
-100.times do |i|
+10.times do |i|
   Course.create(name: Faker::Company.bs, description:Faker::Lorem.paragraph(1), professor_id: i)
 end
 puts
 puts
-puts "----- 100 Courses created -----"
+puts "----- 10 Courses created -----"
 puts
 puts "Creating Rosters..."
 @days = %w[Mon Tues Wed Thurs Fri]
-100.times do |i|
+10.times do |i|
   ros = Roster.create
   ros.section_name = "First Section"
   ros.meet_time = rand(24)
@@ -90,12 +91,12 @@ puts "----- 100 Rosters created -----"
 puts
 puts "Creating Students..."
 @counter = 1
-2000.times do |i|
-  if i % 200 == 0 && i != 0
+200.times do |i|
+  if i % 2 == 0 && i != 0
     puts "#{i} students created..."
   end
 
-  if i % 20 == 0
+  if i % 2 == 0
     @counter += 1
   end
   stud = Student.create
@@ -110,7 +111,7 @@ puts "Creating Students..."
 end
 puts
 puts
-puts "----- 2000 students created -----"
+puts "----- 200 students created -----"
 puts
 puts
 puts "Database Complete!"
