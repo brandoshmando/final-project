@@ -2,14 +2,11 @@
 puts "Database Creation Initialized"
 puts "Creating Professors..."
 100.times do |i|
-  prof = Professor.create
   name = Faker::Name.name.split(' ')
-
+  prof = Professor.create(email: Faker::Internet.safe_email(name[0]), crypted_password:Faker::Internet.password(8))
   prof.first_name = name[0]
   prof.last_name = name[1]
-  prof.email = Faker::Internet.safe_email(name[0])
-  prof.password_digest = Faker::Internet.password(8)
-  prof.save
+
 end
 puts
 puts
@@ -18,14 +15,10 @@ puts
 puts "Creating Assistants..."
 
 100.times do |i|
-  asst = Assistant.create
   name = Faker::Name.name.split(' ')
-
+  asst = Assistant.create(email: Faker::Internet.safe_email(name[0]), crypted_password: Faker::Internet.password(8))
   asst.first_name = name[0]
   asst.last_name = name[1]
-  asst.email = Faker::Internet.safe_email(name[0])
-  asst.password_digest = Faker::Internet.password(8)
-  asst.save
 end
 puts
 puts
