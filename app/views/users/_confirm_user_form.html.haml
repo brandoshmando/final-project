@@ -1,0 +1,16 @@
+=form_for @user url: confirm_user_url(@user) do |f|
+  .user-input
+    = f.label :first_name, "First Name:"
+    = f.text_field :first_name
+  .user-input
+    = f.label :last_name, "Last Name:"
+    = f.text_field :last_name
+  .user-input
+    = f.label :password, "Password Minimum of Six Characters:"
+    = f.password_field :password
+  .user-input
+    = f.label :password_confirmation, "Password Minimum of Six Characters:"
+    = f.password_field :password_confirmation
+    =f.input input_html: { value: @token }, as: :hidden
+  .submit-button
+    = f.button
