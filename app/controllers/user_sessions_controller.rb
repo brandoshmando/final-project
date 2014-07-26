@@ -1,13 +1,12 @@
 class UserSessionsController < ApplicationController
-  skip_before_filter :require_login, only: [:destroy]
+  skip_before_filter :require_login, only: [:new, :destroy]
   def new
     @user = User.new
   end
 
   def create
-    if @user login(params[:email], params[:password])
+    if @user = login(params[:email], params[:password], params[:remember])
 
-      redirect_back_or_to :user, notice: "You are now logged in as #{@user.first_name}"
     else
       flash.now[:alert] = "Invalid email/password combination!"
       render :new
