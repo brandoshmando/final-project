@@ -1,24 +1,25 @@
-%h1 Evals
-= link_to "Edit this Eval", edit_eval_path(@eval)
-= link_to "Destroy", @eval, :confirm => 'Are you sure?', :method => :delete
+.new
+  %h1 Evals
+  = link_to "Edit this Eval", edit_eval_path(@eval)
+  = link_to "Destroy", @eval, :confirm => 'Are you sure?', :method => :delete
 
-%p
-  Eval Title: #{@eval[:title]}
-%p
-  Template: #{@eval[:template]}
-%br
-%p Categories:
-- @eval.categories.each do |category|
-  = category.title
-%br
-%br
-%p
-  Score:
-- @eval.categories.each do |category|
-  = category.max_score
-%br
-%br
-%p
-  Comment:
-- @eval.comments.each do |comment|
-  = comment.description
+  %p
+    Eval Title: #{@eval[:title]}
+  %p
+    Template: #{@eval[:template]}
+  %br
+  %p Categories:
+  - @eval.categories.each do |category|
+    = category.title
+  %br
+  %br
+  %p
+    Score:
+  - @eval.categories.each do |category|
+    = category.max_score
+  %br
+  %br
+  %p
+    Comment:
+  - @eval.comments.each do |comment|
+    = comment.description

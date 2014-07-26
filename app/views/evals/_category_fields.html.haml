@@ -1,16 +1,17 @@
 .nested-fields
-  .field
-    = f.label :category
-    %br
-    = f.text_field :title
-  .field
-    = f.label :score
-    = f.number_field :max_score
-  = link_to_remove_association "remove category", f
-  #masks
-    = f.fields_for :comments do |comment|
-      = render 'comment_fields', :f => comment
-    .links
-      = link_to_add_association "add comment", f, :comments
+  %ul
+    .field
+      = f.label :category
       %br
-      %br
+      = f.text_field :title
+    .field
+      = f.label :score
+      = f.number_field :max_score
+    = link_to_remove_association "remove category", f
+    #masks
+      = f.fields_for :comments do |comment|
+        = render 'comment_fields', :f => comment
+      .links
+        = link_to_add_association "add comment", f, :comments
+        %br
+        %br

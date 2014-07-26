@@ -7,6 +7,8 @@ gem 'rails', '4.1.1'
 gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
+gem 'bourbon', '~> 3.2'
+gem 'neat'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -34,7 +36,6 @@ group :development do
   gem 'binding_of_caller'
   gem 'faker'
   gem 'awesome_print'
-  gem 'quiet_assets'
 end
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
@@ -50,3 +51,4 @@ gem 'cocoon'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'normalize-rails'

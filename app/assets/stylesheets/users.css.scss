@@ -1,3 +1,130 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.new {
+  @include outer-container;
+  text-align: left;
+  margin-bottom: 3em;
+}
+
+#sidenav {
+    width: 55px;
+    height: 100%;
+    background-color: #28384B;
+    z-index: 10;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    -webkit-transition-property: -webkit-transform, width;
+    -moz-transition-property: -moz-transform, width;
+    -ms-transition-property: -ms-transform, width;
+    -o-transition-property: -o-transform, width;
+    transition-property: transform, width;
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -ms-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    -webkit-transition-timing-function: ease-in-out;
+    -moz-transition-timing-function: ease-in-out;
+    -ms-transition-timing-function: ease-in-out;
+    -o-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+}
+
+@media only screen and (max-width: 767px) {
+  #sidenav {
+  margin-left: -180px;
+  top: 56px;
+  width: 180px;
+  overflow: visible;
+}
+}#sidenav ul {
+  list-style: none;
+}
+#sidenav ul.bottom {
+  position: absolute;
+  width: 150px;
+  bottom: 0;
+  margin-bottom: 0;
+}
+@media only screen and (min-height: 320) {
+  #sidenav ul.bottom {
+  display: none;
+}
+}#sidenav li {
+  clear: both;
+  overflow-x: hidden;
+  padding: 0 10px;
+  margin-bottom: 15px;
+  position: relative;
+}
+#sidenav li a {
+  display: block;
+  color: #c1c1c1;
+  -webkit-transition: color 0.2s ease-in-out;
+  -moz-transition: color 0.2s ease-in-out;
+  -ms-transition: color 0.2s ease-in-out;
+  -o-transition: color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out;
+}
+#sidenav li a.is-active {
+  color: #fff;
+}
+#sidenav li a:hover {
+  color: silver;
+}
+#sidenav li a i {
+  font-size: 24px;
+  margin-left: 6px;
+}
+#sidenav li a span {
+  position: absolute;
+  top: 8px;
+  left: 57px;
+  font-weight: bold;
+  font-size: 16px;
+}
+@media screen and (min-width: 430px) {
+  #sidenav li a span {
+  display: none;
+}
+}#sidenav li.nav-catalog i, #sidenav li.nav-forum i {
+  margin-left: 4px;
+}
+#sidenav li.nav-docs i {
+  margin-left: 8px;
+  font-size: 28px;
+}
+#sidenav:hover {
+  width: 200px;
+  border-right: 1px solid #17202D;
+}
+#sidenav:hover span {
+  display: inline;
+}
+#sidenav .logo-item-glyph-spin {
+  background: transparent url(//d3l8wp33uu8nxs.cloudfront.net/assets/logos/logo-glyph-36-red-sprite-a580e74e4e87980e95a63836856eaaf5.png) no-repeat;
+  margin-top: 10px;
+  width: 36px;
+  height: 36px;
+  position: relative;
+  overflow: hidden;
+}
+#sidenav .logo-item-glyph-spin .spin {
+  position: relative;
+  overflow: hidden;
+}
+#sidenav .logo-item-glyph-spin .spin b {
+  background: transparent url(//d3l8wp33uu8nxs.cloudfront.net/assets/logos/logo-glyph-36-red-sprite-a580e74e4e87980e95a63836856eaaf5.png) no-repeat;
+  background-position: -59px 0px;
+  width: 36px;
+  height: 36px;
+  display: block;
+  overflow: hidden;
+}
+
+.mts, .mvs, .mas {
+  margin-top: 10px !important;
+}

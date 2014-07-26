@@ -35,6 +35,9 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bourbon (3.2.3)
+      sass (~> 3.2)
+      thor
     builder (3.2.2)
     callsite (0.0.11)
     cocoon (1.2.6)
@@ -78,14 +81,16 @@ GEM
     mime-types (1.25.1)
     minitest (5.4.0)
     multi_json (1.10.1)
+    neat (1.5.1)
+      bourbon (>= 3.1)
+      sass (~> 3.2.19)
+    normalize-rails (3.0.1)
     pg (0.17.1)
     polyglot (0.3.5)
     pry (0.10.0)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    quiet_assets (1.0.3)
-      railties (>= 3.1, < 5.0)
     rack (1.5.2)
     rack-contrib (1.1.0)
       rack (>= 0.9.1)
@@ -151,6 +156,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   better_errors
   binding_of_caller
+  bourbon (~> 3.2)
   cocoon
   coffee-rails (~> 4.0.0)
   faker
@@ -158,9 +164,10 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   meta_request
+  neat
+  normalize-rails
   pg
   pry
-  quiet_assets
   rails (= 4.1.1)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
