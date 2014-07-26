@@ -1,6 +1,2 @@
 %h1 Forgot password?
-= form_tag password_resets_path, method: :post do
-  .user-input
-  = label_tag :email
-  = text_field_tag :email
-  = submit_tag "Reset my password!"
+= render 'request_email_form'
