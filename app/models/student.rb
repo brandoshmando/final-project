@@ -2,6 +2,8 @@ class Student < ActiveRecord::Base
   require 'csv'
   has_many :grades
   belongs_to :roster
+  has_one :course, through: :roster
+
 
   def self.import(params, roster)
     CSV.foreach(params["file"].path, headers: true) do |row|
