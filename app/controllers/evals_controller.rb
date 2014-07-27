@@ -1,5 +1,6 @@
 class EvalsController < ApplicationController
   # before_action :load_current_user, only: [:create, :edit]
+  load_and_authorize_resource
 
   #do we need this?
   def index
