@@ -27,8 +27,9 @@ Rails.application.routes.draw do
   post 'logout' => 'user_sessions#destroy', :as => :logout
 
   resources :password_resets, only: [:new, :create, :edit, :update]
+
   resources :students, only: [:show] do
-    resources :grades, only: [:new, :create, :edit]
+    resources :grades, only: [:new, :create, :show, :edit, :update ]
   end
 
 

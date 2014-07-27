@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20140727164259) do
   end
 
   create_table "grades", force: true do |t|
+    t.string   "title"
     t.decimal  "final_score"
     t.integer  "category_id"
     t.integer  "student_id"

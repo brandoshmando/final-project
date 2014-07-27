@@ -3,12 +3,13 @@ class GradesController < ApplicationController
   def new
     @student = Student.find(params[:student_id])
     @grade = @student.grades.build
+    @score = @grade.scores.build
   end
 
   def create
-    @grades = @student.grades.build(grades_params)
+    @student.grades.build(grades_params)
 
-    if @grades.save
+    if @student.save
       redirect_to roster_path(@student.roster), notice: "#{@eval.title} successfully graded for #{@student.first_name} #{@student.last_name}"
     else
       render :new
