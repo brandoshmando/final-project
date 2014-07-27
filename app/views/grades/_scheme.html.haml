@@ -1,1 +1,7 @@
-= form_for [@grade, @score] do |f|
+= form_for [@student, @grade] do |f|
+  = f.hidden_field :title, value: @eval.title
+  %h3 Categories
+  #scores
+  = f.fields_for @score do |score|
+    -(@eval.categories)
+    = render 'score_fields', :f => score
