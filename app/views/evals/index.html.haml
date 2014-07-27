@@ -1,2 +1,5 @@
-%h1 Evals#index
-%p Find me in app/views/evals/index.html.haml
+.new
+  %h1 Evals#index
+  %p Find me in app/views/evals/index.html.haml
+  - if can? :create, @eval
+    = link_to "New", new_eval_path(@article)
