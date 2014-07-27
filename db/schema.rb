@@ -36,9 +36,9 @@ ActiveRecord::Schema.define(version: 20140727164259) do
     t.datetime "updated_at"
   end
 
-  create_table "comments_grades", force: true do |t|
+  create_table "comments_scores", force: true do |t|
     t.integer "comment_id"
-    t.integer "grade_id"
+    t.integer "score_id"
   end
 
   create_table "courses", force: true do |t|
