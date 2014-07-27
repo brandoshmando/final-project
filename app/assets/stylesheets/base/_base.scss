@@ -28,3 +28,5 @@ section {
   text-align: center;
   margin-bottom: 3em;
 }
+
+@include font-face(icomoon, '../fonts/icomoon/icomoon', $asset-pipeline: true);
