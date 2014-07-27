@@ -2,7 +2,7 @@ class GradesController < ApplicationController
   before_action :load_eval
   def new
     @student = Student.find(params[:student_id])
-    @grades = @student.grades.build
+    @grade = @student.grades.build
   end
 
   def create
