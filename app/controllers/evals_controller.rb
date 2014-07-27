@@ -18,7 +18,6 @@ class EvalsController < ApplicationController
 
   def create
     @eval = Eval.new(eval_params)
-
     if @eval.save
       redirect_to evals_url
     else

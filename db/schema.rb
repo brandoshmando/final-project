@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140725225738) do
+ActiveRecord::Schema.define(version: 20140727164259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,11 @@ ActiveRecord::Schema.define(version: 20140725225738) do
     t.datetime "updated_at"
   end
 
+  create_table "comments_grades", force: true do |t|
+    t.integer "comment_id"
+    t.integer "grade_id"
+  end
+
   create_table "courses", force: true do |t|
     t.string   "name"
     t.text     "description"
@@ -58,7 +63,7 @@ ActiveRecord::Schema.define(version: 20140725225738) do
   end
 
   create_table "grades", force: true do |t|
-    t.decimal  "score"
+    t.decimal  "final_score"
     t.integer  "category_id"
     t.integer  "student_id"
     t.integer  "eval_id"
@@ -72,6 +77,13 @@ ActiveRecord::Schema.define(version: 20140725225738) do
     t.string   "section_name"
     t.string   "location"
     t.integer  "course_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "scores", force: true do |t|
+    t.decimal  "score"
+    t.integer  "grade_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

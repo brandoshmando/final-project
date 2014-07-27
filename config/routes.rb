@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  root 'user_sessions#new'
   resources :courses, only: [:new, :create, :show, :edit, :update, :destroy], shallow: true do
     resources :rosters, only:[:new, :create, :show, :edit, :update, :destroy], shallow: true
   end
@@ -27,7 +27,9 @@ Rails.application.routes.draw do
   post 'logout' => 'user_sessions#destroy', :as => :logout
 
   resources :password_resets, only: [:new, :create, :edit, :update]
-
+  resources :students, only: [:show] do
+    resources :grades, only: [:new, :create, :edit]
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.
