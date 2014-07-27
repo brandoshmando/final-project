@@ -2,6 +2,7 @@ class Student < ActiveRecord::Base
   require 'csv'
   has_many :grades
   belongs_to :roster
+  has_many :evals, through: :course
   has_one :course, through: :roster
 
 

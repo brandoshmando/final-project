@@ -27,7 +27,9 @@ Rails.application.routes.draw do
   post 'logout' => 'user_sessions#destroy', :as => :logout
 
   resources :password_resets, only: [:new, :create, :edit, :update]
-
+  resources :students, only: [:show] do
+    resources :grades, only: [:new, :create, :edit]
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

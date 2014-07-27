@@ -1,6 +1,6 @@
 class GradesController < ApplicationController
   def new
-    @student = Student.find(params[:id])
+    @student = Student.find(params[:student_id])
     @student.grades.build
   end
 
