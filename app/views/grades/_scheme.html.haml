@@ -3,5 +3,5 @@
   %h3 Categories
   #scores
   = f.fields_for @score do |score|
-    -(@eval.categories)
-    = render 'score_fields', :f => score
+    -@eval.categories.each do |category|
+      = render 'score_fields', {:f => score, :category => category}

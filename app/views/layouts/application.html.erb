@@ -12,7 +12,7 @@
 <% if flash[:alert] %>
   <p id="alert"><%= flash[:alert] %></p>
 <% end %>
-<nav id="sidenav">
+<!-- <nav id="sidenav">
   <ul class="top">
     <li class="nav-catalog">
       <a class="is active" href="http://google.ca">
@@ -43,7 +43,7 @@
       </a>
     </li>
   </ul>
-</nav>
+</nav> -->
 <%= yield %>
 <%= debug(params) if Rails.env.development? %>
 </body>
