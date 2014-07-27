@@ -11,29 +11,29 @@
       =@roster.location
 
   = link_to "Export Roster", export_roster_path
-
-  %div.row.header
-    %div.cell.header
-      Name
-    %div.cell.header
-      Email Address
-    %div.cell.header
-      Uid
-    - @roster.evals.each do |eval|
+  .grid
+    %div.row.header
       %div.cell.header
-        = link_to "#{eval.title}", eval_path(eval)
+        Name
+      %div.cell.header
+        Email Address
+      %div.cell.header
+        Uid
+      - @roster.evals.each do |eval|
+        %div.cell.header
+          = link_to "#{eval.title}", eval_path(eval)
 
-  - @roster.students.each do |student|
-    .row
-      .cell
-        = student_first_last(student)
-      .cell
-        = student.email
-      .cell
-        = student.uid
-      -student.evals.each do |eval|
+    - @roster.students.each do |student|
+      .row
         .cell
-          = link_to "#{eval.title}", new_student_grade_path(student), {eval_id: eval.id}
+          = student_first_last(student)
+        .cell
+          = student.email
+        .cell
+          = student.uid
+        -student.evals.each do |eval|
+          .cell
+            = link_to "#{eval.title}", new_student_grade_path(student, eval_id: eval.id)
 
 
 

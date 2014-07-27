@@ -1,0 +1,3 @@
+%h1 Grade #{@eval.title} for #{student_first_last(@student)}
+= render 'rubric' if @eval.template == "rubric"
+= render 'scheme' if @eval.template == "scheme"
