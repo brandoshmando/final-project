@@ -1,5 +1,6 @@
 class Roster < ActiveRecord::Base
   belongs_to :course
+  has_many :evals, through: :course
   has_many :students, dependent: :destroy
   accepts_nested_attributes_for :students
 

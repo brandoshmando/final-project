@@ -6,4 +6,6 @@ module RostersHelper
   def time_slots
    return (1..24).to_a
   end
+
+
 end
