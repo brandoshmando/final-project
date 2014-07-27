@@ -1,5 +1,1 @@
-= form_for [@student, @grade] do |f|
-  -@eval.categories.each do |category|
-    .grade-input
-      = f.label :score, "#{category.max_score}"
-      = f.number_field :score
+= form_for [@grade, @score] do |f|

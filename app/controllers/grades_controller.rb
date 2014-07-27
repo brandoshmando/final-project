@@ -17,6 +17,9 @@ class GradesController < ApplicationController
   end
 
   private
+  def grades_params
+    params.require(:grade).permit(:title, scores_attributes: [:score])
+  end
   def load_eval
     @eval = Eval.find(params[:eval_id])
   end
