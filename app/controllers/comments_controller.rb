@@ -4,9 +4,11 @@ class CommentsController < ApplicationController
   end
 
   def update
-    @category = Category.find(params[:id])
+    @comment = Comment.find(params[:id])
   end
 
   def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
   end
 end

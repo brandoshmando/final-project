@@ -1,6 +1,5 @@
 class EvalsController < ApplicationController
-  # before_action :load_current_user, only: [:create, :edit]
-  load_and_authorize_resource
+  # load_and_authorize_resource
 
   #do we need this?
   def index
@@ -33,7 +32,7 @@ class EvalsController < ApplicationController
   def update
     @eval = Eval.find(params[:id])
 
-    if @eval.update_attributes(eval_params)
+    if @eval.update(eval_params)
       redirect_to eval_path(@eval)
     else
       render :edit
