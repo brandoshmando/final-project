@@ -11,6 +11,7 @@ class GradesController < ApplicationController
     @grade.student_id = @student.id
 
     if @grade.save
+      @grade.total
       redirect_to roster_path(@student.roster), notice: "#{@grade.title} successfully graded for #{@student.first_name} #{@student.last_name}!"
     else
       render :new
@@ -19,7 +20,7 @@ class GradesController < ApplicationController
 
   private
   def grades_params
-    params.require(:grade).permit(:title, scores_attributes: [:id, :score, :_delete])
+    params.require(:grade).permit(:title, :eval_id, scores_attributes: [:id, :score, :_delete])
   end
 
   def load_eval

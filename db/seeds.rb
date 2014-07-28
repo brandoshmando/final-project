@@ -1,4 +1,4 @@
-@time = Time.now
+
 puts "Database Creation Initialized"
 puts "Creating Professors..."
 10.times do |i|
