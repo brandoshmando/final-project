@@ -1,6 +1,6 @@
 class GradesController < ApplicationController
   before_action :load_eval, only:[:new]
-  before_action :load_student
+  before_action :load_student, only: [:create]
   def new
     @grade = Grade.new
     (@eval.categories.count).times { @grade.scores.build}
@@ -16,6 +16,28 @@ class GradesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    @grade = Grade.find(params[:id])
+  end
+
+  def update
+    @grade = Grade.find(params[:id])
+    @grade.update(grades_params)
+
+    if @grade.save
+      redirect_to @grade, notice: "Changes to #{@grade.student.first_name}'s grade were svaed!"
+    else
+      flash.now[:alert] = "Changes were not saved..."
+      render :edit
+    end
+  end
+
+  def destroy
+    @grade = Grade.find(params[:id])
+    @grade.destroy
+    redirect_to user_path(current_user)
   end
 
   private
