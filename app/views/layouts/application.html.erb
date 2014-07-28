@@ -9,10 +9,14 @@
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <body>
+<div class="new">
 <% if flash[:alert] %>
   <p id="alert"><%= flash[:alert] %></p>
 <% end %>
+
 <!-- <nav id="sidenav">
+</div>
+<nav id="sidenav">
   <ul class="top">
     <li class="nav-catalog">
       <a class="is active" href="http://google.ca">
@@ -44,15 +48,15 @@
     </li>
   </ul>
 </nav> -->
-<%= yield %>
 <div class="new">
+<%= yield %>
 <% if current_user %>
   Logged in as <%= current_user.email %>/
   <%= link_to "Log out", logout_path %>
 <% else %>
   <%= link_to "Log in", login_path %>.
 <% end %>
-</div>
 <%= debug(params) if Rails.env.development? %>
+</div>
 </body>
 </html>

@@ -102,8 +102,9 @@ ActiveRecord::Schema.define(version: 20140727164259) do
   create_table "users", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "email"
-    t.integer  "password_digest"
+    t.string   "email",                           null: false
+    t.string   "crypted_password"
+    t.string   "salt"
     t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -118,6 +119,7 @@ ActiveRecord::Schema.define(version: 20140727164259) do
   end
 
   add_index "users", ["activation_token"], name: "index_users_on_activation_token", using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", using: :btree
   add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", using: :btree
 
