@@ -3,7 +3,6 @@
   = f.hidden_field :eval_id, value: @eval.id
   %h3 Categories
   #scores
-  = f.fields_for :scores do |score|
-    -@eval.categories.each do |category|
-      = render 'score_fields', {:f => score,   :category => category}
+    = f.fields_for :scores do |score_fields|
+      = render :partial =>"score_fields", :locals => {:f => score_fields, :category => score_fields.object.category}
   =f.submit

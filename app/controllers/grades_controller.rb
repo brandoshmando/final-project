@@ -1,12 +1,17 @@
 class GradesController < ApplicationController
   before_action :load_eval, only:[:new]
   before_action :load_student
+
   def new
     @grade = Grade.new
-    (@eval.categories.count).times do |i|
-      @score = @grade.scores.build
-      @score.comments
+
+    @eval.categories.each do |category|
+      # category.comments
+      @grade.scores.build(:category => category)
     end
+
+
+
   end
 
   def create
@@ -44,7 +49,7 @@ class GradesController < ApplicationController
 
   private
   def grades_params
-    params.require(:grade).permit(:title, :eval_id, scores_attributes: [:id, :score, :_delete, :comment_ids])
+    params.require(:grade).permit(:title, :eval_id, scores_attributes: [:id, :score, :_delete, :comment_ids => []])
   end
 
   def load_eval
