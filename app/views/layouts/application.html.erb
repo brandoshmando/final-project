@@ -32,7 +32,7 @@
       <% end %>
     </li>
     <li class="nav-forum">
-      <%= link_to user_path(current_user), {controller: "users", action: "show"}, class: "is active" do %>
+      <%= link_to eval_path(current_user), {controller: "eval", action: "show"}, class: "is active" do %>
         <i class="icon-paste">
         </i>
         <span>Evaluations</span>
