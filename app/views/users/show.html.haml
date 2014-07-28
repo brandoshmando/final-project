@@ -25,16 +25,6 @@
 
 / = render :partial => 'refills/vertical_tabs'
 
-.vertical-tabs-container
-  .vertical-tabs
-    %a.js-vertical-tab.vertical-tab.is-active{href: "#", rel: "tab1"} Item 1
-    %a.js-vertical-tab.vertical-tab{href: "#", rel: "tab2"} Item 2
-    %a.js-vertical-tab.vertical-tab{href: "#", rel: "tab3"} Item 3
-    %a.js-vertical-tab.vertical-tab{href: "#", rel: "tab4"} Item 4
-  .vertical-tab-content-container
-    %a.js-vertical-tab-accordion-heading.vertical-tab-accordion-heading.is-active{href: "", rel: "tab1"} Item 1
-    #tab5.js-vertical-tab-content.vertical-tab-content
-      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt pellentesque lorem, id suscipit dolor rutrum id. Morbi facilisis porta volutpat. Fusce adipiscing, mauris quis congue tincidunt, sapien purus suscipit odio, quis dictum odio tortor in sem. Ut sit amet libero nec orci mattis fringilla. Praesent eu ipsum in sapien tincidunt molestie sed ut magna. Nam accumsan dui at orci rhoncus pharetra tincidunt elit ullamcorper. Sed ac mauris ipsum. Nullam imperdiet sapien id purus pretium id aliquam mi ullamcorper.
 
 
 .vertical-tabs-container
@@ -46,7 +36,12 @@
         =link_to course.name, "#", class: "js-vertical-tab vertical-tab", rel: "tab#{index}"
   .vertical-tab-content-container
     - @user.courses.each.with_index do |course, index|
-      =link_to course.name, "#", class: "js-vertical-tab-accordion-heading vertical-tab-accordion-heading", rel: "tab#{index}"
+      - if index == 0
+        =link_to course.name, "#", class: "js-vertical-tab-accordion-heading vertical-tab-accordion-heading is-active", rel: "tab#{index}"
+        .js-vertical-tab-content.vertical-tab-content{id: "tab#{index}"}
+          %p= course.description
+      - else
+        =link_to course.name, "#", class: "js-vertical-tab-accordion-heading vertical-tab-accordion-heading", rel: "tab#{index}"
       .js-vertical-tab-content.vertical-tab-content{id: "tab#{index}"}
         %p= course.description
 
