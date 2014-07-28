@@ -13,40 +13,41 @@
 <% if flash[:alert] %>
   <p id="alert"><%= flash[:alert] %></p>
 <% end %>
-<nav id="sidenav">
 </div>
+<% if current_user %>
 <nav id="sidenav">
   <ul class="top">
     <li class="nav-catalog">
-      <a class="is active" href="http://google.ca">
+      <%= link_to user_path(current_user), {controller: "users", action: "show"}, class: "is active" do %>
         <i class="icon-home">
         </i>
         <span>Home</span>
-      </a>
+      <% end %>
     </li>
     <li class="nav-catalog">
-      <a class="is active" href="http://google.ca">
+      <%= link_to course_path(current_user), {controller: "course", action: "show"}, class: "is active" do %>
         <i class="icon-notebook">
         </i>
         <span>Courses</span>
-      </a>
+      <% end %>
     </li>
     <li class="nav-forum">
-      <a href="http://yahoo.ca">
+      <%= link_to user_path(current_user), {controller: "users", action: "show"}, class: "is active" do %>
         <i class="icon-paste">
         </i>
         <span>Evaluations</span>
-      </a>
+      <% end %>
     </li>
     <li class="nav-docs">
-      <a href="http://facebook.com">
+      <%= link_to user_path(current_user), {controller: "users", action: "show"}, class: "is active" do %>
         <i class="icon-users">
         </i>
         <span>TAs</span>
-      </a>
+      <% end %>
     </li>
   </ul>
 </nav>
+<% end %>
 <div class="new">
 <%= yield %>
 <% if current_user %>

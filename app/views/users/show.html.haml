@@ -16,7 +16,7 @@
   %br
   - if @user.evals.empty?
     %p
-      %i #{@user.first_name} does not appear to have any ongoing evaluations at the moment...
+      %i You do not appear to have any ongoing evaluations at the moment...
   - else
     Your Evaluations:
     - @user.evals.each do |eval|
