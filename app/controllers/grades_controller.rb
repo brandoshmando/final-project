@@ -1,6 +1,6 @@
 class GradesController < ApplicationController
   before_action :load_eval, only:[:new]
-  before_action :load_student, only: [:create]
+  before_action :load_student
   def new
     @grade = Grade.new
     (@eval.categories.count).times { @grade.scores.build}
@@ -9,9 +9,8 @@ class GradesController < ApplicationController
   def create
     @grade = Grade.new(grades_params)
     @grade.student_id = @student.id
-
+    # @grade.comments
     if @grade.save
-      @grade.total
       redirect_to roster_path(@student.roster), notice: "#{@grade.title} successfully graded for #{@student.first_name} #{@student.last_name}!"
     else
       render :new
