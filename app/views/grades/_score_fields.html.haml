@@ -1,0 +1,7 @@
+.nested-fields
+  .field
+    %p=category.title
+    = f.label :score, "#{category.max_score}"
+    = f.number_field :score, min: 0, max:category.max_score, value: category.max_score
+  .comments
+    = f.collection_check_boxes(:comment_ids, category.comments, :id, :description, style:"opacity:0; position:absolute; left:9999px;")

@@ -1,5 +1,9 @@
 = form_for [@student, @grade] do |f|
-  -@eval.categories.each do |category|
-    .grade-input
-      = f.label :score, "#{category.max_score}"
-      = f.number_field :score
+  = f.hidden_field :title, value: @eval.title
+  = f.hidden_field :eval_id, value: @eval.id
+  %h3 Categories
+  #scores
+  = f.fields_for :scores do |score|
+    -@eval.categories.each do |category|
+      = render 'score_fields', {:f => score,   :category => category}
+  =f.submit

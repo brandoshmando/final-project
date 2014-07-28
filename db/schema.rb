@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20140727164259) do
 
   create_table "categories", force: true do |t|
     t.string   "title"
-    t.decimal  "max_score"
+    t.integer  "max_score"
     t.integer  "eval_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -36,9 +36,9 @@ ActiveRecord::Schema.define(version: 20140727164259) do
     t.datetime "updated_at"
   end
 
-  create_table "comments_grades", force: true do |t|
+  create_table "comments_scores", force: true do |t|
     t.integer "comment_id"
-    t.integer "grade_id"
+    t.integer "score_id"
   end
 
   create_table "courses", force: true do |t|
@@ -63,7 +63,8 @@ ActiveRecord::Schema.define(version: 20140727164259) do
   end
 
   create_table "grades", force: true do |t|
-    t.decimal  "final_score"
+    t.string   "title"
+    t.integer  "final_score"
     t.integer  "category_id"
     t.integer  "student_id"
     t.integer  "eval_id"
@@ -82,7 +83,7 @@ ActiveRecord::Schema.define(version: 20140727164259) do
   end
 
   create_table "scores", force: true do |t|
-    t.decimal  "score"
+    t.integer  "score"
     t.integer  "grade_id"
     t.datetime "created_at"
     t.datetime "updated_at"
