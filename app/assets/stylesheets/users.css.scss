@@ -52,8 +52,9 @@
 @media only screen and (min-height: 320) {
   #sidenav ul.bottom {
   display: none;
+  }
 }
-}#sidenav li {
+#sidenav li {
   clear: both;
   overflow-x: hidden;
   padding: 0 10px;
@@ -61,6 +62,7 @@
   position: relative;
 }
 #sidenav li a {
+  margin-top: 12px;
   display: block;
   color: #c1c1c1;
   -webkit-transition: color 0.2s ease-in-out;
@@ -81,7 +83,7 @@
 }
 #sidenav li a span {
   position: absolute;
-  top: 8px;
+  top: 17px;
   left: 57px;
   font-weight: bold;
   font-size: 16px;
@@ -98,7 +100,7 @@
   font-size: 28px;
 }
 #sidenav:hover {
-  width: 200px;
+  width: 180px;
   border-right: 1px solid #17202D;
 }
 #sidenav:hover span {

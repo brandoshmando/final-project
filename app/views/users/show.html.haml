@@ -1,5 +1,25 @@
 .new
-  %h1= @user.first_name
-  %small=@user.type
-  %span.icon-home Home
-  %span.icon-paste Evaluations
+  %h1
+    Welcome, #{@user.first_name}
+  = @user.type
+  %br
+  %br
+  - if @user.courses.empty?
+    %p
+      %i #{@user.first_name} does not appear to have any courses at the moment...
+  - else
+    Your Courses:
+    - @user.courses.each do |course|
+      %ul
+        %li
+          = link_to course.name, course_path(course)
+  %br
+  - if @user.evals.empty?
+    %p
+      %i #{@user.first_name} does not appear to have any ongoing evaluations at the moment...
+  - else
+    Your Evaluations:
+    - @user.evals.each do |eval|
+      %ul
+        %li
+          = link_to eval.title, eval_path(eval)
