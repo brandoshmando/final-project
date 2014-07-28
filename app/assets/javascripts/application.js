@@ -17,5 +17,5 @@
 //= require_tree .
 
 $(document).on('page:load ready', function(){
-
+  highlightComment();
 });
