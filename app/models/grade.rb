@@ -5,7 +5,6 @@ class Grade < ActiveRecord::Base
 
   def total
     self.final_score = self.scores.inject(0) { |sum, obj| sum + obj.score; sum }
-    pry
   end
 
   # def comments
