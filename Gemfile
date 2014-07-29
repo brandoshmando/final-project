@@ -32,6 +32,7 @@ gem 'cocoon'
 gem 'sorcery'
 gem 'cancancan', '~> 1.9'
 gem 'animate-rails'
+gem 'paperclip', github: 'thoughtbot/paperclip'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 group :development do
   gem 'pry'
