@@ -10,9 +10,9 @@ class UsersController < ApplicationController
   end
 
   def confirm
-    @token = params[:token]
+    @token = params[:user][:token]
     if @user = User.load_from_activation_token(@token)
-      if @user.update_attributes(user_params).only(:token)
+      if @user.update_attributes(user_params)
         @user.activate!
         redirect_to login_path, notice: "#{@user.first_name} was activated successfully!"
       else
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    #Will need this later
+    @user = User.new(user_params)
   end
 
   def show
@@ -37,8 +37,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-
-    if @user.update(user_params).except(:token)
+    if @user.update(user_params)
       redirect_to @user, notice: "Your changes were saved!"
     else
       flash.now[:alert] = "Your changes were not saved..."
@@ -50,8 +49,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
   end
-    private
+
+  private
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :token)
+    params.require(:user).permit(:first_name, :last_name, :email, :avatar, :remove_avatar)
   end
 end

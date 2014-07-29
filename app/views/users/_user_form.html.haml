@@ -1,10 +1,18 @@
-=form_for @user do |f|
+=form_for @user, :url => user_path, :html => { :multipart => true } do |f|
   .user-input
     = f.label :first_name, "First Name:"
     = f.text_field :first_name
   .user-input
     = f.label :last_name, "Last Name:"
     = f.text_field :last_name
+  .user-input
+    = f.label :avatar
+    = f.file_field :avatar
+  %p
+    - if @user.avatar?
+      = image_tag @user.avatar.url(:thumb)
+      = f.label :remove_avatar
+      = f.check_box :remove_avatar
   .user-input
     = f.label :email, "Email Address:"
     = f.text_field :email

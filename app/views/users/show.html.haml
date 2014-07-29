@@ -18,6 +18,8 @@
 /     }
 %h1 Welcome, #{@user.first_name}
 = @user.type
+- if @user.avatar?
+  = image_tag @user.avatar.url(:medium), class: "avatar-frame"
 %br
 %br
 %h2 Your Courses
