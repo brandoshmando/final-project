@@ -5,7 +5,7 @@ class CoursesController < ApplicationController
 
   def create
     @course = Course.new(course_params)
-
+    @course.professor = current_user
     if @course.save
       redirect_to @course, notice: "#{@course.name} was created!"
     else

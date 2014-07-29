@@ -1,11 +1,14 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  background-color: #E7ECED;
+}
 .centered-navigation {
   $centered-navigation-padding: 1em;
   $centered-navigation-logo-height: 2em;
-  $centered-navigation-background: #E7F1EC;
-  $centered-navigation-color: transparentize($base-font-color, 0.3);
+  $centered-navigation-background: #fff;
+  $centered-navigation-color: #fff;
   $centered-navigation-color-hover: $base-font-color;
   $centered-navigation-height: 60px;
   $centered-navigation-item-padding: 1em;
@@ -32,7 +35,6 @@
 
     img {
       max-height: $centered-navigation-height;
-      opacity: .6;
       padding: .8em 0;
     }
 
@@ -138,9 +140,8 @@
 
   .logo img {
     margin-bottom: -$centered-navigation-logo-height / 3;
-    margin-top: 14px;
+    margin-top: 15px;
     max-height: 3em;
-    opacity: .6;
   }
 
 
@@ -352,7 +353,7 @@
   font-size: 28px;
 }
 #sidenav:hover {
-  width: 180px;
+  width: 160px;
   border-right: 1px solid #17202D;
 }
 #sidenav:hover span {
@@ -490,4 +491,9 @@
   -moz-box-shadow: 0 0 10px #65FF6E;
   -webkit-box-shadow: 0 0 10px #65FF6E;
   box-shadow: 0px 0px 10px #65FF6E;
+}
+
+.user-avatar {
+  padding-bottom: 10px;
+  background-color: #2DD959;
 }

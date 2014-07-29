@@ -1,21 +1,3 @@
-/ %h1
-/   %script{language: "Javascript"}
-/     day = new Date()
-/     hr = day.getHours()
-/     hr1 = hr - 12
-/     if (hr < "6") {
-/     document.write("It's too early to be marking, #{@user.first_name}")
-/     }else if (hr < "12"){
-/     document.write("Good morning, #{@user.first_name}")
-/     }else if (hr < "13") {
-/     document.write("Grading over lunch, #{@user.first_name}?")
-/     }else if (hr < "17") {
-/     document.write("Good afternoon, #{@user.first_name}")
-/     }else if (hr < "22") {
-/     document.write("Good evening, #{@user.first_name}")
-/     }else if (hr >= "22") {
-/     document.write("Get some sleep, #{@user.first_name}")
-/     }
 %h1 Welcome, #{@user.first_name}
 = @user.type
 - if @user.avatar?

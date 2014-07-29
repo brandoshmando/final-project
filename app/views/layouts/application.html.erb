@@ -18,7 +18,7 @@
     <ul class="centered-navigation-menu">
       <li class="logo">
         <a href="javascript:void(0)" class="logo">
-          <img src="/assets/drrubric.png" alt="">
+          <img src="/assets/drrubric5.png" alt="">
         </a>
       </li>
     </ul>
@@ -32,6 +32,15 @@
 <% if current_user %>
 <nav id="sidenav">
   <ul class="top">
+    <div class="user-avatar">
+    <li class="user-avatar">
+        <%= link_to user_path(current_user), {controller: "users", action: "show"}, class: "is active" do %>
+          <% if current_user.avatar? %>
+            <%= image_tag current_user.avatar.url(:thumb) %>
+          <% end %>
+        <% end %>
+    </li>
+    </div>
     <li class="nav-catalog">
       <%= link_to user_path(current_user), {controller: "users", action: "show"}, class: "is active" do %>
         <i class="icon-home">
@@ -40,14 +49,14 @@
       <% end %>
     </li>
     <li class="nav-catalog">
-      <%= link_to course_path(current_user), {controller: "course", action: "show"}, class: "is active" do %>
+      <%= link_to user_path(current_user), {controller: "users", action: "show"}, class: "is active" do %>
         <i class="icon-notebook">
         </i>
         <span>Courses</span>
       <% end %>
     </li>
     <li class="nav-forum">
-      <%= link_to eval_path(current_user), {controller: "eval", action: "show"}, class: "is active" do %>
+      <%= link_to user_path(current_user), {controller: "users", action: "show"}, class: "is active" do %>
         <i class="icon-paste">
         </i>
         <span>Evaluations</span>
