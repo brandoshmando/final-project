@@ -261,7 +261,7 @@ body {
 }
 
 #sidenav {
-    width: 55px;
+    width: 60px;
     height: 100%;
     background-color: #28384B;
     z-index: 10;
@@ -311,7 +311,7 @@ body {
   clear: both;
   overflow-x: hidden;
   padding: 0 10px;
-  margin-bottom: 15px;
+  margin-bottom: 14px;
   position: relative;
 }
 #sidenav li a {
@@ -346,7 +346,7 @@ body {
   display: none;
 }
 }#sidenav li.nav-catalog i, #sidenav li.nav-forum i {
-  margin-left: 4px;
+  margin-left: 7px;
 }
 #sidenav li.nav-docs i {
   margin-left: 8px;
@@ -354,7 +354,6 @@ body {
 }
 #sidenav:hover {
   width: 160px;
-  border-right: 1px solid #17202D;
 }
 #sidenav:hover span {
   display: inline;
@@ -494,6 +493,24 @@ body {
 }
 
 .user-avatar {
-  padding-bottom: 10px;
+  padding-top: 9px;
+  padding-bottom: 5px;
   background-color: #2DD959;
+}
+
+.current-user-avatar-nav {
+  max-width: 39px;
+  max-height: 39px;
+}
+
+.current-user-avatar-avatar {
+  -webkit-border-radius: 20px; /* Saf3+, Chrome */
+  border-radius: 20px; /* Opera 10.5, IE 9 */
+  -moz-box-shadow: 0 0 1px #65FF6E;
+  -webkit-box-shadow: 0 0 1px #65FF6E;
+  box-shadow: 0px 0px 1px #65FF6E;
+}
+
+.current-user-avatar-name {
+  color: #28384B;
 }

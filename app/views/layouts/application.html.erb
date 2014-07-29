@@ -36,7 +36,14 @@
     <li class="user-avatar">
         <%= link_to user_path(current_user), {controller: "users", action: "show"}, class: "is active" do %>
           <% if current_user.avatar? %>
+            <div class="current-user-avatar-nav">
+            <div class="current-user-avatar-avatar">
             <%= image_tag current_user.avatar.url(:thumb) %>
+            </div>
+            </div>
+            <div class="current-user-avatar-name">
+            <span><%= current_user.first_name %></span>
+            </div>
           <% end %>
         <% end %>
     </li>
