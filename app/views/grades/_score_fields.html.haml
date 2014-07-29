@@ -2,7 +2,10 @@
   .field
     %p=category.title
     = f.hidden_field :category_id, value: category.id
-    = f.label :score, "#{category.max_score}"
-    = f.number_field :score, min: 0, max: category.max_score, value: category.max_score
+    -if @eval
+      = f.label :score, "#{category.max_score}"
+    -else
+      = f.label :score, "#{category.max_score}"
+    = f.number_field :score, min: 0, max: category.max_score, value: f.object.score
   .comments
     = f.collection_check_boxes(:comment_ids, category.comments, :id, :description)
