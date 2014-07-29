@@ -9,6 +9,7 @@ gem 'pg'
 gem 'sass-rails', '~> 4.0.3'
 gem 'bourbon', '~> 3.2'
 gem 'neat'
+gem 'refills'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -30,6 +31,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'cocoon'
 gem 'sorcery'
 gem 'cancancan', '~> 1.9'
+gem 'animate-rails'
+gem 'paperclip', github: 'thoughtbot/paperclip'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 group :development do
   gem 'pry'
