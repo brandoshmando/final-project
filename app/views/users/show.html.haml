@@ -1,81 +1,55 @@
-%h1
-  Welcome, #{@user.first_name}
+/ %h1
+/   %script{language: "Javascript"}
+/     day = new Date()
+/     hr = day.getHours()
+/     hr1 = hr - 12
+/     if (hr < "6") {
+/     document.write("It's too early to be marking, #{@user.first_name}")
+/     }else if (hr < "12"){
+/     document.write("Good morning, #{@user.first_name}")
+/     }else if (hr < "13") {
+/     document.write("Grading over lunch, #{@user.first_name}?")
+/     }else if (hr < "17") {
+/     document.write("Good afternoon, #{@user.first_name}")
+/     }else if (hr < "22") {
+/     document.write("Good evening, #{@user.first_name}")
+/     }else if (hr >= "22") {
+/     document.write("Get some sleep, #{@user.first_name}")
+/     }
+%h1 Welcome, #{@user.first_name}
 = @user.type
 %br
 %br
+%h2 Your Courses
+%br
 - if @user.courses.empty?
   %p
-    %i #{@user.first_name} does not appear to have any courses at the moment...
+    %i You do not appear to have any courses at the moment. How nice.
 - else
-  Your Courses:
-  - @user.courses.each do |course|
-    %ul
-      %li
-        = link_to course.name, course_path(course)
-%br
+  .vertical-tabs-container
+    .vertical-tabs
+      - @user.courses.each.with_index do |course, index|
+        - if index == 0
+          =link_to course.name, "#", class: "js-vertical-tab vertical-tab is-active", rel: "tab#{index}"
+        - else
+          =link_to course.name, "#", class: "js-vertical-tab vertical-tab", rel: "tab#{index}"
+    .vertical-tab-content-container
+      - @user.courses.each.with_index do |course, index|
+        - if index == 0
+          =link_to course.name, "#", class: "js-vertical-tab-accordion-heading vertical-tab-accordion-heading is-active", rel: "tab#{index}"
+          .js-vertical-tab-content.vertical-tab-content{id: "tab#{index}"}
+            %p= course.description
+        - else
+          =link_to course.name, "#", class: "js-vertical-tab-accordion-heading vertical-tab-accordion-heading", rel: "tab#{index}"
+        .js-vertical-tab-content.vertical-tab-content{id: "tab#{index}"}
+          %p= course.description
+
 - if @user.evals.empty?
   %p
-    %i You do not appear to have any ongoing evaluations at the moment...
+    %i You do not appear to have any ongoing evaluations at the moment. How nice.
 - else
   Your Evaluations:
   - @user.evals.each do |eval|
     %ul
       %li
         = link_to eval.title, eval_path(eval)
-
-/ = render :partial => 'refills/vertical_tabs'
-
-
-
-.vertical-tabs-container
-  .vertical-tabs
-    - @user.courses.each.with_index do |course, index|
-      - if index == 0
-        =link_to course.name, "#", class: "js-vertical-tab vertical-tab is-active", rel: "tab#{index}"
-      - else
-        =link_to course.name, "#", class: "js-vertical-tab vertical-tab", rel: "tab#{index}"
-  .vertical-tab-content-container
-    - @user.courses.each.with_index do |course, index|
-      - if index == 0
-        =link_to course.name, "#", class: "js-vertical-tab-accordion-heading vertical-tab-accordion-heading is-active", rel: "tab#{index}"
-        .js-vertical-tab-content.vertical-tab-content{id: "tab#{index}"}
-          %p= course.description
-      - else
-        =link_to course.name, "#", class: "js-vertical-tab-accordion-heading vertical-tab-accordion-heading", rel: "tab#{index}"
-      .js-vertical-tab-content.vertical-tab-content{id: "tab#{index}"}
-        %p= course.description
-
-
-:javascript
-  $(".js-vertical-tab-content").hide();
-  $(".js-vertical-tab-content:first").show();
-
-  /* if in tab mode */
-  $(".js-vertical-tab").click(function(event) {
-    event.preventDefault();
-
-    $(".js-vertical-tab-content").hide();
-    var activeTab = $(this).attr("rel");
-    $("#"+activeTab).show();
-
-    $(".js-vertical-tab").removeClass("is-active");
-    $(this).addClass("is-active");
-
-    $(".js-vertical-tab-accordion-heading").removeClass("is-active");
-    $(".js-vertical-tab-accordion-heading[rel^='"+activeTab+"']").addClass("is-active");
-  });
-
-  /* if in accordion mode */
-  $(".js-vertical-tab-accordion-heading").click(function(event) {
-    event.preventDefault()
-
-    $(".js-vertical-tab-content").hide();
-    var accordion_activeTab = $(this).attr("rel");
-    $("#"+accordion_activeTab).show();
-
-    $(".js-vertical-tab-accordion-heading").removeClass("is-active");
-    $(this).addClass("is-active");
-
-    $(".js-vertical-tab").removeClass("is-active");
-    $(".js-vertical-tab[rel^='"+accordion_activeTab+"']").addClass("is-active");
-  });
