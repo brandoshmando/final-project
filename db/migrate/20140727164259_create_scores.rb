@@ -3,7 +3,7 @@ class CreateScores < ActiveRecord::Migration
     create_table :scores do |t|
       t.integer :score
       t.integer :grade_id
-
+      t.integer :category_id
       t.timestamps
     end
   end

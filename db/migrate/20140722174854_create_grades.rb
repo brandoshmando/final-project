@@ -3,7 +3,8 @@ class CreateGrades < ActiveRecord::Migration
     create_table :grades do |t|
       t.string :title
       t.integer :final_score
-      t.integer :category_id
+      t.string :template
+      t.integer :user_id
       t.integer :student_id
       t.integer :eval_id
       t.timestamps
