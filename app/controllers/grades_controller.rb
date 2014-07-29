@@ -6,7 +6,7 @@ class GradesController < ApplicationController
     @grade = Grade.new
 
     @eval.categories.each do |category|
-      @grade.scores.build(:category => category)
+      @grade.scores.build(category_id: category.id)
     end
 
 
@@ -48,7 +48,7 @@ class GradesController < ApplicationController
 
   private
   def grades_params
-    params.require(:grade).permit(:title, :eval_id, :template, scores_attributes: [:id, :score, :_delete, :comment_ids => []])
+    params.require(:grade).permit(:title, :eval_id, :template, scores_attributes: [:id, :score, :category_id, :_delete, :comment_ids => []])
   end
 
   def load_eval

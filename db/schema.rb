@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 20140727164259) do
   create_table "scores", force: true do |t|
     t.integer  "score"
     t.integer  "grade_id"
+    t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
