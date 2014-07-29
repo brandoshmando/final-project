@@ -6,7 +6,6 @@ class GradesController < ApplicationController
     @grade = Grade.new
 
     @eval.categories.each do |category|
-      # category.comments
       @grade.scores.build(:category => category)
     end
 
@@ -16,8 +15,8 @@ class GradesController < ApplicationController
 
   def create
     @grade = Grade.new(grades_params)
-    @grade.student_id = @student.id
-    # @grade.comments
+    @grade.student = @student
+    @grade.user = current_user
     if @grade.save
       redirect_to roster_path(@student.roster), notice: "#{@grade.title} successfully graded for #{@student.first_name} #{@student.last_name}!"
     else
@@ -49,7 +48,7 @@ class GradesController < ApplicationController
 
   private
   def grades_params
-    params.require(:grade).permit(:title, :eval_id, scores_attributes: [:id, :score, :_delete, :comment_ids => []])
+    params.require(:grade).permit(:title, :eval_id, :template, scores_attributes: [:id, :score, :_delete, :comment_ids => []])
   end
 
   def load_eval

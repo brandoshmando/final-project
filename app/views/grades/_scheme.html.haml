@@ -1,6 +1,7 @@
 = form_for [@student, @grade] do |f|
   = f.hidden_field :title, value: @eval.title
   = f.hidden_field :eval_id, value: @eval.id
+  = f.hidden_field :template, value: @eval.template
   %h3 Categories
   #scores
     = f.fields_for :scores do |score_fields|
