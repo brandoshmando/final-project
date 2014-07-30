@@ -1,5 +1,13 @@
 .new
   %h1= @course.name
   %p
-    %strong Course Description:
+    %strong Course Descriptions:
     = @course.description
+  %hr/
+%h2 Sections
+=render 'section_tab_box'
+%h2 TA's
+%small= link_to "Add TA", new_user_path(course_ids: @course.id)
+=render @course.assistants
+
+

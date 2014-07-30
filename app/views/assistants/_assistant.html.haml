@@ -1,0 +1,13 @@
+.cards
+  .card
+    #card-image
+      = image_tag assistant.avatar.url(:medium), alt:";)", class: "avatar-frame"
+      .card-header
+        = first_last(assistant)
+        %br
+        %small= assistant.email
+    .card-stats
+      %strong Activity
+      %span
+      =assistant.grades_last_three
+      %small assignments graded in the last 3 days

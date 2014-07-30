@@ -2,7 +2,8 @@ class CreateGrades < ActiveRecord::Migration
   def change
     create_table :grades do |t|
       t.string :title
-      t.integer :final_score
+      t.string :final_score
+      t.string :max_score
       t.string :template
       t.integer :user_id
       t.integer :student_id

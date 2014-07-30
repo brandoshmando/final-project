@@ -23,8 +23,20 @@ class UsersController < ApplicationController
     end
   end
 
+  def new
+    @assistant = Assistant.new
+    course_id = params[:course_id]
+  end
+
   def create
-    @user = User.new(user_params)
+    @assistant = Assistant.new(user_params)
+
+    if @assistant.save
+      redirect_to user_path(current_user), notice:"Email to #{@assistant.first_name} has been sent!"
+    else
+      flash.now[:alert] = "Email was not sent..."
+      redirect_to user_path(current_user)
+    end
   end
 
   def show
@@ -52,6 +64,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :avatar, :remove_avatar)
+    params.require(:user).permit(:first_name, :last_name, :course_ids, :email, :avatar, :remove_avatar)
   end
 end

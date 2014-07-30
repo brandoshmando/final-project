@@ -6,7 +6,7 @@
       = f.text_field :title
     .field
       = f.label :score
-      = f.number_field :max_score
+      = f.number_field :max_score, step: "any"
     = link_to_remove_association "remove category", f
     #masks
       = f.fields_for :comments do |comment|

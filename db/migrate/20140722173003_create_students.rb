@@ -5,6 +5,7 @@ class CreateStudents < ActiveRecord::Migration
       t.string :last_name
       t.string :email
       t.string :uid
+      t.string :total_score
       t.integer :roster_id
       t.timestamps
     end

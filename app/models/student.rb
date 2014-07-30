@@ -21,4 +21,10 @@ class Student < ActiveRecord::Base
       end
     end
   end
+#Method to total score of all grades for a student
+  def total_all_grades
+    self.update(
+      total_score: (self.grades.includes(:final_score).reduce(0) {|sum, grade| sum += grade.final_score.to_f; sum}).to_s
+    )
+  end
 end

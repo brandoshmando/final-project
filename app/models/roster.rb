@@ -2,6 +2,7 @@ class Roster < ActiveRecord::Base
   belongs_to :course
   has_many :evals, through: :course
   has_many :students, dependent: :destroy
+  has_many :grades, through: :students
   accepts_nested_attributes_for :students
 
   def as_csv
@@ -17,5 +18,25 @@ class Roster < ActiveRecord::Base
         csv << attributes
       end
     end
+  end
+# Determines the average score for a particular section of a class
+  def average_score
+    score_counter = 0
+    self.grades.each do |grade|
+      score_counter += grade.final_score.to_f
+    end
+    (score_counter / self.students.count).to_s
+  end
+#Returns a collection of a roster's scores and sorts them from lowest to highest
+  def roster_descending_scores
+    roster_scores_array = []
+    self.students.each do |student|
+      roster_scores_array << (student.total_score.to_f / 100)
+    end
+    roster_scores_array.sort! {|x,y| y <=> x }
+  end
+#Determines a max score that this particlar section is out of
+  def roster_max_score
+    self.evals.reduce(0) {|sum, eval| sum + eval.max_score.to_f; sum }
   end
 end
