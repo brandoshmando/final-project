@@ -12,16 +12,23 @@
 <header class="centered-navigation">
   <div class="centered-navigation-wrapper">
     <a href="javascript:void(0)" class="mobile-logo">
-      <img src="/assets/drrubric.png" alt="">
+      <img src="/assets/doctor2.png" alt="">
     </a>
-    <a href="" class="centered-navigation-menu-button">MENU</a>
     <ul class="centered-navigation-menu">
       <li class="logo">
-        <a href="javascript:void(0)" class="logo">
+        <a href="" class="logo">
           <img src="/assets/drrubric5.png" alt="">
         </a>
       </li>
     </ul>
+  </div>
+  <div class="top-right-log-in">
+    <% if current_user %>
+  Logged in as <%= current_user.email %>.
+  <%= link_to "Log out", logout_path %>
+<% else %>
+  <%= link_to "Log in", login_path %>.
+<% end %>
   </div>
 </header>
 <div class="new">
@@ -91,11 +98,5 @@
 <footer class="footer">
   <p>&copy; Dr. Rubric 2014. &nbsp;Built by Brandon and Alessia with <a class="heart" href="http://rubyonrails.org/">&hearts;</a></p>
 </footer>
-<% if current_user %>
-  Logged in as <%= current_user.email %>/
-  <%= link_to "Log out", logout_path %>
-<% else %>
-  <%= link_to "Log in", login_path %>.
-<% end %>
 </body>
 </html>

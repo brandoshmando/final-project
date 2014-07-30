@@ -607,3 +607,12 @@ body {
   -moz-animation: tada 1s;
   animation: tada 1s;
 }
+
+.top-right-log-in {
+  font-color: #333333;
+  position: absolute;
+  top:33px;
+  right: 60px;
+  font-size: .9em;
+  font-family: "ratio", sans-serif;
+}
