@@ -121,12 +121,4 @@
       background-color: $card-hover-background;
     }
   }
-
-  &:active {
-    background-color: $card-background;
-
-    .card-header {
-      background-color: $card-background;
-    }
-  }
 }

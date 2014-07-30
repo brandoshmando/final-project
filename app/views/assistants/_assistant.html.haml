@@ -1,16 +1,13 @@
 .cards
   .card
     #card-image
-      =image_tag "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png"
-    .card-header
-      = first_last(assistant)
-    .card-copy
-      %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, officiis sunt neque facilis culpa molestiae necessitatibus delectus veniam provident.
+      = image_tag assistant.avatar.url(:medium), alt:";)", class: "avatar-frame"
+      .card-header
+        = first_last(assistant)
+        %br
+        %small= assistant.email
     .card-stats
-      %ul
-        %li 98
-        %span Items
-        %li 298
-        %span Things
-        %li 923
-        %span Objects
+      %strong Activity
+      %span
+      =assistant.grades_last_three
+      %small assignments graded in the last 3 days

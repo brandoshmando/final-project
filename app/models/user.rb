@@ -19,6 +19,10 @@ class User < ActiveRecord::Base
   def external?
     false
   end
+#Checks how many grades you have created in the last 3 days
+  def grades_last_three
+    self.grades.where("created_at > ?", (Time.now - 3.day)).count
+  end
 
   private
   def delete_avatar
