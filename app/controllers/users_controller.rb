@@ -24,18 +24,15 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
+    @assistant = Assistant.new
     course_id = params[:course_id]
-    type = params[:type]
   end
 
   def create
-    @user = User.new(user_params)
-    @user.type = params[:type]
-    @user.course_ids = [params[:course_ids]]
+    @assistant = Assistant.new(user_params)
 
-    if @user.save
-      redirect_to user_path(current_user), notice:"Email to #{@user.first_name} has been sent!"
+    if @assistant.save
+      redirect_to user_path(current_user), notice:"Email to #{@assistant.first_name} has been sent!"
     else
       flash.now[:alert] = "Email was not sent..."
       redirect_to user_path(current_user)
@@ -67,6 +64,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :avatar, :remove_avatar)
+    params.require(:user).permit(:first_name, :last_name, :course_ids, :email, :avatar, :remove_avatar)
   end
 end
