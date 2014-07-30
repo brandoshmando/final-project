@@ -3,8 +3,8 @@
   %p
     %strong Course Descriptions:
     = @course.description
-
-
+  %hr/
+%h2 Sections
 .vertical-tabs-container
   .vertical-tabs
     - @course.rosters.each.with_index do |roster, index|
@@ -18,8 +18,27 @@
         =link_to roster.section_name, "#", class: "js-vertical-tab-accordion-heading vertical-tab-accordion-heading is-active", rel: "tab#{index}"
         .js-vertical-tab-content.vertical-tab-content{id: "tab#{index}"}
           %p=format_score(roster.average_score)
-          = content_tag
+
       - else
         =link_to roster.section_name, "#", class: "js-vertical-tab-accordion-heading vertical-tab-accordion-heading", rel: "tab#{index}"
         .js-vertical-tab-content.vertical-tab-content{id: "tab#{index}"}
           %p=format_score(roster.average_score)
+%h2 TA's
+.cards
+  -@course.assistants.each do |assistant|
+    .card
+      #card-image
+        =image_tag "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png"
+      .card-header
+        = first_last(assistant)
+      .card-copy
+        %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, officiis sunt neque facilis culpa molestiae necessitatibus delectus veniam provident.
+      .card-stats
+        %ul
+          %li 98
+          %span Items
+          %li 298
+          %span Things
+          %li 923
+          %span Objects
+
