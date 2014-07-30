@@ -6,7 +6,7 @@
 %br
 %h2 Your Courses
 %br
-- if @user.courses.empty?
+- if @user.type == "Professor" && @user.courses.empty?
   %p
     %i You do not appear to have any courses at the moment. How nice.
 - else
@@ -28,12 +28,13 @@
         .js-vertical-tab-content.vertical-tab-content{id: "tab#{index}"}
           %p= course.description
 
-- if @user.evals.empty?
+- if @user.type == "Professor" && @user.evals.empty?
   %p
     %i You do not appear to have any ongoing evaluations at the moment. How nice.
 - else
   Your Evaluations:
-  - @user.evals.each do |eval|
-    %ul
-      %li
-        = link_to eval.title, eval_path(eval)
+  - if @user.type == "Professor"
+    - @user.evals.each do |eval|
+      %ul
+        %li
+          = link_to eval.title, eval_path(eval)
