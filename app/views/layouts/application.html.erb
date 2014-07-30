@@ -24,11 +24,9 @@
   </div>
   <div class="top-right-log-in">
     <% if current_user %>
-  Logged in as <%= current_user.email %>.
-  <%= link_to "Log out", logout_path %>
-<% else %>
-  <%= link_to "Log in", login_path %>
-<% end %>
+    Hey, <%= current_user.email %>.
+    <%= link_to "Log out", logout_path %>
+    <% end %>
   </div>
 </header>
 <div class="new">

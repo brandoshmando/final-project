@@ -260,6 +260,13 @@ body {
   margin-bottom: 3em;
 }
 
+.login {
+  @include outer-container;
+  text-align: left;
+  margin-bottom: 3em;
+  max-width: em(500);
+}
+
 #sidenav {
     width: 60px;
     height: 100%;
@@ -481,15 +488,15 @@ body {
     }
   }
 }
-.avatar-frame{border: 3px solid #2DD959;}
+.avatar-frame{border: 3px solid white;}
 .avatar-frame,.avatar-frame img{
   width: 120px;
   height: 120px;
   -webkit-border-radius: 60px; /* Saf3+, Chrome */
   border-radius: 60px; /* Opera 10.5, IE 9 */
-  -moz-box-shadow: 0 0 10px #65FF6E;
-  -webkit-box-shadow: 0 0 10px #65FF6E;
-  box-shadow: 0px 0px 10px #65FF6E;
+  -moz-box-shadow: 0 0 2px #333333;
+  -webkit-box-shadow: 0 0 2px #333333;
+  box-shadow: 0px 0px 2px #333333;
 }
 
 .current-user-avatar-avatar,.current-user-avatar-avatar img{
