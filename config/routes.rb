@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :rosters, only:[:new, :create, :show, :edit, :update, :destroy], shallow: true
   end
 
-  resources :users, only: [:show, :edit, :update, :destroy] do
+  resources :users, only: [:show, :edit, :update, :destroy, :new, :create] do
     member do
       get :activate
       put :confirm

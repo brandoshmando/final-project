@@ -23,8 +23,23 @@ class UsersController < ApplicationController
     end
   end
 
+  def new
+    @user = User.new
+    course_id = params[:course_id]
+    type = params[:type]
+  end
+
   def create
     @user = User.new(user_params)
+    @user.type = params[:type]
+    @user.course_ids = [params[:course_ids]]
+
+    if @user.save
+      redirect_to user_path(current_user), notice:"Email to #{@user.first_name} has been sent!"
+    else
+      flash.now[:alert] = "Email was not sent..."
+      redirect_to user_path(current_user)
+    end
   end
 
   def show
