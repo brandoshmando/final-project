@@ -8,7 +8,7 @@ class Course < ActiveRecord::Base
 
   def average_score
     score_counter = 0
-    self.grades.each do |grades|
+    self.grades.each do |grade|
       score_counter += grade.final_score
     end
     score_counter / self.students.count

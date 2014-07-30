@@ -2,6 +2,7 @@ class Roster < ActiveRecord::Base
   belongs_to :course
   has_many :evals, through: :course
   has_many :students, dependent: :destroy
+  has_many :grades, through: :students
   accepts_nested_attributes_for :students
 
   def as_csv
@@ -17,5 +18,13 @@ class Roster < ActiveRecord::Base
         csv << attributes
       end
     end
+  end
+
+  def average_score
+    score_counter = 0
+    self.grades.each do |grade|
+      score_counter += grade.final_score.to_f
+    end
+    (score_counter / self.students.count).to_s
   end
 end

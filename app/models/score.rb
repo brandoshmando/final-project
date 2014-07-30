@@ -6,6 +6,6 @@ class Score < ActiveRecord::Base
   before_save :db_score_format
 
   def db_score_format
-    self.score = (self.max_score.to_f * 100).to_s
+    self.score = (self.score.to_f * 100).to_s
   end
 end

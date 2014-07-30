@@ -17,8 +17,8 @@
       - if index == 0
         =link_to roster.section_name, "#", class: "js-vertical-tab-accordion-heading vertical-tab-accordion-heading is-active", rel: "tab#{index}"
         .js-vertical-tab-content.vertical-tab-content{id: "tab#{index}"}
-          %p Average Score
+          %p=format_score(roster.average_score)
       - else
         =link_to roster.section_name, "#", class: "js-vertical-tab-accordion-heading vertical-tab-accordion-heading", rel: "tab#{index}"
-      .js-vertical-tab-content.vertical-tab-content{id: "tab#{index}"}
-        %p Average %Score
+        .js-vertical-tab-content.vertical-tab-content{id: "tab#{index}"}
+          %p=format_score(roster.average_score)
