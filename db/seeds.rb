@@ -36,7 +36,7 @@ puts "Creating Categories..."
   end
   cat = Category.create
   cat.title = Faker::Commerce.product_name
-  cat.max_score = rand(50)
+  cat.max_score = rand(50).to_s
   cat.eval_id = @counter
   cat.save
 end

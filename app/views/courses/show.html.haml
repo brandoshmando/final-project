@@ -1,5 +1,24 @@
 .new
   %h1= @course.name
   %p
-    %strong Course Description:
+    %strong Course Descriptions:
     = @course.description
+
+
+.vertical-tabs-container
+  .vertical-tabs
+    - @course.rosters.each.with_index do |roster, index|
+      - if index == 0
+        =link_to roster.section_name, "#", class: "js-vertical-tab vertical-tab is-active", rel: "tab#{index}"
+      - else
+        =link_to roster.section_name, "#", class: "js-vertical-tab vertical-tab", rel: "tab#{index}"
+  .vertical-tab-content-container
+    - @course.rosters.each.with_index do |roster, index|
+      - if index == 0
+        =link_to roster.section_name, "#", class: "js-vertical-tab-accordion-heading vertical-tab-accordion-heading is-active", rel: "tab#{index}"
+        .js-vertical-tab-content.vertical-tab-content{id: "tab#{index}"}
+          %p Average Score
+      - else
+        =link_to roster.section_name, "#", class: "js-vertical-tab-accordion-heading vertical-tab-accordion-heading", rel: "tab#{index}"
+      .js-vertical-tab-content.vertical-tab-content{id: "tab#{index}"}
+        %p Average %Score

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'user_sessions#new'
+
   resources :courses, only: [:new, :create, :show, :edit, :update, :destroy], shallow: true do
     resources :rosters, only:[:new, :create, :show, :edit, :update, :destroy], shallow: true
   end
