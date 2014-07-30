@@ -41,10 +41,16 @@
             <%= image_tag current_user.avatar.url(:thumb) %>
             </div>
             </div>
+            <% else %>
+            <div class="current-user-avatar-nav">
+            <div class="current-user-avatar-avatar">
+            <img src="/assets/doctor.png" alt="">
+            </div>
+            </div>
+            <% end %>
             <div class="current-user-avatar-name">
             <span><%= current_user.first_name %></span>
             </div>
-          <% end %>
         <% end %>
     </li>
     </div>
@@ -87,7 +93,7 @@
 <% else %>
   <%= link_to "Log in", login_path %>.
 <% end %>
-<%= debug(params) if Rails.env.development? %>
+
 </div>
 </body>
 </html>
