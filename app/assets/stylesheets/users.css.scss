@@ -291,6 +291,9 @@ body {
     -ms-transition-timing-function: ease-in-out;
     -o-transition-timing-function: ease-in-out;
     transition-timing-function: ease-in-out;
+    -moz-box-shadow: 0 0 3px #333333;
+    -webkit-box-shadow: 0 0 3px #333333;
+    box-shadow: 0px 0px 3px #333333;
 }
 
 @media only screen and (max-width: 767px) {
@@ -345,7 +348,7 @@ body {
   position: absolute;
   top: 17px;
   left: 57px;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 16px;
 }
 @media screen and (min-width: 430px) {
@@ -361,6 +364,9 @@ body {
 }
 #sidenav:hover {
   width: 170px;
+  -moz-box-shadow: 0 0 3px #333333;
+  -webkit-box-shadow: 0 0 3px #333333;
+  box-shadow: 0px 0px 3px #333333;
 }
 #sidenav:hover span {
   display: inline;
@@ -397,7 +403,7 @@ body {
   $tab-content-background: lighten($tab-border-color, 10);
   $tab-active-color: $tab-content-background;
   $tab-inactive-color: white;
-  $vertical-tabs-height: em(300);
+  $vertical-tabs-height: em(400);
   $vertical-tab-mode: $medium-screen;
 
   @include clearfix;
@@ -516,7 +522,7 @@ body {
 }
 
 .current-user-avatar-name {
-  color: white;
+  color: #28384B;
   font-size: 1.5em;
   position: absolute;
   top: 3px;
@@ -622,4 +628,19 @@ body {
   right: 60px;
   font-size: .9em;
   font-family: "ratio", sans-serif;
+}
+
+.avatar-main-container {
+  @include outer-container;
+  overflow: hidden;
+}
+
+.avatar-picture-container {
+  @include span-columns(3);
+  float: left;
+}
+
+.avatar-name-container {
+  @include span-columns(10);
+  overflow: hidden;
 }

@@ -1,7 +1,10 @@
-%h1 #{@user.first_name}
-= @user.type
-- if @user.avatar?
-  = image_tag @user.avatar.url(:medium), class: "avatar-frame"
+.avatar-main-container
+  .avatar-picture-container
+  - if @user.avatar?
+    = image_tag @user.avatar.url(:medium), class: "avatar-frame"
+  .avatar-name-container
+    %h1 #{@user.first_name} #{@user.last_name}
+    = @user.type
 %br
 %br
 %h2 Your Courses
