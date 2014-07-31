@@ -28,14 +28,23 @@ class Roster < ActiveRecord::Base
     (score_counter / self.students.count).to_s
   end
 #Determines the average score on a particular eval
-def average_eval_score(eval)
-  grades = self.grades.where("eval_id = ?", eval.id)
-  if grades.empty?
-    "No grades for this eval yet"
-  else
-    (grades.reduce(0) {|sum, grade| sum += grade.final_score.to_i; sum} / grades.count).to_f / 100
+  def average_eval_score(eval)
+    grades = self.grades.where("eval_id = ?", eval.id)
+    if grades.empty?
+      "No grades for this eval yet"
+    else
+      (grades.reduce(0) {|sum, grade| sum += grade.final_score.to_i; sum} / grades.count).to_f / 100
+    end
   end
-end
+#Returns an array of grades on a particular eval for each student within a roster
+  def eval_grades(eval)
+    eval_grades = Grades.where("eval_id = ?", eval.id)
+    desc_scores = []
+    eval_grades.each do |grade|
+      desc_scores << grade.final_score.to_f
+    end
+    desc_scores.sort! {|x,y| y <=> x }
+  end
 #Returns a collection of a roster's scores and sorts them from lowest to highest
   def roster_descending_scores
     roster_scores_array = []
