@@ -4,7 +4,7 @@ class Grade < ActiveRecord::Base
   has_many :scores
   accepts_nested_attributes_for :scores
   before_save :total, :db_score_format
-  after_save :update_student_total_score
+  # after_save :update_student_total_score
 
 #Method that totals all of a grades scores which determines a grade's final score
   def total

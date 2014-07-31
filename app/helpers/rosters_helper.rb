@@ -7,5 +7,13 @@ module RostersHelper
    return (1..24).to_a
   end
 
+  def link_or_grade(student, eval_id)
+    container = student.grades.where("eval_id = ?", eval_id)
+    if container[0] && container[0].final_score
+      format_score(container[0].final_score)
+    else
+      link_to "Grade", new_student_grade_path(student, eval_id: eval_id)
+    end
+  end
 
 end
