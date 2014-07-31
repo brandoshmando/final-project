@@ -1,6 +1,5 @@
 .field
   .nested-fields
     .field.comment
-      = f.label :description, "Comment:"
       = f.text_field :description, :placeholder => "Nice work!"
-    =link_to_remove_association "remove comment", f
+    =link_to_remove_association " ", f, class: "icon-minus"

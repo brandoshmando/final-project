@@ -7,8 +7,8 @@
 }
 
 .title {
-  @include span-columns(7);
-  margin-right: 7em;
+  @include span-columns(8);
+  margin-right: 1em;
 }
 
 .score {
@@ -21,6 +21,10 @@
 
 .comment {
   @include span-columns(7);
+}
+
+.bottom {
+  margin-bottom: 4em;
 }
 
 .remove {
