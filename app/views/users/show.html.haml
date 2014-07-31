@@ -1,14 +1,15 @@
 .avatar-main-container
-  .avatar-picture-container
   - if @user.avatar?
     = image_tag @user.avatar.url(:medium), class: "avatar-frame"
   .avatar-name-container
-    %h1 #{@user.first_name} #{@user.last_name}
-    = @user.type
+    %br
+    %h2 #{@user.first_name} #{@user.last_name}
+    %h6 #{@user.type}
+  .exit-container
+    %i.icon-plus  &nbsp;
+    %i.icon-exit
 %br
-%br
-%h2 Your Courses
-%br
+%h1 Courses
 - if @user.type == "Professor" && @user.courses.empty?
   %p
     %i You do not appear to have any courses at the moment. How nice.
@@ -30,12 +31,11 @@
           =link_to course.name, "#", class: "js-vertical-tab-accordion-heading vertical-tab-accordion-heading", rel: "tab#{index}"
         .js-vertical-tab-content.vertical-tab-content{id: "tab#{index}"}
           %p= course.description
-
+%h1 Evaluations
 - if @user.type == "Professor" && @user.evals.empty?
   %p
     %i You do not appear to have any ongoing evaluations at the moment. How nice.
 - else
-  Your Evaluations:
   - if @user.type == "Professor"
     - @user.evals.each do |eval|
       %ul
