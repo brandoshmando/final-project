@@ -132,7 +132,7 @@ cite {
 }
 .icon-minus:before {
   content: "\e602";
-  clear: both;
+  display: inline-block;
 }
 .icon-plus:before {
   content: "\e606";

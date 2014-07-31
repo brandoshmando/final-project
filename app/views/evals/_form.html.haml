@@ -7,7 +7,6 @@
     = f.label :template
     = f.select :template, [['Rubric', 'rubric'], ['Scheme', 'scheme']]
   %br
-  %h1 Categories
   .links
     = link_to_add_association '+ Add a Category', f, :categories, { :"data-association-insertion-node" => '#tasks', :"data-association-insertion-method" => 'append' }
   #tasks
