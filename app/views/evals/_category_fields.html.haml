@@ -1,13 +1,13 @@
 .nested-fields
   %ul
-    .field
+    .field.title
       = f.label :category
       %br
-      = f.text_field :title
-    .field
+      = f.text_field :title, :placeholder => "Limits of Sine and Cosine"
+    .field.score
       = f.label :score
-      = f.number_field :max_score, step: "any"
-    = link_to_remove_association "remove category", f
+      = f.number_field :max_score, step: "any", :placeholder => 100
+      = link_to_remove_association "remove category", f
     #masks
       = f.fields_for :comments do |comment|
         = render 'comment_fields', :f => comment

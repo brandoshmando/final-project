@@ -8,5 +8,17 @@
 
 .title {
   @include span-columns(7);
-  margin-right: 11em;
+  margin-right: 7em;
+}
+
+.score {
+  @include span-columns(3);
+}
+
+.minus {
+  @include span-columns(2);
+}
+
+.comment {
+  @include span-columns(7)
 }
