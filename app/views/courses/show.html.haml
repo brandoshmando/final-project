@@ -5,9 +5,17 @@
     = @course.description
   %hr/
 %h2 Sections
-=render 'section_tab_box'
+-if @course.rosters.empty?
+  %p
+    %i You dont have any sections for this course yet. #{link_to "Add one!", new_course_roster_path(@course)}
+-else
+  =render 'section_tab_box'
 %h2 TA's
-%small= link_to "Add TA", new_user_path(course_ids: @course.id)
+-if @course.assistants.empty?
+  %p
+    %i This course does not have any TA's yet. #{link_to "Add one!", new_user_path(course_ids: @course.id)}
+-else
+  %small= link_to "Add TA", new_user_path(course_ids: @course.id)
 =render @course.assistants
 
 
