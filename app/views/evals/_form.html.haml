@@ -9,7 +9,7 @@
   %br
   %h1 Categories
   .links
-    = link_to_add_association 'add category', f, :categories, { :"data-association-insertion-node" => '#tasks', :"data-association-insertion-method" => 'append' }
+    = link_to_add_association '+ Add a Category', f, :categories, { :"data-association-insertion-node" => '#tasks', :"data-association-insertion-method" => 'append' }
   #tasks
     = f.fields_for :categories do |category|
       = render 'category_fields', :f => category   

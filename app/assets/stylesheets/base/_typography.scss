@@ -132,14 +132,15 @@ cite {
 }
 .icon-minus:before {
   content: "\e602";
+  clear: both;
 }
 .icon-plus:before {
   content: "\e606";
+  color: #2DD959;
 }
 .icon-exit:before {
   content: "\e607";
 }
-
 .field.comment {
   margin-left: 4em;
 }

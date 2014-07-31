@@ -12,7 +12,8 @@
 }
 
 .score {
-  @include span-columns(3);
+  width: 70px;
+  display: inline-block;
 }
 
 .minus {
@@ -24,7 +25,8 @@
 }
 
 .bottom {
-  margin-bottom: 4em;
+  margin-bottom: 2em;
+  clear: both;
 }
 
 .remove {
