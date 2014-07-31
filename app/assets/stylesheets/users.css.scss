@@ -1083,3 +1083,7 @@ body {
   font-weight: bold;
   font: sans-serif;
 }
+
+.name {
+  @include span-columns(5.86);
+}

@@ -1,23 +1,25 @@
 .new
-  %h1 Evaluations
+  .avatar-name-container
+    %h1 Evaluations
   - if can? :create, @eval
-    = link_to "New", new_eval_path(@article)
-  %h1 Evaluations
-  - if current_user.type == "Professor" && current_user.evals.empty?
-    %p
-      %i You do not appear to have any ongoing evaluations at the moment. How nice.
-  - else
-    - if current_user.type == "Professor"   
-      %table.table-minimal
-        %thead
-          %tr
-            %th Title
-            %th Created At
-            %th Template Type
-        %tbody
-        - current_user.evals.each do |eval|
-          %tr
-            %td
-              = link_to eval.title, eval_path(eval)
-            %td #{eval.created_at.to_time.strftime('%B %e at %l:%M %p')}
-            %td #{eval.template}
+    .exit-container-plus
+      = link_to new_eval_path do
+        %i.icon-plus
+- if current_user.type == "Professor" && current_user.evals.empty?
+  %p
+    %i You do not appear to have any ongoing evaluations at the moment. How nice.
+- else
+  - if current_user.type == "Professor"   
+    %table.table-minimal
+      %thead
+        %tr
+          %th Title
+          %th Created At
+          %th Template Type
+      %tbody
+      - current_user.evals.each do |eval|
+        %tr
+          %td
+            = link_to eval.title, eval_path(eval)
+          %td #{eval.created_at.to_time.strftime('%B %e at %l:%M %p')}
+          %td #{eval.template}
