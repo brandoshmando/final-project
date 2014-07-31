@@ -1,1 +1,21 @@
-%h1 Hello World!
+.new
+  .exit-container-plus
+    = link_to new_course_path do
+      %i.icon-plus
+  %h1 Courses
+- if current_user.type == "Professor" && current_user.courses.empty?
+  %p
+    %i You do not appear to have any ongoing courses at the moment. How nice.
+- else
+  - if current_user.type == "Professor"   
+    %table.table-minimal
+      %thead
+        %tr
+          %th Course Title
+          %th Created At
+      %tbody
+      - current_user.courses.each do |course|
+        %tr
+          %td
+            = link_to course.name, course_path(course)
+          %td #{course.created_at.to_time.strftime('%B %e at %l:%M %p')}

@@ -11,7 +11,6 @@
         = f.number_field :max_score, step: "any", :placeholder => 100
     = link_to_remove_association " ", f, class: "icon-minus"
 #masks.bottom
-  = f.label :comments, id: "argh"
   = f.fields_for :comments do |comment|
     .comment-container
       = render 'comment_fields', :f => comment

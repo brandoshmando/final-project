@@ -53,4 +53,8 @@ $(document).on('page:load ready', function(){
     $(".js-vertical-tab[rel^='"+accordion_activeTab+"']").addClass("is-active");
   });
 
+  $('#tasks').on('cocoon:before-insert', function(e, category) {
+    category.fadeIn('slow');
+  });
+
 });
