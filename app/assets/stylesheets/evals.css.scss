@@ -20,5 +20,9 @@
 }
 
 .comment {
-  @include span-columns(7)
+  @include span-columns(7);
+}
+
+.remove {
+  margin-top: 20px;
 }

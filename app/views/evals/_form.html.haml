@@ -2,19 +2,15 @@
 = form_for @eval do |f|
   .field.title
     = f.label :title
-    %br
     = f.text_field :title, :placeholder => "MAT 135: Single Variable Calculus"
   .field.template
     = f.label :template
-    %br
     = f.select :template, [['Rubric', 'rubric'], ['Scheme', 'scheme']]
   %br
-  %h3 Categories
+  %h1 Categories
   #tasks
     = f.fields_for :categories do |category|
       = render 'category_fields', :f => category
     .links
       = link_to_add_association 'add category', f, :categories
-      %br
-      %br
   = f.submit

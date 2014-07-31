@@ -2,7 +2,6 @@
   %ul
     .field.title
       = f.label :category
-      %br
       = f.text_field :title, :placeholder => "Limits of Sine and Cosine"
     .field.score
       = f.label :score
@@ -13,5 +12,3 @@
         = render 'comment_fields', :f => comment
       .links
         = link_to_add_association "add comment", f, :comments
-        %br
-        %br
