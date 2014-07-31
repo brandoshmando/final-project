@@ -1,11 +1,9 @@
-.nested-fields
-  .field
-    %p=category.title
-    = f.hidden_field :category_id, value: category.id
-    -if @eval
-      = f.label :score, "#{format_score(category.max_score)}"
-    -else
-      = f.label :score, "#{category.max_score}"
-    = f.number_field :score, min: 0, max: format_score(category.max_score), step:"any", value: f.object.score
-  .comments
-    = f.collection_check_boxes(:comment_ids, category.comments, :id, :description)
+%p=category.title
+= f.hidden_field :category_id, value: category.id
+-if @eval
+  = f.label :score, "#{format_score(category.max_score)}"
+-else
+  = f.label :score, "#{category.max_score}"
+= f.number_field :score, min: 0, max: format_score(category.max_score), step:"any", value: f.object.score
+.comments
+  = f.collection_check_boxes(:comment_ids, category.comments, :id, :description, :class => "checkboxes")

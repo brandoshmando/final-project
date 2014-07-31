@@ -12,6 +12,7 @@
  *
  *= require_self
  *= require animate
+ *= require jquery-ui
  */
 
 @import "bourbon";
@@ -21,4 +22,5 @@
 @import "evals";
 @import "courses";
 @import "rosters";
+@import "grades";
 

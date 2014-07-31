@@ -12,11 +12,19 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require turbolinks
 //= require cocoon
 //= require_tree .
 
 $(document).on('page:load ready', function(){
+  // All logic for grade form starts here
+  $('input[type=checkbox]').hide();
+  $('input[type=checkbox]').toggle()
+  $('.comments').hide();
+  $('.categories').on('click', function(){
+    var children = $(this).find('.comments').toggle('fold');
+  });
 
   $(".js-vertical-tab-content").hide();
   $(".js-vertical-tab-content:first").show();
