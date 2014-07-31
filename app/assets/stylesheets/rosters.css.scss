@@ -7,7 +7,7 @@
   $table-stripe-color: darken($table-background, 4);
   $table-stripe-color-hover: darken($table-stripe-color, 5);
   $table-padding: 0.5em;
-  width: 100%;
+  max-width: 100%;
   max-height: 20em;
   overflow: auto;
   border-collapse: separate;
