@@ -6,7 +6,8 @@
     %h2 #{@user.first_name} #{@user.last_name}
     %h6 #{@user.type}
   .exit-container-plus
-    %i.icon-plus  &nbsp;
+    = link_to new_eval_path do
+      %i.icon-plus  &nbsp;
     %i.icon-exit
 %br
 %h1 Courses
