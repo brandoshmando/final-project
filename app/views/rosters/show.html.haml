@@ -11,7 +11,17 @@
       =@roster.location
 
   = link_to "Export Roster", export_roster_path
+/Evals accordion
+%ul.accordion-tabs
+  -@roster.evals.each do |eval|
+    %li.tab-header-and-content
+      =link_to eval.title, "#", class: "is-active tab-link"
+      .tab-content
+        %p= @roster.average_eval_score(eval)
 
+
+
+/Roster table
 %table.table-minimal
   %thead
     %tr
