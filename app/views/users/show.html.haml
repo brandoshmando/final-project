@@ -33,12 +33,12 @@
         .js-vertical-tab-content.vertical-tab-content{id: "tab#{index}"}
           %p= course.description
 %h1 Evaluations
-- if @user.type == "Professor" && @user.evals.empty?
+- if current_user.type == "Professor" && current_user.evals.empty?
   %p
     %i You do not appear to have any ongoing evaluations at the moment. How nice.
 - else
-  - if @user.type == "Professor"
-    - @user.evals.each do |eval|
+  - if current_user.type == "Professor"
+    - current_user.evals.each do |eval|
       %ul
         %li
           = link_to eval.title, eval_path(eval)
