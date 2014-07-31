@@ -16,7 +16,7 @@
   %p
     Score:
   - @eval.categories.each do |category|
-    = category.max_score
+    = format_score(category.max_score)
   %br
   %br
   %p

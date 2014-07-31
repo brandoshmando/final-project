@@ -81,7 +81,7 @@
       <% end %>
     </li>
     <li class="nav-docs">
-      <%= link_to user_path(current_user), {controller: "users", action: "show"}, class: "is active" do %>
+      <%= link_to new_user_path, {controller: "users", action: "show"}, class: "is active" do %>
         <i class="icon-users">
         </i>
         <span>TAs</span>
