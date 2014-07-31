@@ -11,36 +11,38 @@
       =@roster.location
 
   = link_to "Export Roster", export_roster_path
+
+/Roster table
+%h3 Students
+.scrolling-table
+  %table.table-minimal
+    %thead
+      %tr
+        %th Name
+        %th Email Address
+        %th Uid
+        - @roster.evals.each do |eval|
+          %th= link_to "#{eval.title}", eval_path(eval)
+        %th Total Score
+
+
+    %tbody
+      -@roster.students.each do |student|
+        %tr
+          %td= first_last(student)
+          %td= student.email
+          %td= student.uid
+          -student.evals.each do |eval|
+            %td= link_or_grade(student, eval.id)
+          %td= format_score(student.total_score)
 /Evals accordion
+%h3 Evaluations
 %ul.accordion-tabs
   -@roster.evals.each do |eval|
     %li.tab-header-and-content
       =link_to eval.title, "#", class: "is-active tab-link"
       .tab-content
         %p= @roster.average_eval_score(eval)
-
-
-
-/Roster table
-%table.table-minimal
-  %thead
-    %tr
-      %th Name
-      %th Email Address
-      %th Uid
-      - @roster.evals.each do |eval|
-        %th= link_to "#{eval.title}", eval_path(eval)
-      %th Total Score
-
-  %tbody
-    -@roster.students.each do |student|
-      %tr
-        %td= first_last(student)
-        %td= student.email
-        %td= student.uid
-        -student.evals.each do |eval|
-          %td= link_or_grade(student, eval.id)
-        %td= format_score(student.total_score)
 
 
 
