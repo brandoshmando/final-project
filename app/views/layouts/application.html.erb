@@ -67,14 +67,14 @@
       <% end %>
     </li>
     <li class="nav-catalog">
-      <%= link_to user_path(current_user), {controller: "users", action: "show"}, class: "is active" do %>
+      <%= link_to new_course_path, {controller: "courses", action: "show"}, class: "is active" do %>
         <i class="icon-notebook">
         </i>
         <span>Courses</span>
       <% end %>
     </li>
     <li class="nav-forum">
-      <%= link_to user_path(current_user), {controller: "users", action: "show"}, class: "is active" do %>
+      <%= link_to evals_path, {controller: "evals", action: "show"}, class: "is active" do %>
         <i class="icon-paste">
         </i>
         <span>Evaluations</span>
