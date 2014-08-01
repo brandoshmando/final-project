@@ -3,19 +3,18 @@
   %p
     %strong Course Descriptions:
     = @course.description
+  %p= link_to "Edit this course", edit_course_path(@course)
   %hr/
 %h2 Sections
 -if @course.rosters.empty?
   %p
-    %i You dont have any sections for this course yet. #{link_to "Add one!", new_course_roster_path(@course)}
+    %i You don't have any sections for this course yet. #{link_to "Add one!", new_course_roster_path(@course)}
 -else
   =render 'section_tab_box'
 %h2 TA's
 -if @course.assistants.empty?
   %p
-    %i This course does not have any TA's yet. #{link_to "Add one!", new_user_path(course_ids: @course.id)}
+    %i You don't have any Teaching Assistants for this course yet. #{link_to "Add one!", new_user_path(course_ids: @course.id)}
 -else
   %small= link_to "Add TA", new_user_path(course_ids: @course.id)
 =render @course.assistants
-
-

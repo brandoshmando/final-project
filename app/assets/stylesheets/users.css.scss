@@ -834,7 +834,7 @@ body {
   $tab-content-background: lighten($tab-border-color, 10);
   $tab-active-color: $tab-content-background;
   $tab-inactive-color: white;
-  $vertical-tabs-height: em(400);
+  $vertical-tabs-height: em(300);
   $vertical-tab-mode: $medium-screen;
 
   @include clearfix;
@@ -1082,4 +1082,66 @@ body {
   left: 2px;
   font-weight: bold;
   font: sans-serif;
+}
+
+.name {
+  @include span-columns(5.86);
+}
+
+.tooltip-item {
+  $tooltip-background: white;
+  $tooltip-color: $base-font-color;
+  $tooltip-width: 10em;
+  $tooltip-arrow-width: 8px;
+  $tooltip-shadow: 0 2px 2px silver;
+  $tooltip-distance-from-item: 140%;
+  $tooltip-arrow-distance-from-box: -$tooltip-arrow-width * 3.4;
+
+  padding: .5em 1em;
+  border-radius: $base-border-radius;
+  position: relative;
+  margin-bottom: $base-line-height;
+
+  &:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .tooltip {
+    @include position(absolute, 0 0 0 40%);
+    @include box-sizing(border-box);
+    @include transition (all 0.2s ease-in-out);
+    bottom: $tooltip-distance-from-item;
+    background-color: $tooltip-background;
+    border-radius: $base-border-radius;
+    color: $tooltip-color;
+    font-size: .6em; 
+// Make sure you use -webkit-backface-visibility: hidden; on the body element to prevent 1px nudging bugs.
+    line-height: 1em;
+    margin-left: -($tooltip-width/2);
+    opacity: 0;
+    padding: 1em;
+    box-shadow: $tooltip-shadow;
+    text-align: center;
+    visibility: hidden;
+    min-width: $tooltip-width;
+    z-index: 10;
+    font-family: $sans-serif;
+
+    p {
+      margin-bottom: 0;
+    }
+
+    &:after {
+      @include position(absolute, 0 0 0 46%);
+      margin-left: -$tooltip-arrow-width;
+      border: $tooltip-arrow-width solid transparent;
+      color: $tooltip-background;
+      content: '▼';
+      text-shadow: $tooltip-shadow;
+      font-size: 2em;
+      pointer-events: none;
+      bottom: $tooltip-arrow-distance-from-box;
+    }
+  }
 }

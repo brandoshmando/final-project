@@ -9,9 +9,10 @@
         = f.number_field :max_score, step: "any", :value =>format_score(f.object.max_score)
       - else
         = f.number_field :max_score, step: "any", :placeholder => 100
-      = link_to_remove_association "remove category", f
-    #masks
-      = f.fields_for :comments do |comment|
-        = render 'comment_fields', :f => comment
-      .links
-        = link_to_add_association "add comment", f, :comments
+    = link_to_remove_association " ", f, class: "icon-minus"
+#masks.bottom
+  = f.fields_for :comments do |comment|
+    .comment-container
+      = render 'comment_fields', :f => comment
+  .links.bottom#argh
+    = link_to_add_association "+ Add a Comment", f, :comments

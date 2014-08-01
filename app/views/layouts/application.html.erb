@@ -67,7 +67,7 @@
       <% end %>
     </li>
     <li class="nav-catalog">
-      <%= link_to new_course_path, {controller: "courses", action: "show"}, class: "is active" do %>
+      <%= link_to courses_path, {controller: "courses", action: "show"}, class: "is active" do %>
         <i class="icon-notebook">
         </i>
         <span>Courses</span>
@@ -85,6 +85,13 @@
         <i class="icon-users">
         </i>
         <span>TAs</span>
+      <% end %>
+    </li>
+    <li class="nav-docs">
+      <%= link_to edit_user_path(current_user), {controller: "users", action: "edit"}, class: "is active" do %>
+        <i class="icon-cog">
+        </i>
+        <span>Settings</span>
       <% end %>
     </li>
   </ul>
