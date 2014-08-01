@@ -20,10 +20,10 @@
 $(document).on('page:load ready', function(){
   // All logic for grade form starts here
   $('input[type=checkbox]').hide();
-  $('input[type=checkbox]').toggle()
+
   $('.comments').hide();
   $('.categories').on('click', function(){
-    var children = $(this).find('.comments').toggle('fold');
+    $(this).next().toggle('fold');
   });
 
   $(".js-vertical-tab-content").hide();

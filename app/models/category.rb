@@ -1,6 +1,6 @@
 class Category < ActiveRecord::Base
   has_many :comments
-  has_many :grades
+  has_many :scores
   belongs_to :eval, touch: true
   accepts_nested_attributes_for :comments, :allow_destroy => true
   before_save :db_score_format

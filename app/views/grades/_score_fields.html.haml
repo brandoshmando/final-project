@@ -5,5 +5,4 @@
 -else
   = f.label :score, "#{category.max_score}"
 = f.number_field :score, min: 0, max: format_score(category.max_score), step:"any", value: f.object.score
-.comments
-  = f.collection_check_boxes(:comment_ids, category.comments, :id, :description, :class => "checkboxes")
+
