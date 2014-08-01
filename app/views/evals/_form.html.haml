@@ -7,7 +7,7 @@
     = f.label :template
     = f.select :template, [['Rubric', 'rubric'], ['Scheme', 'scheme']]
   .field.template
-    = f.label :course_ids
+    = f.label :course
     = f.select :course_ids, options_from_collection_for_select(current_user.courses, :id, :name)
   %br
   .links

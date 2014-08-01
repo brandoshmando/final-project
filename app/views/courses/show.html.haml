@@ -3,11 +3,10 @@
   %p
     %strong Course Descriptions:
     = @course.description
+  %p= link_to "Edit this course", edit_course_path(@course)
   %hr/
 %h2 Sections
 =render 'section_tab_box'
 %h2 TA's
 %small= link_to "Add TA", new_user_path(course_ids: @course.id)
 =render @course.assistants
-
-
