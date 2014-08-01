@@ -8,7 +8,9 @@
     %h6= link_to "Edit My Account", edit_user_path
   .exit-container-plus
     = link_to new_eval_path do
-      %i.icon-plus
+      %i.icon-plus.tooltip-item
+        .tooltip
+          Create Evaluation
 %br
 %h1 Courses
 - if @user.type == "Professor" && @user.courses.empty?

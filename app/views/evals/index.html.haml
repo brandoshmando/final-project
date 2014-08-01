@@ -4,7 +4,9 @@
   - if can? :create, @eval
     .exit-container-plus
       = link_to new_eval_path do
-        %i.icon-plus
+        %i.icon-plus.tooltip-item
+          .tooltip
+            Create Evaluation
 - if current_user.type == "Professor" && current_user.evals.empty?
   %p
     %i You do not appear to have any ongoing evaluations at the moment. How nice.
