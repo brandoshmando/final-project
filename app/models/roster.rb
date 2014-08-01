@@ -14,7 +14,7 @@ class Roster < ActiveRecord::Base
       csv << column_names
       students.each do |student|
         attributes = student.attributes.values_at(*(Student.column_names - excluded_names))
-        student.grades.order(title: :asc).each {|grade| attributes << (grade.final_score.nil? ? "NA" : grade.final_score) }
+        student.grades.order(title: :asc).each {|grade| attributes << (grade.final_score.nil? ? "NA" : grade.final_score.to_f/100)}
         csv << attributes
       end
     end

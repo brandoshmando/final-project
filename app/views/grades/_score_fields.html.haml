@@ -4,6 +4,6 @@
   -if @eval
     = f.label :score, "#{format_score(category.max_score)}"
   -else
-    = f.label :score, "#{category.max_score}"
-  = f.number_field :score, min: 0, max: format_score(category.max_score), step:"any", value: f.object.score
+    = f.label :score, "#{format_score(category.max_score)}"
+  = f.number_field :score, min: 0, max: format_score(category.max_score), step:"any", value: format_score(f.object.score)
 

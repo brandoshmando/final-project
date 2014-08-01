@@ -88,6 +88,7 @@ $(document).on('page:load ready', function(){
     } else {
       event.preventDefault();
     }
+  });
 
   $('#tasks').on('cocoon:before-insert', function(e, category) {
     category.fadeIn('slow');

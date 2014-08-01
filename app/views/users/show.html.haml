@@ -15,7 +15,7 @@
 %h1 Courses
 - if @user.type == "Professor" && @user.courses.empty?
   %p
-    %i You do not appear to have any courses at the moment. How nice.
+    %i You do not appear to have any courses at the moment. How nice. #{link_to "Start here!", new_course_path }
 - else
   .vertical-tabs-container
     .vertical-tabs
@@ -49,7 +49,7 @@
   %p
     %i You do not appear to have any ongoing evaluations at the moment. How nice.
 - else
-  - if current_user.type == "Professor"   
+  - if current_user.type == "Professor"
     %table.table-minimal
       %thead
         %tr
