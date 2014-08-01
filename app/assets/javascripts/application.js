@@ -12,11 +12,30 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require turbolinks
 //= require cocoon
 //= require_tree .
 
 $(document).on('page:load ready', function(){
+  // All logic for grade form starts here
+  $('input[type=checkbox]').hide();
+
+  //   $('label').on('click', function(){
+  //   if ($(this).prev().is(':checked')){
+  //     $(this).css({border:"1px solid black"});
+  //   };
+  // });
+  // $('label').on('click', function(){
+  //   $(this).css({border:"1px solid black"}), function(){
+  //     $(this).css({border:"none"})
+  //   };
+  // });
+
+  $('.comments').hide();
+  $('.categories').on('click', function(){
+    $(this).next().toggle('fold');
+  });
 
   $(".js-vertical-tab-content").hide();
   $(".js-vertical-tab-content:first").show();

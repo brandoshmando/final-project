@@ -4,8 +4,10 @@
     = f.hidden_field :eval_id, value: @eval.id
     = f.hidden_field :template, value: @eval.template
     = f.hidden_field :max_score, value: format_score(@eval.max_score)
-  %h3 Categories
-  #scores
-    = f.fields_for :scores do |score_fields|
+
+  = f.fields_for :scores do |score_fields|
+    .categories
       = render :partial =>"score_fields", :locals => {:f => score_fields, :category => score_fields.object.category }
+    .comments
+      = score_fields.collection_check_boxes(:comment_ids, score_fields.object.category.comments, :id, :description, :class => "checkboxes")
   =f.submit
