@@ -28,10 +28,13 @@
           =link_to course.name, "#", class: "js-vertical-tab-accordion-heading vertical-tab-accordion-heading is-active", rel: "tab#{index}"
           .js-vertical-tab-content.vertical-tab-content{id: "tab#{index}"}
             %p= course.description
+            = link_to "View", course_path(course)
+            = link_to "Edit", edit_course_path(course)
         - else
           =link_to course.name, "#", class: "js-vertical-tab-accordion-heading vertical-tab-accordion-heading", rel: "tab#{index}"
         .js-vertical-tab-content.vertical-tab-content{id: "tab#{index}"}
           %p= course.description
+          %p= link_to "View", course_path(course)
 %h1 Evaluations
 - if current_user.type == "Professor" && current_user.evals.empty?
   %p

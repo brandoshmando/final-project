@@ -48,6 +48,6 @@ class EvalsController < ApplicationController
 
 private
   def eval_params
-    params.require(:eval).permit(:title, :template, categories_attributes: [:title, :max_score, :id, :_destroy, comments_attributes: [:description, :id, :_destroy]])
+    params.require(:eval).permit(:title, :template, :course_ids, categories_attributes: [:title, :max_score, :id, :_destroy, comments_attributes: [:description, :id, :_destroy]])
   end
 end
