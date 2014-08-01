@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update, :destroy, :new, :create] do
     member do
       get :activate
-      put :confirm
+      patch :confirm
     end
   end
 
