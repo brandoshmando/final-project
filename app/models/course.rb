@@ -15,12 +15,13 @@ class Course < ActiveRecord::Base
   end
 
   def scores
-    self.students.map do |student|
+    scores = self.students.map do |student|
       if student.total_score.nil?
         0
       else
         student.total_score.to_f / 100
       end
     end
+    scores.sort
   end
 end
