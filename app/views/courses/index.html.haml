@@ -5,7 +5,6 @@
         .tooltip
           Add a Course
   %h1 Courses
-  =link_to "Add Course", new_course_path
 - if current_user.type == "Professor" && current_user.courses.empty?
   %p
     %i You do not appear to have any ongoing courses at the moment. How nice.
