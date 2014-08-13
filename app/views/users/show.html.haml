@@ -29,21 +29,11 @@
         - if index == 0
           =link_to course.name, "#", class: "js-vertical-tab-accordion-heading vertical-tab-accordion-heading is-active", rel: "tab#{index}"
           .js-vertical-tab-content.vertical-tab-content{id: "tab#{index}"}
-            %p= course.description
-            - course.evals.each do |eval|
-              %li= link_to eval.title, eval_path(eval)
-            %br
-            = link_to "View", course_path(course)
-            = link_to "Edit", edit_course_path(course)
+            = render partial: 'course_chart', locals: {course: course}
         - else
           =link_to course.name, "#", class: "js-vertical-tab-accordion-heading vertical-tab-accordion-heading", rel: "tab#{index}"
         .js-vertical-tab-content.vertical-tab-content{id: "tab#{index}"}
-          %p= course.description
-          - course.evals.each do |eval|
-            %li= link_to eval.title, eval_path(eval)
-          %br
-          = link_to "View", course_path(course)
-          = link_to "Edit", edit_course_path(course)
+          = render partial: 'course_chart', locals: {course: course}
 %h1 Evaluations
 - if current_user.type == "Professor" && current_user.evals.empty?
   %p

@@ -13,4 +13,14 @@ class Course < ActiveRecord::Base
     end
     score_counter / self.students.count
   end
+
+
+  def eval_grades(eval)
+    eval_grades = Grades.where("eval_id = ?", eval.id)
+    desc_scores = []
+    eval_grades.each do |grade|
+      desc_scores << grade.final_score.to_f
+    end
+    desc_scores.sort! {|x,y| y <=> x }
+  end
 end
