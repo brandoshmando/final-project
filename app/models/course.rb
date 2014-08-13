@@ -14,13 +14,13 @@ class Course < ActiveRecord::Base
     score_counter / self.students.count
   end
 
-
-  def eval_grades(eval)
-    eval_grades = Grades.where("eval_id = ?", eval.id)
-    desc_scores = []
-    eval_grades.each do |grade|
-      desc_scores << grade.final_score.to_f
+  def scores
+    self.students.map do |student|
+      if student.total_score.nil?
+        0
+      else
+        student.total_score.to_f / 100
+      end
     end
-    desc_scores.sort! {|x,y| y <=> x }
   end
 end
