@@ -1,1 +1,1 @@
-= content_tag 'div', class: "course-chart", data: { student_points: course.scores }
+= content_tag 'div', class: "course-chart", data: { student_points: course.scores.to_json, possible_points: course.possible_points.to_json }

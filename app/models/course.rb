@@ -9,11 +9,11 @@ class Course < ActiveRecord::Base
   def average_score
     score_counter = 0
     self.grades.each do |grade|
-      score_counter += grade.final_score
+      score_counter += grade.final_score.to_f
     end
-    score_counter / self.students.count
+    (score_counter / self.students.count) / 100
   end
-
+#Method returns an array of scores for every student in said course
   def scores
     scores = self.students.map do |student|
       if student.total_score.nil?
@@ -23,5 +23,9 @@ class Course < ActiveRecord::Base
       end
     end
     scores.sort
+  end
+#Method returns total possible points within a course
+  def possible_points
+    (self.evals.reduce(0) {|sum, eval| sum += eval.max_score.to_i; sum}.to_f) /100
   end
 end
