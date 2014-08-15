@@ -29,19 +29,19 @@ $(document).on('page:laod ready', function(){
 
     // Graph
     var graph = new AmCharts.AmGraph();
-    graph.yfield = "vaue1";
+    graph.yfield = "value1";
     graph.xfield = "x";
     chart.addGraph(graph)
 
     // Call function to populate chart
-    generateData(studentPoints);
+    generateData(studentPoints, chart);
 
     //Write
     chart.write("chart" + i)
 
   }
 
-  function generateData(studentPoints){
+  function generateData(studentPoints, chart){
     console.log("called")
     var dataProvider = [];
     for (var i=0; i < studentPoints.length; i++){
