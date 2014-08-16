@@ -15,8 +15,6 @@
 //= require jquery-ui
 //= require turbolinks
 //= require cocoon
-//= require amcharts
-//= require xy
 //= require_tree .
 
 $(document).on('page:load ready', function(){
