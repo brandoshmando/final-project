@@ -13,18 +13,18 @@ $(document).on('page:laod ready', function(){
       chart.dataProvider = []
       chart.autoMarginOffset = 0;
 
-      // X Axis
-      var xAxis = new AmCharts.ValueAxis();
-      xAxis.position = "bottom";
-      xAxis.maximum = studentPoints.length;
-      chart.addValueAxis(xAxis);
-
       // Y Axis
       var yAxis = new AmCharts.ValueAxis();
       yAxis.position = "left";
-      yAxis.maximum = JSON.parse(course.dataset.possiblePoints);
-      yAxis.autoGridCount = true;
+      yAxis.maximum = studentPoints.length;
       chart.addValueAxis(yAxis);
+
+      // X Axis
+      var xAxis = new AmCharts.ValueAxis();
+      xAxis.position = "bottom";
+      xAxis.maximum = JSON.parse(course.dataset.possiblePoints);
+      xAxis.autoGridCount = true;
+      chart.addValueAxis(xAxis);
 
       // Graph
       var graph = new AmCharts.AmGraph();
@@ -44,7 +44,7 @@ $(document).on('page:laod ready', function(){
       console.log("called")
       var dataProvider = [];
       for (var i=0; i < studentPoints.length; i++){
-      dataProvider.push({x:i, value1: studentPoints[i]})
+      dataProvider.push({x:studentPoints[i], value1:i })
       }
       console.log(dataProvider)
       chart.dataProvider = dataProvider;
