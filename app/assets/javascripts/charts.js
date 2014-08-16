@@ -30,7 +30,6 @@ $(document).on('page:laod ready', function(){
       var graph = new AmCharts.AmGraph();
       graph.yField = "value1";
       graph.xField = "x";
-      graph.lineAlpha = 0;
       chart.addGraph(graph)
 
       // Call function to populate chart
@@ -47,6 +46,7 @@ $(document).on('page:laod ready', function(){
       for (var i=0; i < studentPoints.length; i++){
       dataProvider.push({x:i, value1: studentPoints[i]})
       }
+      console.log(dataProvider)
       chart.dataProvider = dataProvider;
       chart.validateNow();
     };
