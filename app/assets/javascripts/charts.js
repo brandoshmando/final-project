@@ -15,6 +15,11 @@ $(document).on('page:laod ready', function(){
 
       //Define X Axis (Category Field)
       chart.categoryField = 'x'
+
+      //Define Category Axis attributes
+      chart.categoryAxis.minorGridEnabled = true;
+      chart.categoryAxis.minorGridAlpha = 0.1;
+
       // Graph
       var graph = new AmCharts.AmGraph();
       graph.valueField = "y";
@@ -23,6 +28,12 @@ $(document).on('page:laod ready', function(){
 
       // Call function to populate chart
       generateData(studentPoints, chart);
+
+      //Add Chart cursor
+      var chartCursor = new AmCharts.ChartCursor();
+      chartCursor.zoomable = false;
+      chartCursor.position = "middle"
+      chart.addChartCursor(chartCursor);
 
       //Write
       chart.write("chart" + i)
