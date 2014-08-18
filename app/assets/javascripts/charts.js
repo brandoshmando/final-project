@@ -22,14 +22,15 @@ $(document).on('page:laod ready', function(){
       // X Axis
       var xAxis = new AmCharts.ValueAxis();
       xAxis.position = "bottom";
-      xAxis.maximum = JSON.parse(course.dataset.possiblePoints);
+      // xAxis.maximum = JSON.parse(course.dataset.possiblePoints);
       xAxis.autoGridCount = true;
       chart.addValueAxis(xAxis);
 
       // Graph
       var graph = new AmCharts.AmGraph();
-      graph.yField = "value1";
+      graph.yField = "y";
       graph.xField = "x";
+      // graph.type = smoothedLine;
       chart.addGraph(graph)
 
       // Call function to populate chart
@@ -44,7 +45,7 @@ $(document).on('page:laod ready', function(){
       console.log("called")
       var dataProvider = [];
       for (var i=0; i < studentPoints.length; i++){
-      dataProvider.push({x:studentPoints[i], value1:i })
+      dataProvider.push({x:i, y:studentPoints[i] })
       }
       console.log(dataProvider)
       chart.dataProvider = dataProvider;
