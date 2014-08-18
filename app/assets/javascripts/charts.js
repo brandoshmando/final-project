@@ -8,29 +8,17 @@ $(document).on('page:laod ready', function(){
       course = courses[i]
       var studentPoints = JSON.parse(course.dataset.studentPoints)
       console.log(studentPoints)
-      var chart = new AmCharts.AmXYChart();
+      var chart = new AmCharts.AmSerialChart();
       chart.autoMargins = true
       chart.dataProvider = []
       chart.autoMarginOffset = 0;
 
-      // Y Axis
-      var yAxis = new AmCharts.ValueAxis();
-      yAxis.position = "left";
-      yAxis.maximum = studentPoints.length;
-      chart.addValueAxis(yAxis);
-
-      // X Axis
-      var xAxis = new AmCharts.ValueAxis();
-      xAxis.position = "bottom";
-      // xAxis.maximum = JSON.parse(course.dataset.possiblePoints);
-      xAxis.autoGridCount = true;
-      chart.addValueAxis(xAxis);
-
+      //Define X Axis (Category Field)
+      chart.categoryField = 'x'
       // Graph
       var graph = new AmCharts.AmGraph();
-      graph.yField = "y";
-      graph.xField = "x";
-      // graph.type = smoothedLine;
+      graph.valueField = "y";
+      graph.type = "smoothedLine";
       chart.addGraph(graph)
 
       // Call function to populate chart
