@@ -23,7 +23,7 @@
         - if index == 0
           =link_to course.name, "#", class: "js-vertical-tab vertical-tab is-active", rel: "tab#{index}", data: { index: "#{index}"}
         - else
-          =link_to course.name, "#", class: "js-vertical-tab vertical-tab", rel: "tab#{index}"
+          =link_to course.name, "#", class: "js-vertical-tab vertical-tab", rel: "tab#{index}", data: { index: "#{index}"}
     .vertical-tab-content-container
       - @user.courses.each.with_index do |course, index|
         - if index == 0
