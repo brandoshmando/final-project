@@ -13,8 +13,7 @@ $(document).on('page:laod ready', function(){
       chart.dataProvider = []
       chart.autoMarginOffset = 0;
       chart.theme = "none"
-      chart.handdrawn = true;
-      chart.handdrawnScatter = 3;
+
 
       //Define X Axis (Category Field)
       chart.categoryField = 'x'
@@ -22,6 +21,7 @@ $(document).on('page:laod ready', function(){
       //Define Category Axis attributes
       chart.categoryAxis.minorGridEnabled = true;
       chart.categoryAxis.minorGridAlpha = 0.1;
+      chart.categoryAxis.axisColor = '#28384B'
 
       // Graph
       var graph = new AmCharts.AmGraph();
@@ -31,6 +31,8 @@ $(document).on('page:laod ready', function(){
       graph.lineAlpha = 0.2;
       graph.balloonColor = '#2ED959'
       graph.fillColors = '#2ED959'
+
+
       chart.addGraph(graph)
 
       // Call function to populate chart
@@ -39,14 +41,15 @@ $(document).on('page:laod ready', function(){
       //Chart Styling
       chart.gridAboveGraphs = true;
       chart.startDuration = 1;
-      chart.categoryAxis.gridAlpha = 0
+      chart.categoryAxis.gridAlpha = 0;
+      chart.categoryAxis.title = "Percentile";
 
       //Add Chart cursor
       var chartCursor = new AmCharts.ChartCursor();
       chartCursor.zoomable = false;
       chartCursor.alpha = 0.9;
       chartCursor.cursorColor = '#28384B'
-      chartCursor.chartBalloonEnabled = false;
+      chartCursor.categoryBalloonEnabled = false;
       chart.addChartCursor(chartCursor);
 
       //Write
@@ -58,7 +61,7 @@ $(document).on('page:laod ready', function(){
       console.log("called")
       var dataProvider = [];
       for (var i=0; i < studentPoints.length; i++){
-      dataProvider.push({x:i + 1, y:studentPoints[i] })
+      dataProvider.push({x:((i + 1) * 10) + "th", y:studentPoints[i] })
       }
       console.log(dataProvider)
       chart.dataProvider = dataProvider;
