@@ -119,7 +119,7 @@ $(document).on('page:load ready', function(){
   $(".js-vertical-tab").click(function(event) {
     event.preventDefault();
     var index = $(this).data('index')
-    generateChart(index);
+
 
     $(".js-vertical-tab-content").hide();
     var activeTab = $(this).attr("rel");
@@ -130,6 +130,7 @@ $(document).on('page:load ready', function(){
 
     $(".js-vertical-tab-accordion-heading").removeClass("is-active");
     $(".js-vertical-tab-accordion-heading[rel^='"+activeTab+"']").addClass("is-active");
+    generateChart(index);
   });
 
   /* if in accordion mode */
