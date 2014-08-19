@@ -44,6 +44,8 @@ $(document).on('page:load ready', function(){
 
   $(".js-vertical-tab").click(function(event) {
     event.preventDefault();
+    var index = JSON.parse($(this).data('index'))
+    console.log(index)
 
     $(".js-vertical-tab-content").hide();
     var activeTab = $(this).attr("rel");

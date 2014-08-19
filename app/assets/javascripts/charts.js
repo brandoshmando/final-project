@@ -3,9 +3,9 @@ $(document).on('page:laod ready', function(){
 
   var courses = $('.course-chart');
   var course;
-  AmCharts.ready(function(){
-    for (var i=0; i < courses.length; i++){
-      course = courses[i]
+  function generateChart(index) {
+    AmCharts.ready(function(){
+      course = courses[index]
       var studentPoints = JSON.parse(course.dataset.studentPoints)
       console.log(studentPoints)
       var chart = new AmCharts.AmSerialChart();
@@ -55,17 +55,18 @@ $(document).on('page:laod ready', function(){
       //Write
       chart.write("chart" + i)
 
-    }
 
-    function generateData(studentPoints, chart){
-      console.log("called")
-      var dataProvider = [];
-      for (var i=0; i < studentPoints.length; i++){
-      dataProvider.push({x:((i + 1) * 10) + "th", y:studentPoints[i] })
-      }
-      console.log(dataProvider)
-      chart.dataProvider = dataProvider;
-      chart.validateNow();
-    };
-  });
+
+      function generateData(studentPoints){
+        console.log("called")
+        var dataProvider = [];
+        for (var i=0; i < studentPoints.length; i++){
+        dataProvider.push({x:((i + 1) * 10) + "th", y:studentPoints[i] })
+        }
+        console.log(dataProvider)
+        chart.dataProvider = dataProvider;
+        chart.validateNow();
+      };
+    });
+  };
 })
