@@ -12,6 +12,9 @@ $(document).on('page:laod ready', function(){
       chart.autoMargins = true
       chart.dataProvider = []
       chart.autoMarginOffset = 0;
+      chart.theme = "none"
+      chart.handdrawn = true;
+      chart.handdrawnScatter = 3;
 
       //Define X Axis (Category Field)
       chart.categoryField = 'x'
@@ -23,16 +26,30 @@ $(document).on('page:laod ready', function(){
       // Graph
       var graph = new AmCharts.AmGraph();
       graph.valueField = "y";
-      graph.type = "smoothedLine";
+      graph.type = "column";
+      graph.fillAlphas = 0.8;
+      graph.lineAlpha = 0.2;
+      graph.balloonColor = '#2ED959'
+      graph.fillColors = '#2ED959'
       chart.addGraph(graph)
 
       // Call function to populate chart
       generateData(studentPoints, chart);
+      //Chart / Graph Styling
+      chart.gridAboveGraphs = true;
+      chart.startDuration = 1;
+      chart.categoryAxis.gridAlpha = 0
+      // chart.valueAxes.gridAlpha = 0.2;
+      // chart.valueAxes.dashLength = 0;
+      chart.valueAxes.gridColor = "#FFFFFF";
+
+
 
       //Add Chart cursor
       var chartCursor = new AmCharts.ChartCursor();
       chartCursor.zoomable = false;
-      chartCursor.position = "middle"
+      chartCursor.alpha = 9;
+      chartCursor.chartBalloonEnabled = false
       chart.addChartCursor(chartCursor);
 
       //Write
@@ -44,7 +61,7 @@ $(document).on('page:laod ready', function(){
       console.log("called")
       var dataProvider = [];
       for (var i=0; i < studentPoints.length; i++){
-      dataProvider.push({x:i, y:studentPoints[i] })
+      dataProvider.push({x:i + 1, y:studentPoints[i] })
       }
       console.log(dataProvider)
       chart.dataProvider = dataProvider;
