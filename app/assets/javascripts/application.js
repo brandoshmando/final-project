@@ -18,10 +18,14 @@
 //= require_tree .
 
 $(document).on('page:load ready', function(){
-  var courses = $('.course-chart');
-  var course;
-  function generateChart(index) {
+  AmCharts.ready(function(){
+    generateChart(0);
+  });
 
+
+  function generateChart(index) {
+    var courses = $('.course-chart');
+    var course;
     // AmCharts.ready(function(){
 
       course = courses[index]
