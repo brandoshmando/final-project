@@ -35,21 +35,18 @@ $(document).on('page:laod ready', function(){
 
       // Call function to populate chart
       generateData(studentPoints, chart);
-      //Chart / Graph Styling
+
+      //Chart Styling
       chart.gridAboveGraphs = true;
       chart.startDuration = 1;
       chart.categoryAxis.gridAlpha = 0
-      // chart.valueAxes.gridAlpha = 0.2;
-      // chart.valueAxes.dashLength = 0;
-      chart.valueAxes.gridColor = "#FFFFFF";
-
-
 
       //Add Chart cursor
       var chartCursor = new AmCharts.ChartCursor();
       chartCursor.zoomable = false;
-      chartCursor.alpha = 9;
-      chartCursor.chartBalloonEnabled = false
+      chartCursor.alpha = 0.9;
+      chartCursor.cursorColor = '#28384B'
+      chartCursor.chartBalloonEnabled = false;
       chart.addChartCursor(chartCursor);
 
       //Write
