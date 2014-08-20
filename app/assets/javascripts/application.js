@@ -18,9 +18,11 @@
 //= require_tree .
 
 $(document).on('page:load ready', function(){
-  AmCharts.ready(function(){
-    generateChart(0);
-  });
+  if ($('.course-chart').length > 0){
+    AmCharts.ready(function(){
+      generateChart(0);
+    });
+  };
 
 
   function generateChart(index) {
