@@ -2,7 +2,7 @@
 = form_for @eval do |f|
   .field.title
     = f.label :title
-    = f.text_field :title, :placeholder => "MAT 135: Single Variable Calculus"
+    = f.text_field :title, :placeholder => "Add a title..."
   .field.template
     = f.label :template
     = f.select :template, [['Rubric', 'rubric'], ['Scheme', 'scheme']]
@@ -14,5 +14,5 @@
     = link_to_add_association '+ Add a Category', f, :categories, { :"data-association-insertion-node" => '#tasks', :"data-association-insertion-method" => 'append' }
   #tasks
     = f.fields_for :categories do |category|
-      = render 'category_fields', :f => category   
+      = render 'category_fields', :f => category
   = f.submit
