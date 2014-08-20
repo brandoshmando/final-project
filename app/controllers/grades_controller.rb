@@ -34,7 +34,7 @@ class GradesController < ApplicationController
     @grade.update(grades_params)
 
     if @grade.save
-      redirect_to @grade, notice: "Changes to #{@grade.student.first_name}'s grade were svaed!"
+      redirect_to roster_path(@grade.student.roster), notice: "Changes to #{@grade.student.first_name}'s grade were svaed!"
     else
       flash.now[:alert] = "Changes were not saved..."
       render :edit

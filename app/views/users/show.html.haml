@@ -13,19 +13,19 @@
           Create Evaluation
 %br
 %h1 Courses
-- if @user.type == "Professor" && @user.courses.empty?
+- if @user.type == "Professor" && @user_courses.empty?
   %p
     %i You do not appear to have any courses at the moment. How nice. #{link_to "Start here!", new_course_path }
 - else
   .vertical-tabs-container
     .vertical-tabs
-      - @user.courses.each.with_index do |course, index|
+      - @user_courses.each.with_index do |course, index|
         - if index == 0
           =link_to course.name, "#", class: "js-vertical-tab vertical-tab is-active", rel: "tab#{index}", data: { index: "#{index}"}
         - else
           =link_to course.name, "#", class: "js-vertical-tab vertical-tab", rel: "tab#{index}", data: { index: "#{index}"}
     .vertical-tab-content-container
-      - @user.courses.each.with_index do |course, index|
+      - @user_courses.each.with_index do |course, index|
         - if index == 0
           =link_to course.name, "#", class: "js-vertical-tab-accordion-heading vertical-tab-accordion-heading is-active", rel: "tab#{index}"
           .js-vertical-tab-content.vertical-tab-content{id: "tab#{index}"}

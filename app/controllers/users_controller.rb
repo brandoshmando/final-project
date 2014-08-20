@@ -41,6 +41,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @user_courses = @user.courses.limit(6)
   end
 
   def edit
