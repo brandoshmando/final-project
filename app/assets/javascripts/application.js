@@ -173,16 +173,4 @@ $(document).on('page:load ready', function(){
   $('#tasks').on('cocoon:before-insert', function(e, category) {
     category.fadeIn('slow');
   });
-
-  $('#tasks').children('.nested-fields').on('cocoon:before-remove', function(){
-    console.log('Me too!');
-    category.siblings().filter(':eq(2)').remove();
-  });
-
-  // $('#tasks').children('.nested-fields').find('.icon-minus').click(function(){
-  //   console.log('called');
-  //   var thisParent = $(this).parents('.nested-fields');
-  //   thisParent.siblings().filter(':eq(2)').remove();
-  // });
-
 });

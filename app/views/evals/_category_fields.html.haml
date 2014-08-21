@@ -10,9 +10,9 @@
       - else
         = f.number_field :max_score, step: "any", :placeholder => 100
     = link_to_remove_association " ", f, class: "icon-minus"
-#masks.bottom
-  = f.fields_for :comments do |comment|
-    .comment-container
-      = render 'comment_fields', :f => comment
-  .links.bottom#argh
-    = link_to_add_association "+ Add a Comment", f, :comments
+  #masks.bottom
+    = f.fields_for :comments do |comment|
+      .comment-container
+        = render 'comment_fields', :f => comment
+    .links.bottom#argh
+      = link_to_add_association "+ Add a Comment", f, :comments
