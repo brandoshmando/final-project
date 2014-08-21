@@ -17,6 +17,7 @@
 //= require cocoon
 //= require_tree .
 
+
 $(document).on('page:load ready', function(){
   if ($('.course-chart').length > 0){
     AmCharts.ready(function(){
@@ -177,7 +178,6 @@ $(document).on('page:load ready', function(){
     console.log('called');
     var thisParent = $(this).parents('.nested-fields');
     thisParent.siblings().filter(':eq(2)').remove();
-    thisParent.remove();
   });
 
 });
