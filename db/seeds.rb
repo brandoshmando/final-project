@@ -63,7 +63,7 @@ puts "---140 students created---"
 puts
 puts "Creating categories..."
 @counter = 1
-36.times do |i|
+6.times do |i|
   if i % 2 == 0 && i !=0
     @counter += 1
   end
@@ -76,7 +76,7 @@ end
 puts
 puts "Creating Comments..."
 @counter = 1
-62.times do |i|
+12.times do |i|
   if i % 2 == 0 && i != 0
     @counter += 1
   end
@@ -84,16 +84,34 @@ puts "Creating Comments..."
 end
 puts
 puts "Creating Evals..."
-@counter = 1
-18.times do |i|
-  if i % 3 == 0 && i != 0
-    @counter += 1
-  end
-  eval = Eval.create(title: "Eval #{[i + 1]}" , professor_id: 1)
-  eval.courses << Course.find(@counter)
+3.times do |i|
+  eval = Eval.create(title: "Eval #{[i + 1]}" , professor_id: 1, template:"scheme")
+  eval.courses << Course.all
   eval.save
 end
+puts "Creating scores for grades..."
+puts
+@counter = 1
+840.times do |i|
+  if i % 2 == 0 && i != 0
+    @counter += 1
+  end
+  if i % 20 == 0 && i != 0
+    puts "#---{i} scores created---"
+  end
+  score = Score.create(score: rand(50), grade_id: @counter)
+  score.categories << @counter
+end
+puts
+puts "Creating grades..."
 
+140.times do |i|
+  3.times do |ii|
+    Grade.create(title: Eval.find(ii + 1).title, template: "scheme", user_id: 2, student_id: i, eval_id:ii)
+  end
+end
+puts
+puts"Database creation complete!"
 # psuts "Creating Professors..."
 # 10.times do |i|
 #   name = Faker::Name.name.split(' ')
