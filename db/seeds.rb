@@ -22,8 +22,10 @@ names = [ "Calculus 1060", "Marketing 1010", "Advertising 4360", "Finance with D
 assistant = Assistant.first
 6.times do |i|
   course = Course.create(name: names[i], description:Faker::Lorem.paragraph(1), professor_id: 1)
-  course.assistants << assistant
-  course.save
+  unless course.id == 2
+    course.assistants << assistant
+    course.save
+  end
 end
 puts
 puts "Creating rosters..."
