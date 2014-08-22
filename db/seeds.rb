@@ -98,7 +98,7 @@ puts
     @counter = 0
   end
   @counter += 1
-  if @score_counter % 30 == 0 && @score_counter != 0
+  if i % 30 == 0 && i != 0
     puts "---#{@score_counter} scores created---"
     @score_counter += 1
   end
