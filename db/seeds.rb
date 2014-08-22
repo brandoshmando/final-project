@@ -1,9 +1,27 @@
 
 puts "Database Creation Initialized"
-puts "Creating Allesia..."
-Professor.create(first_name:"Alessia", last_name:"Bellisario", email:"alessia@example.com", password:"blah")
-# puts "Creating Brandon..."
-# Professor.create(first_name:"Brandon", last_name:"Craft", email:"brancraft@gmail.com", password:"blah")
+puts
+puts "---Destroying all previous records"
+Professor.destroy_all
+Assistant.destroy_all
+Course.destroy_all
+Eval.destroy_all
+Category.destroy_all
+Comment.destroy_all
+Roster.destroy_all
+Student.destroy_all
+Grade.destroy_all
+puts "Creating TA Allesia..."
+Assistant.create(first_name:"Alessia", last_name:"Bellisario", email:"alessia@example.com", password:"blah")
+puts
+puts "Creating Professor Brando..."
+Professor.create(first_name:"Brandon", last_name:"Craft", email:"brancraft@gmail.com", password:"blah")
+puts
+puts "Creating first course..."
+names = [ "Calculus 1060", "Marketing 1010", "Advertising 4360", "Finance with DogeCoin", "Accounting 3500", "Emerging Markets" ]
+6.times do |i|
+  Course.create(name: names[i], description:Faker::Lorem.paragraph(1), professor_id: 1)
+end
 # puts "Creating Professors..."
 # 10.times do |i|
 #   name = Faker::Name.name.split(' ')
