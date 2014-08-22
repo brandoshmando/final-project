@@ -20,7 +20,7 @@ class UserEmail < ActionMailer::Base
   def activation_success_email(user)
     @user = user
     @url ="http://0.0.0.0:3000/login"
-    mail to: user.email, subject: "#{user.name}, your account has been activated!"
+    mail to: user.email, subject: "#{user.first_name}, your account has been activated!"
   end
 
   def reset_password_email(user)

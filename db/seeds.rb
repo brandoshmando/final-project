@@ -1,10 +1,9 @@
 
 puts "Database Creation Initialized"
 puts "Creating Allesia..."
-
-Assistant.create(first_name:"Alessia", last_name:"Bellisario", email:"bellisario.alessia@gmail.com", password:"blah")
-puts "Creating Brandon..."
-Professor.create(first_name:"Brandon", last_name:"Craft", email:"brancraft@gmail.com", password:"blah")
+Professor.create(first_name:"Alessia", last_name:"Bellisario", email:"alessia@example.com", password:"blah")
+# puts "Creating Brandon..."
+# Professor.create(first_name:"Brandon", last_name:"Craft", email:"brancraft@gmail.com", password:"blah")
 # puts "Creating Professors..."
 # 10.times do |i|
 #   name = Faker::Name.name.split(' ')

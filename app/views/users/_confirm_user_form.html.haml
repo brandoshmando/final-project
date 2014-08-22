@@ -11,6 +11,6 @@
   .user-input
     = f.label :password_confirmation, "Password Minimum of Six Characters:"
     = f.password_field :password_confirmation
-    = f.hidden_field :activation_token, value: @token
+    = f.hidden_field :token, value: @token
   .submit-button
     = f.button

@@ -12,9 +12,10 @@ class UsersController < ApplicationController
   def confirm
     @token = params[:user][:token]
     if @user = User.load_from_activation_token(@token)
-      if @user.update_attributes(params[:user])
+      if @user.update_attributes(user_params)
         @user.activate!
-        redirect_to login_path, notice: "#{@user.first_name} was activated successfully!"
+        auto_login @user
+        redirect_to @user, notice: "#{@user.first_name} was activated successfully!"
       else
         render :activate
       end
@@ -65,6 +66,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :course_ids, :email, :password, :password_confirmation, :avatar, :remove_avatar)
+    params.require(:user).permit(:first_name, :last_name, :course_ids, :email, :password, :avatar, :remove_avatar, :activation_token)
   end
 end
