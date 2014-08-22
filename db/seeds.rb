@@ -12,15 +12,18 @@ Roster.destroy_all
 Student.destroy_all
 Grade.destroy_all
 puts "Creating TA Allesia..."
-Assistant.create(first_name:"Alessia", last_name:"Bellisario", email:"alessia@example.com", password:"blah")
+assistant = Assistant.create(first_name:"Alessia", last_name:"Bellisario", email:"alessia@example.com", password:"blah")
 puts
 puts "Creating Professor Brando..."
 Professor.create(first_name:"Brandon", last_name:"Craft", email:"brancraft@gmail.com", password:"blah")
 puts
 puts "Creating courses..."
 names = [ "Calculus 1060", "Marketing 1010", "Advertising 4360", "Finance with DogeCoin", "Accounting 3500", "Emerging Markets", "Business Ethics 1240" ]
+assistant = Assistant.first
 6.times do |i|
-  Course.create(name: names[i], description:Faker::Lorem.paragraph(1), professor_id: 1)
+  course = Course.create(name: names[i], description:Faker::Lorem.paragraph(1), professor_id: 1)
+  course.assistants << assistant
+  course.save
 end
 puts
 puts "Creating rosters..."
