@@ -6,8 +6,10 @@ class RostersController < ApplicationController
   end
 
   def create
-    @roster = @course.rosters.build(roster_params.except(:students_attributes))
+    @roster = @course.rosters.build(roster_params.except(:start_date, :end_date, :students_attributes))
 
+    @roster.start_date = Date.strptime(params[:roster][:start_date], "%m/%d/%Y")
+    @roster.end_date = Date.strptime(params[:roster][:end_date], "%m/%d/%Y")
     if @roster.save
       Student.import(roster_params[:students_attributes]["0"], @roster)
       redirect_to course_path(@roster.course.id)

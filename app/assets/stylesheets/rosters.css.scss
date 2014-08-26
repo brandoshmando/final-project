@@ -1,9 +1,24 @@
+.form {
+  margin: 0 auto;
+}
+#roster_location {
+  width: 20em;
+}
+#roster_section_name {
+  width: 20em;
+}
+
+.datepicker.hasDatepicker {
+  width: 100px;
+}
+
 .scrolling-table {
   width: 100%;
   max-height: 20em;
   display: inline-block;
   overflow: auto;
 }
+
 
 .table-minimalxyz {
   $table-border-color: $base-border-color;
