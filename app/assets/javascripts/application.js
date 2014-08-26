@@ -173,4 +173,6 @@ $(document).on('page:load ready', function(){
   $('#tasks').on('cocoon:before-insert', function(e, category) {
     category.fadeIn('slow');
   });
+
+$('.datepicker').datepicker();
 });

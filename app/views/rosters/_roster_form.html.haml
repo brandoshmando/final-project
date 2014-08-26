@@ -5,6 +5,12 @@
     = f.label :section_name, "Section Name:"
     = f.text_field :section_name
   .user-input
+    =f.label :start_date, "Start Date:"
+    =f.text_field :start_date, class: "datepicker"
+  .user-input
+    =f.label :start_date, "End Date:"
+    =f.text_field :end_date, class: "datepicker"
+  .user-input
     =f.label :meet_day, "Day:"
     =f.select :meet_day, days_of_week
   .user-input
