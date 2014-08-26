@@ -33,7 +33,7 @@ puts "Creating rosters..."
   ros = Roster.new
   ros.section_name = "First Section"
   ros.start_date = Time.strptime("08/20/2014", "%m/%d/%Y")
-  ros.end_date = Time.strptime("08/20/2014", "%m/%d/%Y")
+  ros.end_date = Time.strptime("08/20/2015", "%m/%d/%Y")
   ros.meet_time = rand(24)
   ros.meet_day = @days[rand(4)]
   ros.location = ["PLD 124", "OSH 206", "BUT 405", "HPER 125"][rand(3)]
