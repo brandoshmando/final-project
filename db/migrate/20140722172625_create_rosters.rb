@@ -7,8 +7,8 @@ class CreateRosters < ActiveRecord::Migration
       t.string :location
       t.integer :course_id
       t.string :status
-      t.time :start_date
-      t.time :end_date
+      t.date :start_date
+      t.date :end_date
       t.timestamps
     end
   end

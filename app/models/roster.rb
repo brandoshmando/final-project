@@ -4,6 +4,7 @@ class Roster < ActiveRecord::Base
   has_many :students, dependent: :destroy
   has_many :grades, through: :students
   accepts_nested_attributes_for :students
+  before_save :set_status
 
   def as_csv
     students = Student.where('roster_id = ?', id)
@@ -58,5 +59,10 @@ class Roster < ActiveRecord::Base
 #Determines a max score that this particlar section is out of
   def roster_max_score
     self.evals.reduce(0) {|sum, eval| sum + eval.max_score.to_f; sum }
+  end
+#Sets the current status of a roster to upcoming, active, or complete
+  def set_status
+    status = if Time.now
+    end
   end
 end
