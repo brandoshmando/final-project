@@ -20,7 +20,7 @@ puts "Creating courses..."
 names = [ "Calculus 1060", "Marketing 1010", "Advertising 4360", "Finance with DogeCoin", "Accounting 3500", "Emerging Markets", "Business Ethics 1240" ]
 assistant = Assistant.first
 6.times do |i|
-  course = Course.create(name: names[i], description:Faker::Lorem.paragraph(1), professor_id: 1)
+  course = Course.create(name: names[i], description:Faker::Lorem.paragraph(1), professor_id: 2)
   unless course.id == 2
     course.assistants << assistant
     course.save
@@ -30,8 +30,10 @@ puts
 puts "Creating rosters..."
 @days = %w[Mon Tues Wed Thurs Fri]
 6.times do |i|
-  ros = Roster.create
+  ros = Roster.new
   ros.section_name = "First Section"
+  ros.start_date = Time.strptime("08/20/2014", "%m/%d/%Y")
+  ros.end_date = Time.strptime("08/20/2014", "%m/%d/%Y")
   ros.meet_time = rand(24)
   ros.meet_day = @days[rand(4)]
   ros.location = ["PLD 124", "OSH 206", "BUT 405", "HPER 125"][rand(3)]
