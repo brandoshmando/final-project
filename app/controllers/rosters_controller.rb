@@ -10,7 +10,7 @@ class RostersController < ApplicationController
 
     @roster.start_date = Time.strptime(params[:roster][:start_date], "%m/%d/%Y")
     @roster.end_date = Time.strptime(params[:roster][:end_date], "%m/%d/%Y")
-    pry
+
     if @roster.save
       Student.import(roster_params[:students_attributes]["0"], @roster)
       redirect_to course_path(@roster.course.id)

@@ -62,7 +62,14 @@ class Roster < ActiveRecord::Base
   end
 #Sets the current status of a roster to upcoming, active, or complete
   def set_status
-    status = if Time.now
+    date = Time.now
+    status = if self.start_date <= date && self.end_date >= date
+      "active"
+    elsif self.start_date > date
+      "upcoming"
+    elsif self.end_date < date
+      "complete"
     end
+    self.status = status
   end
 end
