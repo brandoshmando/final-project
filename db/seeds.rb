@@ -89,30 +89,30 @@ puts "Creating Evals..."
   eval.courses << Course.all
   eval.save
 end
-puts "Creating scores for grades..."
-puts
-@counter = 0
-@score_counter = 0
-840.times do |i|
-  if @counter == 6
-    @counter = 0
-  end
-  @counter += 1
-  if i % 30 == 0 && i != 0
-    puts "---#{@score_counter} scores created---"
-    @score_counter += 1
-  end
-  score = Score.create(score: rand(50), grade_id: @score_counter)
-  score.comments << Comment.find(@counter)
-end
-puts
-puts "Creating grades..."
+# puts "Creating scores for grades..."
+# puts
+# @counter = 0
+# @score_counter = 0
+# 840.times do |i|
+#   if @counter == 6
+#     @counter = 0
+#   end
+#   @counter += 1
+#   if i % 30 == 0 && i != 0
+#     puts "---#{@score_counter} scores created---"
+#     @score_counter += 1
+#   end
+#   score = Score.create(score: rand(50), grade_id: @score_counter)
+#   score.comments << Comment.find(@counter)
+# end
+# puts
+# puts "Creating grades..."
 
-140.times do |i|
-  3.times do |ii|
-    Grade.create(title: Eval.find(ii + 1).title, template: "scheme", user_id: 2, student_id: i + 1, eval_id:ii + 1)
-  end
-end
+# 140.times do |i|
+#   3.times do |ii|
+#     Grade.create(title: Eval.find(ii + 1).title, template: "scheme", user_id: 2, student_id: i + 1, eval_id:ii + 1)
+#   end
+# end
 puts
 puts"Database creation complete!"
 # psuts "Creating Professors..."
