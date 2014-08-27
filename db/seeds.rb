@@ -86,8 +86,12 @@ end
 puts
 puts "Creating Evals..."
 3.times do |i|
-  eval = Eval.create(title: "Eval #{[i + 1]}" , professor_id: 1, template:"scheme")
+  eval = Eval.new(title: "Eval #{[i + 1]}" , professor_id: 2, template:"scheme")
   eval.courses << Course.all
+  eval.save
+end
+Eval.all.each do |eval|
+  eval.total
   eval.save
 end
 # puts "Creating scores for grades..."
