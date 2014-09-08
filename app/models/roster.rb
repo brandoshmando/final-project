@@ -1,5 +1,6 @@
 class Roster < ActiveRecord::Base
   belongs_to :course
+  has_one :professor, through: :course
   has_many :evals, through: :course
   has_many :students, dependent: :destroy
   has_many :grades, through: :students

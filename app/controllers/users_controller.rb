@@ -42,7 +42,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @user_courses = @user.courses.limit(6)
+    @active_courses = @user.rosters.includes(:course).where(('status = ?'), 'active').limit(6)
   end
 
   def edit

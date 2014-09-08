@@ -25,7 +25,7 @@ class Course < ActiveRecord::Base
         student.total_score.to_f / self.possible_points.to_f
       end
     end
-    puts scores.sort!
+    scores.sort!
 
     scores.each do |score|
       case score
