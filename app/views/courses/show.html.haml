@@ -17,4 +17,4 @@
     %i You don't have any Teaching Assistants for this course yet. #{link_to "Add one!", new_user_path(course_ids: @course.id)}
 -else
   %small= link_to "Add TA", new_user_path(course_ids: @course.id)
-=render @course.assistants
+= render @course.assistants
