@@ -3,7 +3,7 @@
     = roster.section_name
   .info-card-avg
     %p Average Score
-    = tag 'input', type: "text", class: 'avg-dial', id:"avg-#{roster_counter}", data: { max: (roster.course.possible_points / 100)}, value: "#{roster.average_score}"
-
-  = content_tag 'div', class: 'info-card-progress', id: "progress-#{roster_counter}", data: { val: roster.percent_complete} do
+    = tag 'input', type: "text", class: 'dial', id:"avg-#{roster_counter}", data: { max: (roster.course.possible_points / 100)}, value: "#{roster.average_score}"
+  .input-card-progress
     %p % Complete
+    = tag 'input', type: "text", class: 'dial', id: "progress-#{roster_counter}", value: "#{roster.percent_complete}"
