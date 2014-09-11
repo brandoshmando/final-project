@@ -10,12 +10,13 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= jquery_knob
+
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
 //= require turbolinks
 //= require cocoon
+//= require_tree ../../../vendor/assets/javascripts/.
 //= require_tree .
 
 
@@ -34,7 +35,7 @@ $(document).on('page:load ready', function(){
 
       course = courses[index]
       var studentPoints = JSON.parse(course.dataset.studentPoints)
-      console.log(studentPoints)
+      // console.log(studentPoints)
       var chart = new AmCharts.AmSerialChart();
       chart.autoMargins = true
       chart.dataProvider = []
@@ -85,12 +86,12 @@ $(document).on('page:load ready', function(){
 
 
       function generateData(studentPoints){
-        console.log("called")
+        // console.log("called")
         var dataProvider = [];
         for (var i=0; i < studentPoints.length; i++){
         dataProvider.push({x:((i + 1) * 10) + "th", y:studentPoints[i] })
         }
-        console.log(dataProvider)
+        // console.log(dataProvider)
         chart.dataProvider = dataProvider;
         chart.validateNow();
       };
