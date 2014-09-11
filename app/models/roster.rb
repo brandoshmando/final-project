@@ -23,12 +23,10 @@ class Roster < ActiveRecord::Base
   end
 # Determines the average score for a particular section of a class
   def average_score
-    score_counter = 0
-    self.grades.each do |grade|
-      score_counter += grade.final_score.to_f
-    end
-    unless score_counter == 0
-      (score_counter / self.students.count).to_s
+    score_total = self.grades.reduce(0) {|sum, grade| sum += grade.final_score.to_f; sum}
+
+    unless score_total == 0
+      (score_total / self.students.count) / 100
     end
   end
 #Determines the average score on a particular eval

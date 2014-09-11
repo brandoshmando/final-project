@@ -1,7 +1,7 @@
 .info-card
   .info-card-header
     = roster.section_name
-  .info-card-avg{id:"avg-#{roster_counter}"}
+  = content_tag 'div', class: 'info-card-avg', id:"avg-#{roster_counter}", data: { max: (roster.course.possible_points / 100), val: (roster.course.average_score) } do
     %p Average Score
-  .info-card-progress{id:"progress-#{roster_counter}"}
+  = content_tag 'div', class: 'info-card-progress', id: 'progress-#{roster_counter}', data: { val: roster.percent_complete}
     %p % Complete
