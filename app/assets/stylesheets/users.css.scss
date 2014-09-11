@@ -1177,8 +1177,17 @@ body {
   }
 
   .info-card-chart {
+    width: 50%;
+    postion: absolute;
+    float: left;
     padding: $base-line-height/2 $gutter/2;
     overflow: auto;
+    text-align: center;
+
+    p {
+      font-size: 0.8em;
+    }
+
   }
 
   &:hover {
