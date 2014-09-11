@@ -1145,7 +1145,27 @@ body {
     }
   }
 
-  .roster {
-    $card-border-color: red;
+
+  .info-card {
+    $ic-border-color: $base-border-color;
+    $ic-border: 1px solid $ic-border-color;
+    $ic-background: lighten($ic-border-color, 10);
+    $ic-header-background: $ic-border-color
+    $ic-hover-background: lighten($ic-border-color, 5);
+    $ic-chart-background: lighten($base-accent-color, 10)
+
+    @include transition (all 0.2s ease-in-out);
+    background-color: $ic-background;
+    border-radius: $base-border-radius;
+    border: $ic-border;
+    margin-bottom: $base-line-height;
+    box-shadow: 0 2px 4px darken($base-background-color, 10);
+    position: relative;
+
+    @include media($large-screen) {
+      @include span-columns(4);
+      @include omega(3n);
+    }
+
   }
 }

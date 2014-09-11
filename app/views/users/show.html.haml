@@ -12,7 +12,7 @@
         .tooltip
           Create Evaluation
 %br
-%h1 Active Courses
+%h1 Current Courses
 - if @user.type == "Professor" && @active_rosters.empty?
   %p
     %i You do not appear to have any courses at the moment. How nice. #{link_to "Start here!", new_course_path }
@@ -34,6 +34,6 @@
           =link_to roster.course.name, "#", class: "js-vertical-tab-accordion-heading vertical-tab-accordion-heading", rel: "tab#{index}"
           .js-vertical-tab-content.vertical-tab-content{id: "tab#{index}"}
             = render partial: 'course_chart', locals: {course: roster.course, index: index}
-%h1 Active Sections
+%h1 Current Sections
 .user-roster-cards
   = render @active_rosters
