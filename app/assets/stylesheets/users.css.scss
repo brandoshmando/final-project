@@ -1176,7 +1176,7 @@ body {
     padding: $base-line-height/3 $gutter/2;
   }
 
-  .info-card-chart {
+  .info-card-avg {
     width: 50%;
     postion: absolute;
     float: left;
@@ -1187,7 +1187,19 @@ body {
     p {
       font-size: 0.8em;
     }
+  }
 
+  .info-card-progress {
+    width: 50%;
+    postion: absolute;
+    float: left;
+    padding: $base-line-height/2 $gutter/2;
+    overflow: auto;
+    text-align: center;
+
+    p {
+      font-size: 0.8em;
+    }
   }
 
   &:hover {
