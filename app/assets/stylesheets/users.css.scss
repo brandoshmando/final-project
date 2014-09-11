@@ -1149,7 +1149,7 @@ body {
 .info-card {
   $ic-border-color: $base-border-color;
   $ic-border: 1px solid $ic-border-color;
-  $ic-background: lighten($ic-border-color, 10);
+  $ic-background: lighten($ic-border-color, 15);
   $ic-header-background: $ic-border-color;
   $ic-hover-background: lighten($ic-border-color, 5);
   $ic-chart-background: lighten($base-accent-color, 10);
@@ -1182,10 +1182,7 @@ body {
   }
 
   &:hover {
-    background-color: $ic-hover-background;
-
-    .info-card-header {
-      background-color: $ic-hover-background;
-    }
+    background-color: lighten($ic-hover-background, 10);
+    border: 1px solid #2DD959;
   }
 }
