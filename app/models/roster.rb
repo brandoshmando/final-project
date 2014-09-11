@@ -71,4 +71,15 @@ class Roster < ActiveRecord::Base
     end
     self.status = status
   end
+#Determines the percent of the course is complete for that
+#particular section based on the number of grade objects
+#for a course and the total number possible
+
+  def percent_complete
+    #Total the possible grade objects
+    possible_grades = self.evals.count * self.students.count
+    #Divide number of grades currently by possible_grades to get percentage
+    # Times one hundred to format for jQuery Knob
+    ((self.grades.count.to_f / possible_grades) * 100).to_i
+  end
 end
