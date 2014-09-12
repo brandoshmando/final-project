@@ -9,8 +9,9 @@ $(document).on('page:load ready', function(){
       'width': parseFloat($(first).css('width')) - 15,
       'height': parseFloat($(first).css('width')) - 15,
       'fgColor': '#2DD959',
-      'font': 'inherit',
-
+      'font': 'inherit'
     })
   }
+  // Overrides existging margins to make them RIGHT (spent too much time on that)
+  $('.dial').css({'margin-top':'-5em', 'margin-left':'1.563em'})
 })
