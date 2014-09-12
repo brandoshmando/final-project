@@ -5,10 +5,12 @@ $(document).on('page:load ready', function(){
     $(avgs[i]).knob({
       'readOnly': true,
       'lineCap': 'round',
-      'thickness': 0.3,
+      'thickness': .2,
       'width': parseFloat($(first).css('width')) - 15,
+      'height': parseFloat($(first).css('width')) - 15,
       'fgColor': '#2DD959',
-      'font': 'inherit'
+      'font': 'inherit',
+
     })
   }
 })
