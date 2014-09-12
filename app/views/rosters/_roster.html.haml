@@ -4,6 +4,6 @@
   .info-card-knob
     %p Average Score
     = tag 'input', type: "text", class: 'dial', id:"avg-#{roster_counter}", data: { max: (roster.course.possible_points / 100)}, value: "#{roster.average_score}"
-  .input-card-knob
+  .info-card-knob
     %p % Complete
     = tag 'input', type: "text", class: 'dial', id: "progress-#{roster_counter}", value: "#{roster.percent_complete}"

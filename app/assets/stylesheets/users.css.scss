@@ -1178,7 +1178,7 @@ body {
 
   .info-card-knob {
     width: 50%;
-    postion: absolute;
+    postion: relative;
     float: left;
     padding: $base-line-height/2 $gutter/2;
     overflow: auto;
