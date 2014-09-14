@@ -1197,4 +1197,9 @@ body {
     background-color: lighten($ic-hover-background, 10);
     border: 1px solid #2DD959;
   }
+
+  .info-card-body {
+      width: 100%;
+      margin: 20px
+  }
 }

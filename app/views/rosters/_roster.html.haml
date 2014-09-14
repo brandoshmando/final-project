@@ -8,3 +8,5 @@
     .info-card-knob
       %p % Complete
       = tag 'input', type: "text", class: 'dial', id: "progress-#{roster_counter}", value: "#{roster.percent_complete}"
+    .info-card-body
+      %p End Date: #{roster.end_date.strftime('%a %b %d, %Y')}
