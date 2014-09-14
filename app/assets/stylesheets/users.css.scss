@@ -1183,6 +1183,7 @@ body {
     padding: $base-line-height/2 $gutter/2;
     overflow: auto;
     text-align: center;
+    border-bottom: $ic-border;
 
     .dial {
       box-shadow: none;
@@ -1199,7 +1200,14 @@ body {
   }
 
   .info-card-body {
-      width: 100%;
-      margin: 20px
+    width: 100%;
+    margin-top: 13.5em;
+
+    font-size: 0.8em;
+
+    p {
+      margin-bottom: .25em;
+      margin-left: .25em;
+    }
   }
 }
