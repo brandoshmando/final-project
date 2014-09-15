@@ -23,10 +23,20 @@ class User < ActiveRecord::Base
   def grades_last_three
     self.grades.where("created_at > ?", (Time.now - 3.day)).count
   end
-#Returns currently active rosters on a per user basis
+#Scope that returns currently active rosters on a per user basis
   def active_rosters
     date = Time.now
     self.rosters.includes(:course).where(('start_date <= ? AND end_date >= ?'), date, date)
+  end
+
+  def upcoming_rosters
+    date = Time.now
+    self.rosters.includes(:course).where(('start_date > ?'), date)
+  end
+
+  def recent_rosters
+    date = Time.now
+    self.rosters.includes(:course).where(('end_date < ? AND end_date > ?' ), date, date+31)
   end
 
   private
