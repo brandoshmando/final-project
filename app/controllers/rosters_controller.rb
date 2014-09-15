@@ -5,7 +5,6 @@ class RostersController < ApplicationController
     case params[:selected]
     when "active"
       @rosters = current_user.active_rosters
-      pry
     end
 
     respond_to do |format|
