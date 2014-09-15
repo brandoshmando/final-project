@@ -1,4 +1,4 @@
-$(document).on('page:load ready', function(){
+function createRings(){
   var avgs = $('.dial')
   var first = $('.info-card-knob')[0]
   for (var i=0; i<avgs.length; i++){
@@ -29,4 +29,4 @@ $(document).on('page:load ready', function(){
   }
   // Overrides existing margins to make them RIGHT (spent too much time on that)
   $('.dial').css({'margin-top':'-5em', 'margin-left':'1.563em'})
-})
+};

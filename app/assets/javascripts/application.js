@@ -19,7 +19,6 @@
 //= require_tree ../../../vendor/assets/javascripts/.
 //= require_tree .
 
-
 $(document).on('page:load ready', function(){
   if ($('.course-chart').length > 0){
     AmCharts.ready(function(){
@@ -176,5 +175,9 @@ $(document).on('page:load ready', function(){
     category.fadeIn('slow');
   });
 
-$('.datepicker').datepicker();
+  $('.datepicker').datepicker();
+// Calls function that generates progress rings only if a particular class exists. Function is defined within the users js...for now
+  if ($('.user-roster-cards')){
+    createRings();
+  };
 });
