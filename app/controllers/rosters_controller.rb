@@ -2,6 +2,11 @@ class RostersController < ApplicationController
   before_action :load_course, only: [:new, :create]
 
   def index
+    case params[:selected]
+    when "active"
+      @rosters = current_user.active_rosters
+      pry
+    end
 
     respond_to do |format|
       format.html
