@@ -59,17 +59,8 @@ class Roster < ActiveRecord::Base
   def roster_max_score
     self.evals.reduce(0) {|sum, eval| sum + eval.max_score.to_f; sum }
   end
-#Sets the current status of a roster to upcoming, active, or complete
-  def set_status
-    date = Time.now
-    status = if self.start_date <= date && self.end_date >= date
-      "active"
-    elsif self.start_date > date
-      "upcoming"
-    elsif self.end_date < date
-      "complete"
-    end
-    self.status = status
+#Sets the boolean value of archived column to true or false based on the end date of the roster
+  def set_archive
   end
 #Determines the percent of the course is complete for that
 #particular section based on the number of grade objects
