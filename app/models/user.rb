@@ -23,6 +23,10 @@ class User < ActiveRecord::Base
   def grades_last_three
     self.grades.where("created_at > ?", (Time.now - 3.day)).count
   end
+#Returns currently active rosters on a per user basis
+  def active_rosters
+    self.rosters.includes(:course).where(('status = ?'), 'active')
+  end
 
   private
   def delete_avatar
