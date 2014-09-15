@@ -1,5 +1,9 @@
 class RostersController < ApplicationController
   before_action :load_course, only: [:new, :create]
+
+  def index
+  end
+
   def new
     @roster = @course.rosters.build
     student = @roster.students.build
