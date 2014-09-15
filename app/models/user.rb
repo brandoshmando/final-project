@@ -25,7 +25,8 @@ class User < ActiveRecord::Base
   end
 #Returns currently active rosters on a per user basis
   def active_rosters
-    self.rosters.includes(:course).where(('status = ?'), 'active')
+    date = Time.now
+    self.rosters.includes(:course).where(('start_date <= ? AND end_date >= ?'), date, date)
   end
 
   private
