@@ -2,8 +2,8 @@ class Student < ActiveRecord::Base
   require 'csv'
   has_many :grades
   has_and_belongs_to_many :rosters
-  has_many :evals, through: :course
-  has_one :course, through: :roster
+
+
 
 
   def self.import(params, roster)
@@ -31,8 +31,8 @@ class Student < ActiveRecord::Base
   def course(roster_id)
     self.rosters.find(roster_id).course
   end
-
+# Creates shortcut to a evals that belong to a course that a student is in
   def evals(roster_id)
-    self.course(roster_id).evals
+    self.rosters.find(roster_id).evals
   end
 end
