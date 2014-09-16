@@ -2,7 +2,7 @@ class Roster < ActiveRecord::Base
   belongs_to :course
   has_one :professor, through: :course
   has_many :evals, through: :course
-  has_many :students, dependent: :destroy
+  has_and_belongs_to_many :students, dependent: :destroy
   has_many :grades, through: :students
   accepts_nested_attributes_for :students
   # before_save :set_archive
@@ -72,6 +72,10 @@ class Roster < ActiveRecord::Base
     possible_grades = self.evals.count * self.students.count
     #Divide number of grades currently by possible_grades to get percentage
     # Times one hundred to format for jQuery Knob
-    ((self.grades.count.to_f / possible_grades) * 100).to_i
+    if self.grades.count == 0
+      0
+    else
+      ((self.grades.count.to_f / possible_grades) * 100).to_i
+    end
   end
 end

@@ -1,7 +1,7 @@
 class Student < ActiveRecord::Base
   require 'csv'
   has_many :grades
-  belongs_to :roster
+  has_and_belongs_to_many :rosters
   has_many :evals, through: :course
   has_one :course, through: :roster
 
@@ -13,7 +13,7 @@ class Student < ActiveRecord::Base
 
       if student.count == 1
         student.first.update_attributes(student_hash)
-        student.first.update_attributes(roster_id: roster.id)
+        student.first.rosters << roster
       else
         new_student = Student.new(student_hash)
         new_student.roster_id = roster.id
