@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SectionArchiveTest < ActiveSupport::TestCase
+class RosterArchiveTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
