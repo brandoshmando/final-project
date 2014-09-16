@@ -32,7 +32,7 @@
           %td= first_last(student)
           %td= student.email
           %td= student.uid
-          -student.evals.each do |eval|
+          -student.evals(@roster.id).each do |eval|
             %td= link_or_grade(student, eval.id)
           %td= format_score(student.total_score)
 /Evals accordion

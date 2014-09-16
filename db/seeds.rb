@@ -44,7 +44,7 @@ puts
 puts "Creating Students..."
 puts
 @counter = 1
-140.times do |i|
+120.times do |i|
   if i % 20 == 0 && i != 0
     @counter += 1
     puts "---#{i} students created---"
@@ -57,8 +57,8 @@ puts
   stud.last_name = name[1]
   stud.email = Faker::Internet.safe_email(name[0])
   stud.uid = Faker::Number.number(6)
-  stud.roster_id = @counter
   stud.save
+  stud.roster_ids = [@counter]
 end
 puts "---140 students created---"
 puts

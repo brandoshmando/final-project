@@ -27,4 +27,12 @@ class Student < ActiveRecord::Base
       total_score: (self.grades.reduce(0) {|sum, grade| sum += grade.final_score.to_f; sum}).to_s
     )
   end
+# Creates shortcut to a course that a student is in
+  def course(roster_id)
+    self.rosters.find(roster_id).course
+  end
+
+  def evals(roster_id)
+    self.course(roster_id).evals
+  end
 end
