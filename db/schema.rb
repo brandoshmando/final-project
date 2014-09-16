@@ -81,7 +81,6 @@ ActiveRecord::Schema.define(version: 20140729174913) do
     t.string   "section_name"
     t.string   "location"
     t.integer  "course_id"
-    t.string   "status"
     t.date     "start_date"
     t.date     "end_date"
     t.datetime "created_at"

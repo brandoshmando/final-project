@@ -5,7 +5,7 @@ class Roster < ActiveRecord::Base
   has_many :students, dependent: :destroy
   has_many :grades, through: :students
   accepts_nested_attributes_for :students
-  before_save :set_status
+  # before_save :set_archive
 
   def as_csv
     students = Student.where('roster_id = ?', id)
@@ -60,8 +60,9 @@ class Roster < ActiveRecord::Base
     self.evals.reduce(0) {|sum, eval| sum + eval.max_score.to_f; sum }
   end
 #Sets the boolean value of archived column to true or false based on the end date of the roster
-  def set_archive
-  end
+  # def set_archive(bool)
+  #   self.archived? = bool
+  # end
 #Determines the percent of the course is complete for that
 #particular section based on the number of grade objects
 #for a course and the total number possible

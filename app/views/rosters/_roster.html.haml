@@ -9,6 +9,4 @@
       %p % Complete
       = tag 'input', type: "text", class: 'dial', id: "progress-#{roster_counter}", value: "#{roster.percent_complete}"
     .info-card-body
-      %p
-        %strong End Date:
-        = roster.end_date.strftime('%a %b %d, %Y')
+      %p #{roster.start_date.strftime('%a %b %d, %Y')} - #{roster.end_date.strftime('%a %b %d, %Y')}
