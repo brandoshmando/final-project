@@ -13,7 +13,10 @@ Rails.application.routes.draw do
   end
 
   resources :rosters do
-    member { get :export}
+    member do
+      get :export
+      delete :archive
+    end
   end
 
   resources :evals, shallow: true do

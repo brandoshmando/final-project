@@ -74,6 +74,13 @@ class RostersController < ApplicationController
     send_data @roster.as_csv, type: "text/csv", filename: "#{@roster.section_name}.csv"
   end
 
+  def archive
+    @roster = Roster.find(params[:id])
+    archive_attributes = @roster.attributes
+    RosterArchive.create(archive_attributes.delete("id"))
+    @roster.destroy
+  end
+
       private
   def roster_params
     params.require(:roster).permit(:section_name, :meet_time, :location, :meet_day, :course_id, students_attributes: [:file])

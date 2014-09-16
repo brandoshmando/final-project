@@ -2,7 +2,7 @@ class Roster < ActiveRecord::Base
   belongs_to :course
   has_one :professor, through: :course
   has_many :evals, through: :course
-  has_and_belongs_to_many :students, dependent: :destroy
+  has_and_belongs_to_many :students
   has_many :grades, through: :students
   accepts_nested_attributes_for :students
   # before_save :set_archive
