@@ -4,8 +4,8 @@ $(document).on('page:load ready', function(){
     var rosterParams = $(this).attr('id');
     console.log(rosterParams)
 
-    $.getScript('/rosters?selected=' + rosterParams).done(function(){
-      createRings()
+    $.getScript('/rosters/?selected=' + rosterParams).done(function(){
+      createRings();
     });
   })
 })

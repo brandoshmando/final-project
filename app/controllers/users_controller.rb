@@ -43,6 +43,15 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @active_rosters = @user.active_rosters.limit(6)
+
+    @rosters = current_user.active_rosters
+
+
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def edit
