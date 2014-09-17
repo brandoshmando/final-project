@@ -35,17 +35,19 @@
           .js-vertical-tab-content.vertical-tab-content{id: "tab#{index}"}
             = render partial: 'course_chart', locals: {course: roster.course, index: index}
 .title-box
-  %ul
-    %li
-      = link_to "Active", "#", class: "roster-links", id: "active"
-    %span //
-    %li
-      = link_to "Recent", "#", class: "roster-links", id: "recent"
-    %span //
-    %li
-      = link_to "Upcoming", "#", class: "roster-links", id: "upcoming"
-    %span //
-    %li
-      = link_to "Archived", "#", class: "roster-links", id: "archived"
+  %h1 Sections
+  .roster-nav
+    %ul
+      %li
+        = link_to "Active", "#", class: "roster-links", id: "active"
+      %span //
+      %li
+        = link_to "Recent", "#", class: "roster-links", id: "recent"
+      %span //
+      %li
+        = link_to "Upcoming", "#", class: "roster-links", id: "upcoming"
+      %span //
+      %li
+        = link_to "Archived", "#", class: "roster-links", id: "archived"
 .user-roster-cards#roster-index
   = render @rosters
