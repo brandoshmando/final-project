@@ -1,12 +1,16 @@
 .info-card
   =link_to roster_path(roster.id) do
     .info-card-header
+      #{roster.course.name}
+    .info-card-body
+      %strong Section:
       = roster.section_name
+    .info-card-body
+      #{roster.start_date.strftime('%a %b %d, %Y')} - #{roster.end_date.strftime('%a %b %d, %Y')}
     .info-card-knob
       %p Average Score
       = tag 'input', type: "text", class: 'dial', id:"avg-#{roster_counter}", data: { max: (roster.course.possible_points / 100)}, value: "#{roster.average_score}"
     .info-card-knob
       %p % Complete
       = tag 'input', type: "text", class: 'dial', id: "progress-#{roster_counter}", value: "#{roster.percent_complete}"
-    .info-card-body
-      %p #{roster.start_date.strftime('%a %b %d, %Y')} - #{roster.end_date.strftime('%a %b %d, %Y')}
+
