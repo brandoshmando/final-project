@@ -1207,6 +1207,7 @@ body {
   }
 
   .btn-container {
+    width: 100%;
     display: block;
     margin-top: 11.25em;
     position: absolute;
@@ -1217,6 +1218,8 @@ body {
     border-radius: 5px;
     padding: 5px;
     margin: 5px auto;
+    font-size: 0.8em;
+    color: #E7ECED;
   }
 }
 
