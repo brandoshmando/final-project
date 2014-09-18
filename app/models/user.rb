@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
 
   def recent_rosters
     date = Time.now
-    self.rosters.includes(:course).where(('end_date < ? AND end_date > ?' ), date, date+31)
+    self.rosters.includes(:course).where(('end_date < ? AND end_date < end_date + ?'), date, 31.day)
   end
 
   private
