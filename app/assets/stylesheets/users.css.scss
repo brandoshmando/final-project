@@ -1221,6 +1221,10 @@ body {
     margin: 5px auto;
     font-size: 0.8em;
     color: #E7ECED;
+
+    &:hover{
+      background: red;
+    }
   }
 }
 

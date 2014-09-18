@@ -64,7 +64,7 @@ class RostersController < ApplicationController
   def destroy
     @roster = Roster.find(params[:id])
     @roster.destroy
-    # rediriect_to root_path
+    redirect_to current_user
   end
 
   def export
