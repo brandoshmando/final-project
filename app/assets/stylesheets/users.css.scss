@@ -1153,11 +1153,12 @@ body {
   $ic-header-background: $ic-border-color;
   $ic-hover-background: lighten($ic-border-color, 5);
   $ic-chart-background: lighten($base-accent-color, 10);
-
+  $ic-button-background: #28384B;
   @include transition (all 0.2s ease-in-out);
   background-color: $ic-background;
   border-radius: $base-border-radius;
   border: $ic-border;
+  margin-top: 1.25em;
   margin-bottom: $base-line-height;
   box-shadow: 0 2px 4px darken($base-background-color, 10);
   position: relative;
@@ -1204,4 +1205,18 @@ body {
     padding: $base-line-height/3;
     border-top: $ic-border;
   }
+
+  .btn-container {
+    display: block;
+    margin-top: 11.25em;
+    position: absolute;
+  }
+
+  .btn {
+    background-color:#28384B;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px auto;
+  }
 }
+
