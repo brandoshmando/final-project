@@ -15,8 +15,4 @@ module RostersHelper
       link_to "Grade", new_student_grade_path(student, eval_id: eval_id)
     end
   end
-
-  def recent?(end_date)
-    end_date < Time.now && end_date < end_date + 31.day
-  end
 end

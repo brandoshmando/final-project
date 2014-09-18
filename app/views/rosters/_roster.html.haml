@@ -15,5 +15,3 @@
       %p % Complete
     .btn-container
       = link_to "Remove", roster_path(roster.id), class: "btn btn-delete", confirm: "Are you sure you would like to permenantly delete #{roster.section_name}?", method: :delete
-      -if recent?(roster.end_date)
-        = link_to "Archive", archive_roster_path(roster.id), class: "btn btn-archive"

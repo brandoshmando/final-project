@@ -10,8 +10,6 @@ class RostersController < ApplicationController
         current_user.recent_rosters
       when "upcoming"
         current_user.upcoming_rosters
-      when "archived"
-        current_user.archived_rosters
       end
     else
       current_user.active_rosters
@@ -72,13 +70,6 @@ class RostersController < ApplicationController
   def export
     @roster = Roster.find(params[:id])
     send_data @roster.as_csv, type: "text/csv", filename: "#{@roster.section_name}.csv"
-  end
-
-  def archive
-    @roster = Roster.find(params[:id])
-    archive_attributes = @roster.attributes
-    RosterArchive.create(archive_attributes.delete("id"))
-    @roster.destroy
   end
 
       private

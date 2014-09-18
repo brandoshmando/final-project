@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   resources :rosters do
     member do
       get :export
-      delete :archive
     end
   end
 
