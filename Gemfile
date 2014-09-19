@@ -35,7 +35,7 @@ gem 'animate-rails'
 gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'jquery-ui-rails'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-group :development do
+group :development, :test do
   gem 'pry'
   gem 'spring'
   gem 'meta_request'
@@ -43,6 +43,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'faker'
   gem 'awesome_print'
+  gem 'rspec-rails', '~> 3.0.0'
 end
 # Use ActiveModel has_secure_password
 
