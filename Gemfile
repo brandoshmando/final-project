@@ -45,6 +45,12 @@ group :development, :test do
   gem 'awesome_print'
   gem 'rspec-rails', '~> 3.0.0'
 end
+
+group :test do
+  gem 'factory_girl'
+  gem 'launchy'
+  gem 'capybara'
+end
 # Use ActiveModel has_secure_password
 
 # Use unicorn as the app server
