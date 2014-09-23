@@ -1,6 +1,12 @@
 require 'rails_helper'
 
-describe Assistant, :type => :model do
+describe User, :type => :model do
+  before do
+    @user = User.new(first_name: "Brandon", last_name: "Shmando", email: "shmando@example.com", password: "Password")
+  end
+
+  subject { @user }
+
   it {should respond_to(:first_name)}
   it {should respond_to(:last_name)}
   it {should respond_to(:email)}
