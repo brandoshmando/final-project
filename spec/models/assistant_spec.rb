@@ -38,6 +38,8 @@ describe User, :type => :model do
     it "should have #type 'Assistant'" do
       expect(@assistant.type).to eq("Assistant")
     end
+
+    it "should "
   end
 
   describe "Professor#new" do
