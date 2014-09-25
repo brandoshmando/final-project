@@ -27,33 +27,29 @@ describe User, :type => :model do
   it {should respond_to(:avatar_file_size)}
   it {should respond_to(:avatar_updated_at)}
 
-  describe "Assitant#new" do
+  describe "Assistant" do
     before(:each) do
       @assistant = Assistant.new(first_name: "Brandon", last_name: "Shmando", email: "shmando@example.com", password: "Password")
     end
-    it "should return a new instance of Assistant" do
+    it "returns a new instance of Assistant" do
       expect(@assistant).to be_a Assistant
     end
 
-    it "should have #type 'Assistant'" do
+    it "has #type 'Assistant'" do
       expect(@assistant.type).to eq("Assistant")
     end
-
-    it "should "
   end
 
-  describe "Professor#new" do
+  describe "Professor" do
     before(:each) do
       @assistant = Professor.new(first_name: "Prof", last_name: "Shmando", email: "profshmando@example.com", password: "Password")
     end
-    it "should return a new instance of Professor" do
+    it "returns a new instance of Professor" do
       expect(@assistant).to be_a Professor
     end
 
-    it "should have #type 'Assistant'" do
+    it "has #type 'Assistant'" do
       expect(@assistant.type).to eq("Professor")
     end
   end
-
-
 end
