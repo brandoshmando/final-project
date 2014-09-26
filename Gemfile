@@ -47,7 +47,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem 'launchy'
   gem 'capybara'
 end

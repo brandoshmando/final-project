@@ -28,20 +28,18 @@ describe User, :type => :model do
   it {should respond_to(:avatar_updated_at)}
 
   describe "Assistant" do
-    before(:each) do
-      @assistant = Assistant.new(first_name: "Brandon", last_name: "Shmando", email: "shmando@example.com", password: "Password")
-    end
+    let(:assistant) { FactoryGirl.create(:assistant) }
 
     it "is valid" do
-      @assistant.should be_valid
+      assistant.should be_valid
     end
 
     it "returns a new instance of Assistant" do
-      expect(@assistant).to be_a Assistant
+      expect(assistant).to be_a Assistant
     end
 
     it "has #type 'Assistant'" do
-      expect(@assistant.type).to eq("Assistant")
+      expect(assistant.type).to eq("Assistant")
     end
   end
 
