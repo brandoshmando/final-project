@@ -31,6 +31,11 @@ describe User, :type => :model do
     before(:each) do
       @assistant = Assistant.new(first_name: "Brandon", last_name: "Shmando", email: "shmando@example.com", password: "Password")
     end
+
+    it "is valid" do
+      @assistant.should be_valid
+    end
+
     it "returns a new instance of Assistant" do
       expect(@assistant).to be_a Assistant
     end
