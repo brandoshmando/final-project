@@ -31,7 +31,7 @@ describe User, :type => :model do
     let(:assistant) { FactoryGirl.create(:assistant) }
 
     it "is valid" do
-      assistant.should be_valid
+      expect(assistant).to be_valid
     end
 
     it "returns a new instance of Assistant" do
@@ -44,15 +44,14 @@ describe User, :type => :model do
   end
 
   describe "Professor" do
-    before(:each) do
-      @assistant = Professor.new(first_name: "Prof", last_name: "Shmando", email: "profshmando@example.com", password: "Password")
-    end
+    let(:professor) { FactoryGirl.create(:professor) }
+
     it "returns a new instance of Professor" do
-      expect(@assistant).to be_a Professor
+      expect(professor).to be_a Professor
     end
 
-    it "has #type 'Assistant'" do
-      expect(@assistant.type).to eq("Professor")
+    it "has #type 'Professor'" do
+      expect(professor.type).to eq("Professor")
     end
   end
 end

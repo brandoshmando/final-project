@@ -12,6 +12,5 @@ FactoryGirl.define do
     f.last_name "Shmando"
     f.email "profshmando@example.com"
     f.password "Password"
-    f.password_confirmation "Password"
   end
 end
