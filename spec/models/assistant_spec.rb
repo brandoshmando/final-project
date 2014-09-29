@@ -5,6 +5,31 @@ describe User, :type => :model do
     @user = User.new(first_name: "Brandon", last_name: "Shmando", email: "shmando@example.com", password: "Password")
   end
 
+  let(:assistant) { FactoryGirl.create(:assistant) }
+  let(:professor) { FactoryGirl.create(:professor) }
+
+  subject { @user }
+
+  it {should respond_to(:first_name)}
+  it {should respond_to(:last_name)}
+  it {should respond_to(:email)}
+  it {should respond_to(:type)}
+  it {should respond_to(:crypted_password)}
+  it {should respond_to(:salt)}
+  it {should respond_to(:activation_state)}
+  it {should respond_to(:activation_token)}
+  it {should respond_to(:activation_token)}
+  it {should respond_to(:activation_token_expires_at)}
+  it {should respond_to(:reset_password_token)}
+  it {should respond_to(:reset_password_token_expires_at)}
+  it {should respond_to(:reset_password_email_sent_at)}
+  it {should respond_to(:remember_me_token)}
+  it {should respond_to(:remember_me_token_expires_at)}
+  it {should respond_to(:avatar_file_name)}
+  it {should respond_to(:avatar_content_type)}
+  it {should respond_to(:avatar_file_size)}
+  it {should respond_to(:avatar_updated_at)}
+
   describe "When first name is not present" do
     before { @user.first_name = " " }
 
@@ -45,32 +70,14 @@ describe User, :type => :model do
     end
   end
 
-  # describe "Password is not present"
+  describe "When email is too long" do
+    before { @user.last_name = "a" * 51 }
 
-  subject { @user }
-
-  it {should respond_to(:first_name)}
-  it {should respond_to(:last_name)}
-  it {should respond_to(:email)}
-  it {should respond_to(:type)}
-  it {should respond_to(:crypted_password)}
-  it {should respond_to(:salt)}
-  it {should respond_to(:activation_state)}
-  it {should respond_to(:activation_token)}
-  it {should respond_to(:activation_token)}
-  it {should respond_to(:activation_token_expires_at)}
-  it {should respond_to(:reset_password_token)}
-  it {should respond_to(:reset_password_token_expires_at)}
-  it {should respond_to(:reset_password_email_sent_at)}
-  it {should respond_to(:remember_me_token)}
-  it {should respond_to(:remember_me_token_expires_at)}
-  it {should respond_to(:avatar_file_name)}
-  it {should respond_to(:avatar_content_type)}
-  it {should respond_to(:avatar_file_size)}
-  it {should respond_to(:avatar_updated_at)}
-
-  let(:assistant) { FactoryGirl.create(:assistant) }
-  let(:professor) { FactoryGirl.create(:professor) }
+    it "is not valid" do
+      expect(@user).not_to be_valid
+    end
+  end
+  # describe "Password is not present
   #Tests for User type assistant-----------------------
   describe "Assistant#new" do
     it "is valid" do
