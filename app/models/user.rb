@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   validates :first_name, presence: true, length: { maximum: 25 }
   validates :last_name,  presence: true, length: { maximum: 25 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
-  validates :email,  presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
+  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 6 }, confirmation:true, on: :create
   validates :password_confirmation, presence: true, on: :create
   has_attached_file :avatar, styles: { :medium => "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"

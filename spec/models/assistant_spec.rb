@@ -70,8 +70,8 @@ describe User, :type => :model do
     end
   end
 
-  describe "When email is too long" do
-    before { @user.last_name = "a" * 51 }
+  describe "When email is not properly formatted" do
+    before { @user.email = "myemailgmail" }
 
     it "is not valid" do
       expect(@user).not_to be_valid
@@ -115,6 +115,8 @@ describe User, :type => :model do
       expect(@user).not_to be_valid
     end
   end
+
+
   #Tests for User type assistant-----------------------
   describe "Assistant#new" do
     it "is valid" do
