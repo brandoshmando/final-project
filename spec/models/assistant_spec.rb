@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe User, :type => :model do
   before do
-    @user = User.new(first_name: "Brandon", last_name: "Shmando", email: "shmando@example.com", password: "Password")
+    @user = User.new(first_name: "Brandon", last_name: "Shmando", email: "shmando@example.com", password: "Password", password_confirmation: "Password")
   end
 
   let(:assistant) { FactoryGirl.create(:assistant) }
@@ -77,7 +77,13 @@ describe User, :type => :model do
       expect(@user).not_to be_valid
     end
   end
-  # describe "Password is not present
+  describe "Password is not present" do
+    before { @user.password = " "}
+
+    it "is not valid" do
+      expect(@user).not_to be_valid
+    end
+  end
   #Tests for User type assistant-----------------------
   describe "Assistant#new" do
     it "is valid" do
