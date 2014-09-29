@@ -104,6 +104,17 @@ describe User, :type => :model do
       expect(@user).not_to be_valid
     end
   end
+
+  describe "Password is too short" do
+    before do
+      @user.password = "a"
+      @user.password_confirmation = "a"
+    end
+
+    it "is not valid" do
+      expect(@user).not_to be_valid
+    end
+  end
   #Tests for User type assistant-----------------------
   describe "Assistant#new" do
     it "is valid" do
