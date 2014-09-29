@@ -4,10 +4,12 @@ class User < ActiveRecord::Base
   attr_accessor :remove_avatar
   TYPES = %i[professor assistant]
   # has_secure_password
-  validates :first_name, presence: true
-  validates :last_name,  presence: true
-  validates :email,  presence: true
-
+  validates :first_name, presence: true, length: { maximum: 25 }
+  validates :last_name,  presence: true, length: { maximum: 25 }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
+  validates :email,  presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
+  validates :password, presence: true, length: { minimum: 6 }, confirmation:true, on: :create
+  validates :password_confirmation, presence: true, on: :create
   has_attached_file :avatar, styles: { :medium => "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :avatar, content_type:/\Aimage\/.*\Z/
   before_save :delete_avatar, if: ->{ remove_avatar == '1' && !avatar_updated_at_changed? }
