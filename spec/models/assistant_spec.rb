@@ -13,6 +13,22 @@ describe User, :type => :model do
     end
   end
 
+  describe "When last name is not present" do
+    before { @user.last_name = " " }
+
+    it "is not valid" do
+      expect(@user).not_to be_valid
+    end
+  end
+
+  describe "When email is not present" do
+    before { @user.email = " " }
+
+    it "is not valid" do
+      expect(@user).not_to be_valid
+    end
+  end
+
   subject { @user }
 
   it {should respond_to(:first_name)}
