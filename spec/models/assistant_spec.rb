@@ -44,8 +44,20 @@ describe User, :type => :model do
     end
   end
 
+  describe "When first name is not present" do
+    before { assistant.first_name = " " }
+
+    it "is not valid" do
+      expect(assistant).not_to be_valid
+    end
+  end
+
   #Tests for User type professor-----------------------
   describe "Professor#new" do
+    it "is valid" do
+      expect(professor).to be_valid
+    end
+
     it "returns a new instance of Professor" do
       expect(professor).to be_a Professor
     end
