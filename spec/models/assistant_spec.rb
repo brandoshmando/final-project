@@ -96,7 +96,7 @@ describe User, :type => :model do
   describe "Password and password confirmation mismatch" do
 
     before do
-      @user.confirmation = "Password"
+      @user.password = "Password"
       @user.password_confirmation = "Mismatched!"
     end
 
