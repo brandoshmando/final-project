@@ -27,9 +27,10 @@ describe User, :type => :model do
   it {should respond_to(:avatar_file_size)}
   it {should respond_to(:avatar_updated_at)}
 
-  describe "Assistant" do
-    let(:assistant) { FactoryGirl.create(:assistant) }
-
+  let(:assistant) { FactoryGirl.create(:assistant) }
+  let(:professor) { FactoryGirl.create(:professor) }
+  #Tests for User type assistant-----------------------
+  describe "Assistant#new" do
     it "is valid" do
       expect(assistant).to be_valid
     end
@@ -43,9 +44,8 @@ describe User, :type => :model do
     end
   end
 
-  describe "Professor" do
-    let(:professor) { FactoryGirl.create(:professor) }
-
+  #Tests for User type professor-----------------------
+  describe "Professor#new" do
     it "returns a new instance of Professor" do
       expect(professor).to be_a Professor
     end
