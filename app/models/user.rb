@@ -3,6 +3,9 @@ class User < ActiveRecord::Base
   authenticates_with_sorcery!
   attr_accessor :remove_avatar
 
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+
   TYPES = %i[professor assistant]
   # has_secure_password
 
