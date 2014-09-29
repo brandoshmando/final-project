@@ -78,7 +78,27 @@ describe User, :type => :model do
     end
   end
   describe "Password is not present" do
-    before { @user.password = " "}
+    before { @user.password = " " }
+
+    it "is not valid" do
+      expect(@user).not_to be_valid
+    end
+  end
+
+  describe "Password confirmation is not present" do
+    before { @user.password_confirmation = " " }
+
+    it "is not valid" do
+      expect(@user).not_to be_valid
+    end
+  end
+
+  describe "Password and password confirmation mismatch" do
+
+    before do
+      @user.confirmation = "Password"
+      @user.password_confirmation = "Mismatched!"
+    end
 
     it "is not valid" do
       expect(@user).not_to be_valid
