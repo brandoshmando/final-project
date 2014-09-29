@@ -5,6 +5,14 @@ describe User, :type => :model do
     @user = User.new(first_name: "Brandon", last_name: "Shmando", email: "shmando@example.com", password: "Password")
   end
 
+  describe "When first name is not present" do
+    before { @user.first_name = " " }
+
+    it "is not valid" do
+      expect(@user).not_to be_valid
+    end
+  end
+
   subject { @user }
 
   it {should respond_to(:first_name)}
@@ -41,14 +49,6 @@ describe User, :type => :model do
 
     it "has #type 'Assistant'" do
       expect(assistant.type).to eq("Assistant")
-    end
-  end
-
-  describe "When first name is not present" do
-    before { assistant.first_name = " " }
-
-    it "is not valid" do
-      expect(assistant).not_to be_valid
     end
   end
 
