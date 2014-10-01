@@ -11,15 +11,15 @@ Roster.destroy_all
 Student.destroy_all
 Grade.destroy_all
 puts "Creating TA Allesia..."
-assistant = Assistant.create(first_name:"Alessia", last_name:"Bellisario", email:"alessia@example.com", password:"blah")
+assistant = Assistant.create(first_name:"Alessia", last_name:"Bellisario", email:"alessia@example.com", password:"blahblah", password_confirmation: "blahblah")
 puts
 puts "Creating Professor Brando..."
-Professor.create(first_name:"Brandon", last_name:"Craft", email:"brancraft@gmail.com", password:"blah")
+Professor.create(first_name:"Brandon", last_name:"Craft", email:"brancraft@gmail.com", password:"blahblah", password_confirmation: "blahblah")
 puts
 puts "Creating courses..."
 names = [ "Calculus 1060", "Marketing 1010", "Advertising 4360", "Finance with DogeCoin", "Accounting 3500", "Emerging Markets", "Business Ethics 1240" ]
 assistant = Assistant.first
-6.times do |i|
+18.times do |i|
   course = Course.create(name: names[i], description:Faker::Lorem.paragraph(1), professor_id: 2)
   unless course.id == 2
     course.assistants << assistant
@@ -29,11 +29,19 @@ end
 puts
 puts "Creating rosters..."
 @days = %w[Mon Tues Wed Thurs Fri]
-6.times do |i|
+18.times do |i|
   ros = Roster.new
+  if i > 12
+    ros.start_date = Time.strptime("10/15/2014", "%m/%d/%Y")
+    ros.end_date = Time.strptime("08/20/2015", "%m/%d/%Y")
+  elsif i > 6
+    ros.start_date = Time.strptime("08/20/2014", "%m/%d/%Y")
+    ros.end_date = Time.strptime("09/30/2014", "%m/%d/%Y")
+  else
+    ros.start_date = Time.strptime("08/20/2014", "%m/%d/%Y")
+    ros.end_date = Time.strptime("08/20/2015", "%m/%d/%Y")
+  end
   ros.section_name = "First Section"
-  ros.start_date = Time.strptime("08/20/2014", "%m/%d/%Y")
-  ros.end_date = Time.strptime("08/20/2015", "%m/%d/%Y")
   ros.meet_time = rand(24)
   ros.meet_day = @days[rand(4)]
   ros.location = ["PLD 124", "OSH 206", "BUT 405", "HPER 125"][rand(3)]
@@ -44,7 +52,7 @@ puts
 puts "Creating Students..."
 puts
 @counter = 1
-120.times do |i|
+360.times do |i|
   if i % 20 == 0 && i != 0
     @counter += 1
     puts "---#{i} students created---"
@@ -52,7 +60,6 @@ puts
   end
   stud = Student.create
   name = Faker::Name.name.split(' ')
-
   stud.first_name = name[0]
   stud.last_name = name[1]
   stud.email = Faker::Internet.safe_email(name[0])
