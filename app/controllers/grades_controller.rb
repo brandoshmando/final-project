@@ -15,8 +15,8 @@ class GradesController < ApplicationController
     @grade.student = @student
     @grade.user = current_user
     if @grade.save
-
-      redirect_to roster_path(@grades.roster), notice: "#{@grade.title} successfully graded for #{@student.first_name} #{@student.last_name}!"
+      redirect_to current_user
+      # redirect_to roster_path(@grades.roster), notice: "#{@grade.title} successfully graded for #{@student.first_name} #{@student.last_name}!"
     else
       render :new
     end
