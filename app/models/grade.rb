@@ -18,4 +18,9 @@ class Grade < ActiveRecord::Base
   def update_student_total_score
     self.student.total_all_grades
   end
+
+  def eval
+    Eval.find(self.eval_id)
+  end
+
 end

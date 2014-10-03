@@ -132,6 +132,12 @@ describe User, :type => :model do
     end
   end
 
+  describe "Assistant returns it's parents model name for use by path helpers" do
+    it "has model_name 'User'" do
+      expect(Assistant.model_name).to eq("User")
+    end
+  end
+
   #Tests for User type professor-----------------------
   describe "Professor#new" do
     it "is valid" do
@@ -144,6 +150,12 @@ describe User, :type => :model do
 
     it "has #type 'Professor'" do
       expect(professor.type).to eq("Professor")
+    end
+  end
+
+  describe "Professor returns it's parents model name for use by path helpers" do
+    it "has model_name 'User'" do
+      expect(Professor.model_name).to eq("User")
     end
   end
 end

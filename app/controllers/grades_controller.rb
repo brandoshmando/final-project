@@ -8,9 +8,6 @@ class GradesController < ApplicationController
     @eval.categories.each do |category|
       @grade.scores.build(category_id: category.id)
     end
-
-
-
   end
 
   def create
@@ -19,7 +16,7 @@ class GradesController < ApplicationController
     @grade.user = current_user
     if @grade.save
 
-      redirect_to roster_path(@student.roster), notice: "#{@grade.title} successfully graded for #{@student.first_name} #{@student.last_name}!"
+      redirect_to roster_path(@grades.roster), notice: "#{@grade.title} successfully graded for #{@student.first_name} #{@student.last_name}!"
     else
       render :new
     end
@@ -34,7 +31,7 @@ class GradesController < ApplicationController
     @grade.update(grades_params)
 
     if @grade.save
-      redirect_to roster_path(@grade.student.roster), notice: "Changes to #{@grade.student.first_name}'s grade were svaed!"
+      redirect_to roster_path(@grade.student.roster), notice: "Changes to #{@grade.student.first_name}'s grade were saved!"
     else
       flash.now[:alert] = "Changes were not saved..."
       render :edit
